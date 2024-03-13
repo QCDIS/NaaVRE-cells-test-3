@@ -1,0 +1,105 @@
+name: Build Cell 
+
+on:
+  workflow_dispatch:
+    branches: [ main ]
+    inputs:
+      build_dir:
+        description : 'Build Directory'
+        required    : true
+        default     : ''
+      dockerfile:
+        description : 'Dockerfile Name'
+        required    : true
+        default     : ''
+      image_repo:
+        description : 'Image Repository'
+        required    : true
+        default     : ''
+      image_tag:
+        description : "Image Tag"
+        required    : true
+        default     : ''
+      image_version:
+        description : "Image Version"
+        required    : false
+        default     : ''
+      id:
+        description: 'run identifier'
+        required: false
+
+jobs:
+  choose-runner:
+    runs-on: ubuntu-latest
+    outputs:
+      runner: ${{ steps.choose-runner.outputs.runner }}
+    steps:
+      - id: choose-runner
+        uses: QCDIS/choose-action-runner@v2
+        env:
+          PREFERRED_ACTIONS_RUNNER: ${{ vars.PREFERRED_ACTIONS_RUNNER || 'ubuntu-latest' }}
+          FALLBACK_RUNNER: ubuntu-latest
+          RUNNER_ACCESS_TOKEN: ${{ secrets.RUNNER_ACCESS_TOKEN }}
+        with:
+          preferred-runner: ${{ env.PREFERRED_ACTIONS_RUNNER }}
+          fallback-runner: ${{ env.FALLBACK_RUNNER }}
+          github-token: ${{ env.RUNNER_ACCESS_TOKEN }}
+        if: ${{ env.RUNNER_ACCESS_TOKEN != null }}
+
+  build-push:
+    needs: [choose-runner]
+    runs-on: ${{ needs.choose-runner.outputs.runner || 'ubuntu-latest' }}
+    name: ${{github.event.inputs.id}}
+    steps:
+    - id: commit
+      uses: prompt/actions-commit-hash@v3
+              
+    - uses: actions/checkout@v4
+
+    - name: Login to container registry
+      uses: docker/login-action@v3
+      env:
+        REGISTRY_NAME: ${{ vars.REGISTRY_NAME || 'ghcr.io' }}
+        REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME || github.actor }}
+        REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD || secrets.GITHUB_TOKEN }}
+      with:
+        registry: ${{ env.REGISTRY_NAME }}
+        username: ${{ env.REGISTRY_USERNAME }}
+        password: ${{ env.REGISTRY_PASSWORD }}
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Set Docker Image Tag
+      id: set-docker-tag
+      run: |
+        if [[ -n "${{ github.event.inputs.image_version }}" ]]; then
+          DOCKER_TAG="${{ github.event.inputs.image_repo }}/${{ github.event.inputs.image_tag }}:${{ github.event.inputs.image_version }}"
+        else
+          DOCKER_TAG="${{ github.event.inputs.image_repo }}/${{ github.event.inputs.image_tag }}"
+        fi
+        echo "Setting Docker Image Tag to: $DOCKER_TAG"
+        echo "docker_tag=$DOCKER_TAG" >> "$GITHUB_OUTPUT"
+      shell: bash
+
+    - name: Print variabls
+      run: |
+        echo "context: ${{ github.event.inputs.build_dir }}"
+        echo "Dockerfile Name: ${{ github.event.inputs.dockerfile }}"
+        echo "Image Repository: ${{ github.event.inputs.image_repo }}"
+        echo "Image Tag: ${{ github.event.inputs.image_tag }}"
+        echo "Run Identifier: ${{ github.event.inputs.id }}"
+        echo "hash: ${{ steps.commit.outputs.short }}"
+        echo "hash: ${{github.sha}}"
+        echo "docker_tag: ${{steps.set-docker-tag.outputs.docker_tag}}"
+      
+    - name: Build docker
+      uses: docker/build-push-action@v5
+      with:
+        context: ${{ github.event.inputs.build_dir }}
+        file: ${{ github.event.inputs.build_dir }}/${{ github.event.inputs.dockerfile }}
+        tags: ${{steps.set-docker-tag.outputs.docker_tag}},${{ github.event.inputs.image_repo }}/${{ github.event.inputs.image_tag }}:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=min
+        push: true
+        registry: ${{ vars.REGISTRY_NAME || 'ghcr.io' }}
