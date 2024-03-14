@@ -55,8 +55,6 @@ temperature_zoo_str <- toString(temperature_zoo)
 rolling_mean_temp_str <- toString(rolling_mean_temp)
 temperature_data_str <- toString(temperature_data)
 
-a = 0.8632027559863014
-
 
 
 # capturing outputs
