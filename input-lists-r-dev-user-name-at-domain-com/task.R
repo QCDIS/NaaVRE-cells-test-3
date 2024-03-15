@@ -15,7 +15,6 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-
 id <- gsub('"', '', opt$id)
 
 
@@ -34,7 +33,6 @@ list_of_ints <- c(1, 2, 35, 6, 65)
 
 print(list_of_paths)
 print(list_of_ints)
-a = 0.999254698799006
 
 
 
