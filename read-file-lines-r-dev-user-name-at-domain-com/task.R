@@ -16,7 +16,6 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-
 file_path <- gsub('"', '', opt$file_path)
 id <- gsub('"', '', opt$id)
 
@@ -34,7 +33,6 @@ print(onlyfiles)
 f <- file(file_path, "r")
 lines <- readLines(f)
 close(f)
-a = 0.15194162647978116
 
 
 
