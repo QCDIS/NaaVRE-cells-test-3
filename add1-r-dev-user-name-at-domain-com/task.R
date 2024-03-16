@@ -16,7 +16,6 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-
 count = opt$count
 id <- gsub('"', '', opt$id)
 
@@ -26,7 +25,6 @@ id <- gsub('"', '', opt$id)
 
 
 a = count + 1
-a = 0.7420639453846576
 
 
 
