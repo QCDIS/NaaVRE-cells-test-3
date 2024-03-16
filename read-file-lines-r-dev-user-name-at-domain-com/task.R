@@ -16,7 +16,6 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-
 file_path <- gsub('"', '', opt$file_path)
 id <- gsub('"', '', opt$id)
 
