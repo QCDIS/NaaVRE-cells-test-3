@@ -32,7 +32,6 @@ print(onlyfiles)
 f = open(file_path, 'r')
 lines = f.readlines()
 f.close()
-a = 0.9842205093065501
 
 import json
 filename = "/tmp/lines_" + id + ".json"
