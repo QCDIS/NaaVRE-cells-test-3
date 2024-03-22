@@ -23,6 +23,8 @@ cmd = "vol2bird --version"
 
 msg = os.system(cmd)  # returns the exit code in unix
 
+a = 0.7956670527415795
+
 import json
 filename = "/tmp/msg_" + id + ".json"
 file_msg = open(filename, "w")
