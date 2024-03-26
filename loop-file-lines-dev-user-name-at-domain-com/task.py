@@ -23,7 +23,6 @@ count = 0
 for l in lines:
     count += 1
     print("Line{}: {}".format(count, l.strip()))
-a = 0.05813790591793455
 
 import json
 filename = "/tmp/count_" + id + ".json"
