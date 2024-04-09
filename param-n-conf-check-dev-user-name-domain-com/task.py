@@ -25,17 +25,17 @@ param_list_str = args.param_list_str
 param_string = args.param_string
 param_string_with_comment = args.param_string_with_comment
 
-conf_float = 1.1
+conf_string = 'param_string value'
+
+conf_string_with_comment = 'param_string value'  # comment
 
 conf_int = 1
+
+conf_float = 1.1
 
 conf_list_int = [1, 2, 3]
 
 conf_list_str = ["1", "two", "3"]
-
-conf_string = 'param_string value'
-
-conf_string_with_comment = 'param_string value'  # comment
 
 
 conf_string = 'param_string value'
@@ -57,4 +57,31 @@ print('conf_int: '+ str(conf_int))
 print('conf_float: '+str(conf_float))
 print('conf_list_int: '+str(conf_list_int))
 print('conf_list_str: '+ str(conf_list_str))
+
+if not isinstance(param_string, str):
+    print('param_string is not a string')
+    exit(1)
+if not isinstance(param_string_with_comment, str):
+    print('param_string_with_comment is not a string')
+    exit(1)
+if not isinstance(param_int, int):
+    print('param_int is not an int')
+    exit(1)
+if not isinstance(param_float, float):
+    print('param_float is not a float')
+    exit(1)
+if not isinstance(param_list_int, list):
+    print('param_list_int is not a list')
+    exit(1)
+for param_list_int_item in param_list_int:
+    if not isinstance(param_list_int_item, int):
+        print('param_list_int_item is not an int')
+        exit(1)
+if not isinstance(param_list_str, list):
+    print('param_list_str is not a list')
+    exit(1)
+for param_list_str_item in param_list_str:
+    if not isinstance(param_list_str_item, str):
+        print('param_list_str_item is not a string')
+        exit(1)
 
