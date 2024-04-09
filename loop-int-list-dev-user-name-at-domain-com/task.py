@@ -1,4 +1,4 @@
-
+import json
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -13,7 +13,6 @@ print(args)
 
 id = args.id
 
-import json
 list_of_ints = json.loads(args.list_of_ints)
 
 
@@ -23,7 +22,6 @@ for i in list_of_ints:
     a = i -1
     print(a)
 
-import json
 filename = "/tmp/a_" + id + ".json"
 file_a = open(filename, "w")
 file_a.write(json.dumps(a))
