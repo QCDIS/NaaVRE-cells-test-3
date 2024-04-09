@@ -68,4 +68,5 @@ for i in param_list_str:
     if not isinstance(i, str):
         print('param_list_str contains a non-str value: ' + str(i))
         exit(1)
+a = 0.6488904154881419
 
