@@ -25,63 +25,47 @@ param_list_str = args.param_list_str
 param_string = args.param_string
 param_string_with_comment = args.param_string_with_comment
 
-conf_string = 'param_string value'
-
-conf_string_with_comment = 'param_string value'  # comment
-
-conf_int = 1
-
-conf_float = 1.1
-
-conf_list_int = [1, 2, 3]
-
-conf_list_str = ["1", "two", "3"]
 
 
-conf_string = 'param_string value'
-conf_string_with_comment = 'param_string value'  # comment
-conf_int = 1
-conf_float = 1.1
-conf_list_int = [1, 2, 3]
-conf_list_str = ["1", "two", "3"]
-print('param_string:'+ param_string)
-print('param_string_with_comment: '+ param_string_with_comment)
-print('param_int: '+ str(param_int))
-print('param_float: '+str(param_float))
-print('param_list_int: '+str(param_list_int))
-print('param_list_str: '+ str(param_list_str))
+        
+print('param_string: ' + str(param_string)+' type: '+str(type(param_string)))
+print('param_string_with_comment: ' + str(param_string_with_comment)+' type: '+str(type(param_string_with_comment)))
+print('param_int: ' + str(param_int)+' type: '+str(type(param_int)))
+print('param_float: ' + str(param_float)+' type: '+str(type(param_float)))
+print('param_list_int: ' + str(param_list_int)+' type: '+str(type(param_list_int)))
+print('param_list_str: ' + str(param_list_str)+' type: '+str(type(param_list_str)))
 
-print('conf_string:'+ conf_string)
-print('conf_string_with_comment: '+ conf_string_with_comment)
-print('conf_int: '+ str(conf_int))
-print('conf_float: '+str(conf_float))
-print('conf_list_int: '+str(conf_list_int))
-print('conf_list_str: '+ str(conf_list_str))
 
-if not isinstance(param_string, str):
-    print('param_string is not a string')
+check = param_string
+if not isinstance(check, str):
+    print('param_string is not a string. It is a ' + str(type(check)))
     exit(1)
-if not isinstance(param_string_with_comment, str):
-    print('param_string_with_comment is not a string')
+check = param_string_with_comment
+if not isinstance(check, str):
+    print('param_string_with_comment is not a string. It is a ' + str(type(check)))
     exit(1)
-if not isinstance(param_int, int):
-    print('param_int is not an int')
+check = param_int
+if not isinstance(check, int):
+    print('param_int is not an int. It is a ' + str(type(check)))
     exit(1)
-if not isinstance(param_float, float):
-    print('param_float is not a float')
+check = param_float
+if not isinstance(check, float):
+    print('param_float is not a float. It is a ' + str(type(check)))
     exit(1)
-if not isinstance(param_list_int, list):
-    print('param_list_int is not a list')
+check = param_list_int
+if not isinstance(check, list):
+    print('param_list_int is not a list. It is a ' + str(type(check)))
     exit(1)
-for param_list_int_item in param_list_int:
-    if not isinstance(param_list_int_item, int):
-        print('param_list_int_item is not an int')
+for i in param_list_int:
+    if not isinstance(i, int):
+        print('param_list_int contains a non-int value: ' + str(i))
         exit(1)
-if not isinstance(param_list_str, list):
-    print('param_list_str is not a list')
+check = param_list_str
+if not isinstance(check, list):
+    print('param_list_str is not a list. It is a ' + str(type(check)))
     exit(1)
-for param_list_str_item in param_list_str:
-    if not isinstance(param_list_str_item, str):
-        print('param_list_str_item is not a string')
+for i in param_list_str:
+    if not isinstance(i, str):
+        print('param_list_str contains a non-str value: ' + str(i))
         exit(1)
 
