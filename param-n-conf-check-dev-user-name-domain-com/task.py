@@ -1,4 +1,4 @@
-
+import json
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -20,10 +20,10 @@ id = args.id
 
 param_float = args.param_float
 param_int = args.param_int
-param_list_int = args.param_list_int
-param_list_str = args.param_list_str
-param_string = args.param_string
-param_string_with_comment = args.param_string_with_comment
+param_list_int = json.loads(args.param_list_int)
+param_list_str = json.loads(args.param_list_str)
+param_string = args.param_string.replace('"','')
+param_string_with_comment = args.param_string_with_comment.replace('"','')
 
 
 
