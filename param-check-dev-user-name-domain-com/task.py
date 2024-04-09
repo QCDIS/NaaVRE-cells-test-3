@@ -26,10 +26,10 @@ param_string = args.param_string
 param_string_with_comment = args.param_string_with_comment
 
 
-print(param_string)
-print(param_string_with_comment)
-print(param_int)
-print(param_float)
-print(param_list_int)
-print(param_list_str)
+print('param_string:'+ param_string)
+print('param_string_with_comment: '+ param_string_with_comment)
+print('param_int: '+ param_int)
+print('param_float: '+param_float)
+print('param_list_int: '+param_list_int)
+print('param_list_str: '+ param_list_str)
 
