@@ -31,6 +31,7 @@ fp.close()
 onlyfiles = [f for f in listdir(conf_data_folder) if isfile(join(conf_data_folder, f))]
 
 print(onlyfiles)
+a = 0.13510917961428082
 
 filename = "/tmp/file_path_" + id + ".json"
 file_file_path = open(filename, "w")
