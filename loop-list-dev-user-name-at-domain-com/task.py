@@ -1,4 +1,4 @@
-
+import json
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -13,7 +13,6 @@ print(args)
 
 id = args.id
 
-import json
 list_of_paths = json.loads(args.list_of_paths)
 
 
