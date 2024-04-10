@@ -2,7 +2,7 @@ from os.path import isfile
 from os.path import join
 from os import listdir
 import os
-import json
+
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -31,8 +31,8 @@ fp.close()
 onlyfiles = [f for f in listdir(conf_data_folder) if isfile(join(conf_data_folder, f))]
 
 print(onlyfiles)
-a = 0.13510917961428082
 
+import json
 filename = "/tmp/file_path_" + id + ".json"
 file_file_path = open(filename, "w")
 file_file_path.write(json.dumps(file_path))
