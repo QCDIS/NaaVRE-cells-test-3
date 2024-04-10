@@ -27,7 +27,6 @@ list_of_paths = fromJSON(opt$list_of_paths)
 for (l in list_of_paths) {
     print(l)
 }
-a = 0.29836035631137536
 
 
 
