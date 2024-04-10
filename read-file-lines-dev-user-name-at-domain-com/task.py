@@ -2,7 +2,7 @@ from os.path import isfile
 from os.path import join
 from os import listdir
 import os
-import json
+
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -32,8 +32,8 @@ print(onlyfiles)
 f = open(file_path, 'r')
 lines = f.readlines()
 f.close()
-a = 0.5805553847459196
 
+import json
 filename = "/tmp/lines_" + id + ".json"
 file_lines = open(filename, "w")
 file_lines.write(json.dumps(lines))
