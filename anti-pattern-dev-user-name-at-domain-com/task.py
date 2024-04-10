@@ -1,4 +1,4 @@
-
+import json
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -23,9 +23,7 @@ count = args.count
 some_list = range(count, a+1)
 
 msg = '1'
-a = 0.7977964119913282
 
-import json
 filename = "/tmp/msg_" + id + ".json"
 file_msg = open(filename, "w")
 file_msg.write(json.dumps(msg))
