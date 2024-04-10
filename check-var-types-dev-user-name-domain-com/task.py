@@ -43,17 +43,17 @@ param_list_str = json.loads(args.param_list_str)
 param_string = args.param_string.replace('"','')
 param_string_with_comment = args.param_string_with_comment.replace('"','')
 
-conf_float = 1.1
+conf_string = 'param_string value'
+
+conf_string_with_comment = 'param_string value'  # comment
 
 conf_int = 1
+
+conf_float = 1.1
 
 conf_list_int = [1, 2, 3]
 
 conf_list_str = ["1", "two", "3"]
-
-conf_string = 'param_string value'
-
-conf_string_with_comment = 'param_string value'  # comment
 
 
 conf_string = 'param_string value'
@@ -184,5 +184,4 @@ for i in var_list_str:
         print('var_list_str contains a non-str value: ' + str(i))
         exit(1)
 print('All vars are of the correct type')
-a = 0.19301980502178206
 
