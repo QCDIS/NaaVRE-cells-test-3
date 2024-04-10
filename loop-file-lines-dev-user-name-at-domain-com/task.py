@@ -1,4 +1,4 @@
-
+import json
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -13,7 +13,6 @@ print(args)
 
 id = args.id
 
-import json
 lines = json.loads(args.lines)
 
 
@@ -23,9 +22,7 @@ count = 0
 for l in lines:
     count += 1
     print("Line{}: {}".format(count, l.strip()))
-a = 0.35393608983649016
 
-import json
 filename = "/tmp/count_" + id + ".json"
 file_count = open(filename, "w")
 file_count.write(json.dumps(count))
