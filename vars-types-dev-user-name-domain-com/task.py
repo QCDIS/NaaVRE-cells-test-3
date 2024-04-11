@@ -19,7 +19,7 @@ param_string_with_comment = 'param_string value'  # comment
 param_int = 1
 param_float = 1.1
 param_list_int = [1, 2, 3]
-param_list_str = ["1", "two", "3"]
+param_list_str = ["1", " space in elem", "3"]
 
 conf_string = 'param_string value'
 conf_string_with_comment = 'param_string value'  # comment
