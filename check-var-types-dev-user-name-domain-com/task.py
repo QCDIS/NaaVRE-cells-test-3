@@ -38,7 +38,11 @@ var_string_with_comment = args.var_string_with_comment.replace('"','')
 
 param_float = args.param_float
 param_int = args.param_int
+for p in args.param_list_int:
+    p.replace('"','').replace("'",'"')
 param_list_int = json.loads(args.param_list_int)
+for p in args.param_list_str:
+    p.replace('"','').replace("'",'"')
 param_list_str = json.loads(args.param_list_str)
 param_string = args.param_string.replace('"','')
 param_string_with_comment = args.param_string_with_comment.replace('"','')
