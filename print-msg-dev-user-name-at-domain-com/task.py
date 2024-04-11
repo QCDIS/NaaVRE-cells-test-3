@@ -1,4 +1,4 @@
-import json
+
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -18,5 +18,4 @@ msg = args.msg
 
 
 print('msg:', str(msg))
-a = 0.38127510454726266
 
