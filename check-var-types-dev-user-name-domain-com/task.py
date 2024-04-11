@@ -43,10 +43,7 @@ try:
     param_list_int = json.loads(args.param_list_int)
 except Exception as e:
     if e.__class__.__name__ == 'JSONDecodeError':
-        param_list_int = []
-        for p in args.param_list_int:
-            param_list_int.append(json.loads(str(p)))
-        print(param_list_int)
+        print(type(args.param_list_int))
     else:
         raise e
 print(args.param_list_str)
@@ -54,10 +51,7 @@ try:
     param_list_str = json.loads(args.param_list_str)
 except Exception as e:
     if e.__class__.__name__ == 'JSONDecodeError':
-        param_list_str = []
-        for p in args.param_list_str:
-            param_list_str.append(json.loads(str(p)))
-        print(param_list_str)
+        print(type(args.param_list_str))
     else:
         raise e
 param_string = args.param_string.replace('"','')
