@@ -1,4 +1,4 @@
-import json
+
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -13,6 +13,7 @@ print(args)
 
 id = args.id
 
+import json
 list_of_paths = json.loads(args.list_of_paths)
 
 
@@ -20,5 +21,4 @@ list_of_paths = json.loads(args.list_of_paths)
 
 for l in list_of_paths:
     print(l)
-a = 0.4648498459071212
 
