@@ -39,19 +39,17 @@ var_string_with_comment = args.var_string_with_comment.replace('"','')
 param_float = args.param_float
 param_int = args.param_int
 print(args.param_list_int)
+print(type(args.param_list_int))
 try:
     param_list_int = json.loads(args.param_list_int)
 except Exception as e:
-    if e.__class__.__name__ == 'JSONDecodeError':
-        print(type(args.param_list_int))
     else:
         raise e
 print(args.param_list_str)
+print(type(args.param_list_str))
 try:
     param_list_str = json.loads(args.param_list_str)
 except Exception as e:
-    if e.__class__.__name__ == 'JSONDecodeError':
-        print(type(args.param_list_str))
     else:
         raise e
 param_string = args.param_string.replace('"','')
