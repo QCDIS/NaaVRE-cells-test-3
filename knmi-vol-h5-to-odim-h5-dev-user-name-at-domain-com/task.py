@@ -1,5 +1,5 @@
 import os
-
+import json
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -23,7 +23,6 @@ cmd = "KNMI_vol_h5_to_ODIM_h5 "
 
 msg = os.system(cmd)  # returns the exit code in unix
 
-import json
 filename = "/tmp/msg_" + id + ".json"
 file_msg = open(filename, "w")
 file_msg.write(json.dumps(msg))
