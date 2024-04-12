@@ -202,5 +202,4 @@ for i in var_list_str:
         print('var_list_str contains a non-str value: ' + str(i))
         exit(1)
 print('All vars are of the correct type')
-a = 0.7680870869798201
 
