@@ -1,4 +1,4 @@
-import json
+
 import argparse
 arg_parser = argparse.ArgumentParser()
 
@@ -34,7 +34,6 @@ var_int = 1
 var_float = 1.1
 var_list_int = [1, 2, 3]
 var_list_str = ["1", "two", "3"]
-a = 0.6995449935997582
 
 filename = "/tmp/var_string_" + id + ".json"
 file_var_string = open(filename, "w")
