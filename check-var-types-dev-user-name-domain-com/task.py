@@ -1,5 +1,6 @@
 
 import argparse
+import json
 arg_parser = argparse.ArgumentParser()
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
@@ -61,25 +62,25 @@ except Exception as e:
 param_string = args.param_string.replace('"','')
 param_string_with_comment = args.param_string_with_comment.replace('"','')
 
-conf_float = 1.1
-
-conf_int = 1
-
-conf_list_int = [1, 2, 3]
-
-conf_list_str = ["1", "two", "3"]
-
 conf_string = 'param_string value'
 
 conf_string_with_comment = 'param_string value'  # comment
 
+conf_int = 1
+
+conf_float = 1.1
+
+conf_list_int = [1, 2, 3]
+
+conf_list_str = ["list_str", "space in elem", "3"]
+
 
 conf_string = 'param_string value'
 conf_string_with_comment = 'param_string value'  # comment
 conf_int = 1
 conf_float = 1.1
 conf_list_int = [1, 2, 3]
-conf_list_str = ["1", "two", "3"]
+conf_list_str = ["list_str", "space in elem", "3"]
 
 print('conf_string: ' + str(conf_string) + ' type: ' + str(type(conf_string)))
 print('conf_string_with_comment: ' + str(conf_string_with_comment) + ' type: ' + str(type(conf_string_with_comment)))
@@ -202,5 +203,4 @@ for i in var_list_str:
         print('var_list_str contains a non-str value: ' + str(i))
         exit(1)
 print('All vars are of the correct type')
-a = 0.6186015073223805
 
