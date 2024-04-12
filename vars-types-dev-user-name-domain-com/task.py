@@ -34,7 +34,6 @@ var_int = 1
 var_float = 1.1
 var_list_int = [1, 2, 3]
 var_list_str = ["1", "two", "3"]
-a = 0.48627601544227395
 
 filename = "/tmp/var_string_" + id + ".json"
 file_var_string = open(filename, "w")
