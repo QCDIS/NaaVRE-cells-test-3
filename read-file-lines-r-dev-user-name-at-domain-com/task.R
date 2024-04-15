@@ -33,7 +33,6 @@ print(onlyfiles)
 f <- file(file_path, "r")
 lines <- readLines(f)
 close(f)
-a = 0.33441801524722725
 
 
 
