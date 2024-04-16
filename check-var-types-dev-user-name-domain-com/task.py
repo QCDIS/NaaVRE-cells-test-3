@@ -46,7 +46,7 @@ try:
 except Exception as e:
     if e.__class__.__name__ == 'JSONDecodeError':
         import ast
-        param_list_int = ast.literal_eval(args.param_list_int.replace('[','["').replace(',','","').replace('" ','"').replace(']','"]')).replace("'","")
+        param_list_int = ast.literal_eval(args.param_list_int.replace('[','["').replace(',','","').replace('" ','"').replace(']','"]').replace("'",""))
     else:
         raise e
 print(args.param_list_str)
@@ -56,7 +56,7 @@ try:
 except Exception as e:
     if e.__class__.__name__ == 'JSONDecodeError':
         import ast
-        param_list_str = ast.literal_eval(args.param_list_str.replace('[','["').replace(',','","').replace('" ','"').replace(']','"]')).replace("'","")
+        param_list_str = ast.literal_eval(args.param_list_str.replace('[','["').replace(',','","').replace('" ','"').replace(']','"]').replace("'",""))
     else:
         raise e
 param_string = args.param_string.replace('"','')
