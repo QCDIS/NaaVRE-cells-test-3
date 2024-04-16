@@ -20,6 +20,7 @@ count = args.count
 
 
 a = count + 1
+a = 0.88556735490379
 
 filename = "/tmp/a_" + id + ".json"
 file_a = open(filename, "w")
