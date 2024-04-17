@@ -69,12 +69,12 @@ param_string <- gsub('"', '', opt$param_string)
 param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
 
 
-conf_string = 'param_string value'
-conf_string_with_comment = 'param_string value'
-conf_int = 1
 conf_float = 1.1
+conf_int = 1
 conf_list_int = [1, 2, 3]
 conf_list_str = ['list_str', 'space in elem', '3']
+conf_string = 'param_string value'
+conf_string_with_comment = 'param_string value'
 
 
 conf_string = 'param_string value'
