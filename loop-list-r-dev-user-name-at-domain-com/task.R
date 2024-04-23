@@ -13,6 +13,8 @@ make_option(c("--list_of_paths"), action="store", default=NA, type="character", 
 
 )
 
+print(option_list)
+
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
@@ -27,7 +29,6 @@ list_of_paths = fromJSON(opt$list_of_paths)
 for (l in list_of_paths) {
     print(l)
 }
-a = 0.5397361254820114
 
 
 
