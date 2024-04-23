@@ -13,8 +13,6 @@ make_option(c("--list_of_ints"), action="store", default=NA, type="character", h
 
 )
 
-print(option_list)
-
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
