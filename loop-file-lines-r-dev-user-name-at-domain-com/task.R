@@ -13,8 +13,6 @@ make_option(c("--lines"), action="store", default=NA, type="character", help="my
 
 )
 
-print(option_list)
-
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
