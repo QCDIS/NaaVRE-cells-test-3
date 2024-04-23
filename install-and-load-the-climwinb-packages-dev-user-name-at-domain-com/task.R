@@ -23,6 +23,11 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
+id <- gsub('"', '', opt$id)
+
+
+
+
 
 if (!requireNamespace("climwin", quietly = TRUE)) {
   install.packages("climwin",repos = "http://cran.us.r-project.org")
@@ -49,7 +54,6 @@ temperature_zoo_str <- toString(temperature_zoo)
 rolling_mean_temp_str <- toString(rolling_mean_temp)
 temperature_data_str <- toString(temperature_data)
 
-a = 0.696901969246659
 
 
 # capturing outputs
