@@ -16,11 +16,17 @@ make_option(c("--list_of_paths"), action="store", default=NA, type="character", 
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
+id <- gsub('"', '', opt$id)
+list_of_paths = fromJSON(opt$list_of_paths)
+
+
+
+
 
 
 for (l in list_of_paths) {
     print(l)
 }
-a = 0.09704694492831267
+
 
 
