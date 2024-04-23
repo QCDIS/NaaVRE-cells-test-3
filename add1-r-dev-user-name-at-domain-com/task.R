@@ -13,21 +13,11 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 
 )
 
-print(option_list)
-
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
-
-count = opt$count
-id <- gsub('"', '', opt$id)
-
-
-
 
 
 
 a = count + 1
-a = 0.5004700040643211
-
 
 
