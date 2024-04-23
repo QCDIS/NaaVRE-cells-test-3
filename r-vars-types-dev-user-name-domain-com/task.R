@@ -28,23 +28,29 @@ id <- gsub('"', '', opt$id)
 param_float = opt$param_float
 param_int = opt$param_int
 tryCatch({
-  param_list_int <- fromJSON(opt$param_list_int)
+  param_list_int <- fromJSON(param_list_int)
 }, error = function(e) {
   if (class(e) == 'jsonlite_error') {
-    # Replace '\'' (single quote) with '\"' (double quote)
-    param_list_int  <- gsub("'", '"', opt$param_list_int )
-    param_list_int  <- fromJSON(param_list_int )
+    param_list_int <- gsub("\\[", '["', param_list_int)
+    param_list_int <- gsub(",", '","', param_list_int)
+    param_list_int <- gsub("\" ", "\"", param_list_int)
+    param_list_int <- gsub("\\]", '"]', param_list_int)
+    param_list_int <- gsub("'", "", param_list_int)
+    param_list_int <- fromJSON(param_list_int)
   } else {
     stop(e)
   }
 })
 tryCatch({
-  param_list_str <- fromJSON(opt$param_list_str)
+  param_list_str <- fromJSON(param_list_str)
 }, error = function(e) {
   if (class(e) == 'jsonlite_error') {
-    # Replace '\'' (single quote) with '\"' (double quote)
-    param_list_str  <- gsub("'", '"', opt$param_list_str )
-    param_list_str  <- fromJSON(param_list_str )
+    param_list_str <- gsub("\\[", '["', param_list_str)
+    param_list_str <- gsub(",", '","', param_list_str)
+    param_list_str <- gsub("\" ", "\"", param_list_str)
+    param_list_str <- gsub("\\]", '"]', param_list_str)
+    param_list_str <- gsub("'", "", param_list_str)
+    param_list_str <- fromJSON(param_list_str)
   } else {
     stop(e)
   }
