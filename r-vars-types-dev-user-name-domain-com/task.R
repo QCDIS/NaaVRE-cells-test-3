@@ -21,11 +21,6 @@ make_option(c("--param_string_with_comment"), action="store", default=NA, type="
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-444444444444444444444444444
-
-
-
-
 
 conf_string = 'param_string value'
 conf_string_with_comment = 'param_string value'
@@ -47,7 +42,6 @@ var_int <- 1
 var_float <- 1.1
 var_list_int <- c(1, 2, 3)
 var_list_str <- c("list_str", "space in elem", "3")
-
 
 
 # capturing outputs
