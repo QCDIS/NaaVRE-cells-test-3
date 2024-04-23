@@ -49,6 +49,8 @@ temperature_zoo_str <- toString(temperature_zoo)
 rolling_mean_temp_str <- toString(rolling_mean_temp)
 temperature_data_str <- toString(temperature_data)
 
+a = 0.696901969246659
+
 
 # capturing outputs
 file <- file(paste0('/tmp/rolling_mean_temp_str_', id, '.json'))
