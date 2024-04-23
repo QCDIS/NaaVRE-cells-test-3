@@ -23,34 +23,29 @@ print(option_list)
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-id <- gsub('"', '', opt$id)
 
+
+id <- gsub('"', '', opt$id)
 param_float = opt$param_float
 param_int = opt$param_int
 tryCatch({
-  param_list_int <- fromJSON(param_list_int)
+  param_list_int <- fromJSON(opt$param_list_int)
 }, error = function(e) {
   if (class(e) == 'jsonlite_error') {
-    param_list_int <- gsub("\\[", '["', param_list_int)
-    param_list_int <- gsub(",", '","', param_list_int)
-    param_list_int <- gsub("\" ", "\"", param_list_int)
-    param_list_int <- gsub("\\]", '"]', param_list_int)
-    param_list_int <- gsub("'", "", param_list_int)
-    param_list_int <- fromJSON(param_list_int)
+    # Replace '\'' (single quote) with '\"' (double quote)
+    param_list_int  <- gsub("'", '"', opt$param_list_int )
+    param_list_int  <- fromJSON(param_list_int )
   } else {
     stop(e)
   }
 })
 tryCatch({
-  param_list_str <- fromJSON(param_list_str)
+  param_list_str <- fromJSON(opt$param_list_str)
 }, error = function(e) {
   if (class(e) == 'jsonlite_error') {
-    param_list_str <- gsub("\\[", '["', param_list_str)
-    param_list_str <- gsub(",", '","', param_list_str)
-    param_list_str <- gsub("\" ", "\"", param_list_str)
-    param_list_str <- gsub("\\]", '"]', param_list_str)
-    param_list_str <- gsub("'", "", param_list_str)
-    param_list_str <- fromJSON(param_list_str)
+    # Replace '\'' (single quote) with '\"' (double quote)
+    param_list_str  <- gsub("'", '"', opt$param_list_str )
+    param_list_str  <- fromJSON(param_list_str )
   } else {
     stop(e)
   }
@@ -58,13 +53,6 @@ tryCatch({
 param_string <- gsub('"', '', opt$param_string)
 param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
 
-
-conf_float = 1.1
-conf_int = 1
-conf_list_int = [1, 2, 3]
-conf_list_str = ['list_str', 'space in elem', '3']
-conf_string = 'param_string value'
-conf_string_with_comment = 'param_string value'
 
 
 conf_string = 'param_string value'
@@ -87,7 +75,6 @@ var_int <- 1
 var_float <- 1.1
 var_list_int <- c(1, 2, 3)
 var_list_str <- c("list_str", "space in elem", "3")
-a = 0.8740357615996868
 
 
 
