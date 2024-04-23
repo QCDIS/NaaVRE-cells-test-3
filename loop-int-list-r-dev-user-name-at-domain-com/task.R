@@ -13,6 +13,8 @@ make_option(c("--list_of_ints"), action="store", default=NA, type="character", h
 
 )
 
+print(option_list)
+
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
@@ -27,7 +29,6 @@ list_of_ints = fromJSON(opt$list_of_ints)
 for (l in list_of_ints) {
     print(l)
 }
-a = 0.14272628741046656
 
 
 
