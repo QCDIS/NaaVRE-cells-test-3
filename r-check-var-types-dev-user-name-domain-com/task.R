@@ -40,10 +40,10 @@ var_string_with_comment <- gsub('"', '', opt$var_string_with_comment)
 param_float = opt$param_float
 param_int = opt$param_int
 tryCatch({
-  param_list_int <- fromJSON(args$param_list_int)
+  param_list_int <- fromJSON(param_list_int)
 }, error = function(e) {
   if (class(e) == 'jsonlite_error') {
-    param_list_int <- gsub("\\[", '["', args$param_list_int)
+    param_list_int <- gsub("\\[", '["', param_list_int)
     param_list_int <- gsub(",", '","', param_list_int)
     param_list_int <- gsub("\" ", "\"", param_list_int)
     param_list_int <- gsub("\\]", '"]', param_list_int)
@@ -54,15 +54,15 @@ tryCatch({
   }
 })
 tryCatch({
-  param_list_int <- fromJSON(args$param_list_int)
+  param_list_str <- fromJSON(param_list_str)
 }, error = function(e) {
   if (class(e) == 'jsonlite_error') {
-    param_list_int <- gsub("\\[", '["', args$param_list_int)
-    param_list_int <- gsub(",", '","', param_list_int)
-    param_list_int <- gsub("\" ", "\"", param_list_int)
-    param_list_int <- gsub("\\]", '"]', param_list_int)
-    param_list_int <- gsub("'", "", param_list_int)
-    param_list_int <- fromJSON(param_list_int)
+    param_list_str <- gsub("\\[", '["', param_list_str)
+    param_list_str <- gsub(",", '","', param_list_str)
+    param_list_str <- gsub("\" ", "\"", param_list_str)
+    param_list_str <- gsub("\\]", '"]', param_list_str)
+    param_list_str <- gsub("'", "", param_list_str)
+    param_list_str <- fromJSON(param_list_str)
   } else {
     stop(e)
   }
@@ -71,12 +71,12 @@ param_string <- gsub('"', '', opt$param_string)
 param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
 
 
-conf_string = 'param_string value'
-conf_string_with_comment = 'param_string value'
-conf_int = 1
 conf_float = 1.1
+conf_int = 1
 conf_list_int = [1, 2, 3]
 conf_list_str = ['list_str', 'space in elem', '3']
+conf_string = 'param_string value'
+conf_string_with_comment = 'param_string value'
 
 
 conf_string = 'param_string value'
