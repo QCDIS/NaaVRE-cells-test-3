@@ -22,8 +22,6 @@ make_option(c("--temperature_data_str"), action="store", default=NA, type="chara
 
 )
 
-print(option_list)
-
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
