@@ -15,6 +15,11 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
+id <- gsub('"', '', opt$id)
+
+
+
+
 
 
 L <- c("a", "b", "c")
@@ -27,7 +32,7 @@ writeLines(L, file_path)
 onlyfiles <- list.files(conf_data_folder, full.names = TRUE)
 
 print(onlyfiles)
-a = 0.38911431400620533
+
 
 
 # capturing outputs
