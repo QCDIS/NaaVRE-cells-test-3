@@ -16,13 +16,19 @@ make_option(c("--lines"), action="store", default=NA, type="character", help="my
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
+id <- gsub('"', '', opt$id)
+lines = fromJSON(opt$lines)
+
+
+
+
 
 count <- 0
 for (l in lines) {
     count <- count + 1
     cat(sprintf("Line %d: %s\n", count, trimws(l)))
 }
-a = 0.38642216430722676
+
 
 
 # capturing outputs
