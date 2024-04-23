@@ -24,59 +24,8 @@ make_option(c("--var_string_with_comment"), action="store", default=NA, type="ch
 
 )
 
-print(option_list)
-
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
-
-id <- gsub('"', '', opt$id)
-var_float = opt$var_float
-var_int = opt$var_int
-var_list_int = fromJSON(opt$var_list_int)
-var_list_str = fromJSON(opt$var_list_str)
-var_string <- gsub('"', '', opt$var_string)
-var_string_with_comment <- gsub('"', '', opt$var_string_with_comment)
-
-param_float = opt$param_float
-param_int = opt$param_int
-tryCatch({
-  param_list_int <- fromJSON(param_list_int)
-}, error = function(e) {
-  if (class(e) == 'jsonlite_error') {
-    param_list_int <- gsub("\\[", '["', param_list_int)
-    param_list_int <- gsub(",", '","', param_list_int)
-    param_list_int <- gsub("\" ", "\"", param_list_int)
-    param_list_int <- gsub("\\]", '"]', param_list_int)
-    param_list_int <- gsub("'", "", param_list_int)
-    param_list_int <- fromJSON(param_list_int)
-  } else {
-    stop(e)
-  }
-})
-tryCatch({
-  param_list_str <- fromJSON(param_list_str)
-}, error = function(e) {
-  if (class(e) == 'jsonlite_error') {
-    param_list_str <- gsub("\\[", '["', param_list_str)
-    param_list_str <- gsub(",", '","', param_list_str)
-    param_list_str <- gsub("\" ", "\"", param_list_str)
-    param_list_str <- gsub("\\]", '"]', param_list_str)
-    param_list_str <- gsub("'", "", param_list_str)
-    param_list_str <- fromJSON(param_list_str)
-  } else {
-    stop(e)
-  }
-})
-param_string <- gsub('"', '', opt$param_string)
-param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
-
-
-conf_float = 1.1
-conf_int = 1
-conf_list_int = [1, 2, 3]
-conf_list_str = ['list_str', 'space in elem', '3']
-conf_string = 'param_string value'
-conf_string_with_comment = 'param_string value'
 
 
 conf_string = 'param_string value'
@@ -166,7 +115,5 @@ check_type(var_list_str, "list")
 print('All vars are of the correct type')
 
 done <- TRUE
-a = 0.5211379473156494
-
 
 
