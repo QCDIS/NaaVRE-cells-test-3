@@ -87,6 +87,7 @@ var_int <- 1
 var_float <- 1.1
 var_list_int <- c(1, 2, 3)
 var_list_str <- c("list_str", "space in elem", "3")
+a = 0.5008875809477965
 
 
 
