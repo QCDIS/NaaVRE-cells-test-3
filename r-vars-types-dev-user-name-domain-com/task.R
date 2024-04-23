@@ -18,8 +18,6 @@ make_option(c("--param_string_with_comment"), action="store", default=NA, type="
 
 )
 
-print(option_list)
-
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
