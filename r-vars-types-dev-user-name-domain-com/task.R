@@ -25,25 +25,7 @@ opt = parse_args(OptionParser(option_list=option_list))
 
 
 
-id <- gsub('"', '', opt$id)
-param_float = opt$param_float
-param_int = opt$param_int
-tryCatch({
-  param_list_int <- fromJSON(opt$param_list_int)
-}, error = function(e) {
-    # Replace '\'' (single quote) with '\"' (double quote)
-    param_list_int  <- gsub("'", '"', opt$param_list_int )
-    param_list_int  <- fromJSON(param_list_int )
-})
-tryCatch({
-  param_list_str <- fromJSON(opt$param_list_str)
-}, error = function(e) {
-    # Replace '\'' (single quote) with '\"' (double quote)
-    param_list_str  <- gsub("'", '"', opt$param_list_str )
-    param_list_str  <- fromJSON(param_list_str )
-})
-param_string <- gsub('"', '', opt$param_string)
-param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
+
 
 
 
