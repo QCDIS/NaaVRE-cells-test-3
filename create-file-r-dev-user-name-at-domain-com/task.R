@@ -27,6 +27,7 @@ writeLines(L, file_path)
 onlyfiles <- list.files(conf_data_folder, full.names = TRUE)
 
 print(onlyfiles)
+a = 0.38911431400620533
 
 
 # capturing outputs
