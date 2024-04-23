@@ -13,6 +13,8 @@ make_option(c("--lines"), action="store", default=NA, type="character", help="my
 
 )
 
+print(option_list)
+
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
@@ -28,7 +30,6 @@ for (l in lines) {
     count <- count + 1
     cat(sprintf("Line %d: %s\n", count, trimws(l)))
 }
-a = 0.8367668461520359
 
 
 
