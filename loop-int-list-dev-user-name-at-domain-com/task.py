@@ -22,6 +22,7 @@ list_of_ints = json.loads(args.list_of_ints)
 for i in list_of_ints:
     a = i -1
     print(a)
+a = 0.3559900797062251
 
 import json
 filename = "/tmp/a_" + id + ".json"
