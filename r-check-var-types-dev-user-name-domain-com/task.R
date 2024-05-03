@@ -43,12 +43,12 @@ param_string = opt$param_string
 param_string_with_comment = opt$param_string_with_comment
 
 
-conf_string = 'param_string value'
-conf_string_with_comment = 'param_string value'
-conf_int = 1
 conf_float = 1.1
+conf_int = 1
 conf_list_int = list(1, 2, 3)
 conf_list_str = list('list_str', 'space in elem', '3')
+conf_string = 'param_string value'
+conf_string_with_comment = 'param_string value'
 
 
 conf_string = 'param_string value'
@@ -80,61 +80,60 @@ print(paste('var_float: ', var_float, ' type: ', class(var_float)))
 print(paste('var_list_int: ', toString(var_list_int), ' type: ', class(var_list_int)))
 print(paste('var_list_str: ', toString(var_list_str), ' type: ', class(var_list_str)))
 
-check_type <- function(var, expected_types) {
-  
-  if (!any(sapply(expected_types, function(x) inherits(var, x)))) {
-    stop(paste('Variable is not of the expected types:', paste(expected_types, collapse = ', '),
-               '. It is a', class(var)))
-  }
-  
-  if ('list' %in% expected_types) {
-    if (!is.list(var) && !is.vector(var)) {
-      stop(paste('Variable', var, 'is not iterable.'))
+check_type <- function(var, expected_type) {
+    
+    if (!inherits(var, expected_type)) {
+        stop(paste('Variable is not a', expected_type, '. It is a', class(var)))
     }
-  }
+
+    if (expected_type == 'list') {
+        if (!is.list(var) && !is.vector(var)) {
+            stop(paste('Variable', var, 'is not iterable.'))
+        }
+    }
 }
 
-check_type(conf_string, c(c("character")))
-check_type(conf_string_with_comment, c("character"))
+check_type(conf_string, "character")
+check_type(conf_string_with_comment, "character")
 check_type(conf_int, "numeric")
 check_type(conf_float, "numeric")
 if (is.numeric(conf_list_int)) {
   conf_list_int <- list(conf_list_int)
 }
 
-check_type(conf_list_int, c("list"))
+check_type(conf_list_int, "list")
 if (is.character(conf_list_str)) {
   conf_list_str <- list(conf_list_str)
 }
-check_type(conf_list_str, c("list"))
+check_type(conf_list_str, "list")
 
-check_type(param_string, c("character"))
-check_type(param_string_with_comment, c("character"))
-check_type(param_int, c("numeric", "integer"))
-check_type(param_float, c("numeric", "float"))
+check_type(param_string, "character")
+check_type(param_string_with_comment, "character")
+check_type(param_int, "numeric")
+check_type(param_float, "numeric")
 if (is.numeric(param_list_int)) {
   param_list_int <- list(param_list_int)
 }
-check_type(param_list_int, c("list"))
-check_type(conf_list_int, c("list"))
+check_type(param_list_int, "list")
+check_type(conf_list_int, "list")
 if (is.character(param_list_str)) {
   param_list_str <- list(param_list_str)
 }
-check_type(param_list_str, c("list"))
+check_type(param_list_str, "list")
 
-check_type(var_string, c("character"))
-check_type(var_string_with_comment, c("character"))
-check_type(var_int, c("numeric", "integer"))
-check_type(var_float, c("numeric", "float"))
+check_type(var_string, "character")
+check_type(var_string_with_comment, "character")
+check_type(var_int, "numeric")
+check_type(var_float, "numeric")
 if (is.numeric(var_list_int)) {
   var_list_int <- list(var_list_int)
 }
-check_type(var_list_int, c("list"))
+check_type(var_list_int, "list")
 
 if (is.character(var_list_str)) {
   var_list_str <- list(var_list_str)
 }
-check_type(var_list_str, c("list"))
+check_type(var_list_str, "list")
 
 print('All vars are of the correct type')
 
