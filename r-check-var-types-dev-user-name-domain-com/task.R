@@ -31,6 +31,7 @@ id <- gsub('"', '', opt$id)
 param_float = opt$param_float
 param_int = opt$param_int
 param_list_int <- NULL
+print('Serialization of param_list_int')
 tryCatch({
   param_list_int <<- fromJSON(opt$param_list_int)
 }, error = function(e) {
@@ -38,6 +39,7 @@ tryCatch({
   param_list_int <<- fromJSON(param_list_int)
 })
 param_list_str <- NULL
+print('Serialization of param_list_str')
 tryCatch({
   param_list_str <<- fromJSON(opt$param_list_str)
 }, error = function(e) {
@@ -49,6 +51,7 @@ param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
 var_float = opt$var_float
 var_int = opt$var_int
 var_list_int <- NULL
+print('Serialization of var_list_int')
 tryCatch({
   var_list_int <<- fromJSON(opt$var_list_int)
 }, error = function(e) {
@@ -56,6 +59,7 @@ tryCatch({
   var_list_int <<- fromJSON(var_list_int)
 })
 var_list_str <- NULL
+print('Serialization of var_list_str')
 tryCatch({
   var_list_str <<- fromJSON(opt$var_list_str)
 }, error = function(e) {
@@ -72,7 +76,7 @@ conf_float = 1.1
 conf_list_int = list(1, 2, 3)
 conf_list_str = list('list_str', 'space in elem', '3')
 
-
+print('-----------Running cell----------------')
 conf_string = 'param_string value'
 conf_string_with_comment = 'param_string value'
 conf_int = 1
@@ -161,6 +165,5 @@ check_type(var_list_str, c("list"))
 print('All vars are of the correct type')
 
 done <- TRUE
-
-
+print('-----------Cell executed----------------')
 
