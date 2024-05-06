@@ -36,11 +36,89 @@ var_string <- gsub('"', '', opt$var_string)
 var_string_with_comment <- gsub('"', '', opt$var_string_with_comment)
 
 param_float = opt$param_float
+tryCatch({
+  print('-------------------------param_float-------------------')
+  param_float <- fromJSON(opt$param_float)
+}, error = function(e) {
+  print(class(e))
+  param_float <- gsub("\\[", '["', opt$param_float)
+  param_float <- gsub(",", '","', param_float)
+  param_float <- gsub("\" ", "\"", param_float)
+  param_float <- gsub("\\]", '"]', param_float)
+  param_float <- gsub("'", "", param_float)
+  param_float <- fromJSON(param_float)
+})
+
 param_int = opt$param_int
+tryCatch({
+  print('-------------------------param_int-------------------')
+  param_int <- fromJSON(opt$param_int)
+}, error = function(e) {
+  print(class(e))
+  param_int <- gsub("\\[", '["', opt$param_int)
+  param_int <- gsub(",", '","', param_int)
+  param_int <- gsub("\" ", "\"", param_int)
+  param_int <- gsub("\\]", '"]', param_int)
+  param_int <- gsub("'", "", param_int)
+  param_int <- fromJSON(param_int)
+})
+
 param_list_int = opt$param_list_int
+tryCatch({
+  print('-------------------------param_list_int-------------------')
+  param_list_int <- fromJSON(opt$param_list_int)
+}, error = function(e) {
+  print(class(e))
+  param_list_int <- gsub("\\[", '["', opt$param_list_int)
+  param_list_int <- gsub(",", '","', param_list_int)
+  param_list_int <- gsub("\" ", "\"", param_list_int)
+  param_list_int <- gsub("\\]", '"]', param_list_int)
+  param_list_int <- gsub("'", "", param_list_int)
+  param_list_int <- fromJSON(param_list_int)
+})
+
 param_list_str = opt$param_list_str
+tryCatch({
+  print('-------------------------param_list_str-------------------')
+  param_list_str <- fromJSON(opt$param_list_str)
+}, error = function(e) {
+  print(class(e))
+  param_list_str <- gsub("\\[", '["', opt$param_list_str)
+  param_list_str <- gsub(",", '","', param_list_str)
+  param_list_str <- gsub("\" ", "\"", param_list_str)
+  param_list_str <- gsub("\\]", '"]', param_list_str)
+  param_list_str <- gsub("'", "", param_list_str)
+  param_list_str <- fromJSON(param_list_str)
+})
+
 param_string = opt$param_string
+tryCatch({
+  print('-------------------------param_string-------------------')
+  param_string <- fromJSON(opt$param_string)
+}, error = function(e) {
+  print(class(e))
+  param_string <- gsub("\\[", '["', opt$param_string)
+  param_string <- gsub(",", '","', param_string)
+  param_string <- gsub("\" ", "\"", param_string)
+  param_string <- gsub("\\]", '"]', param_string)
+  param_string <- gsub("'", "", param_string)
+  param_string <- fromJSON(param_string)
+})
+
 param_string_with_comment = opt$param_string_with_comment
+tryCatch({
+  print('-------------------------param_string_with_comment-------------------')
+  param_string_with_comment <- fromJSON(opt$param_string_with_comment)
+}, error = function(e) {
+  print(class(e))
+  param_string_with_comment <- gsub("\\[", '["', opt$param_string_with_comment)
+  param_string_with_comment <- gsub(",", '","', param_string_with_comment)
+  param_string_with_comment <- gsub("\" ", "\"", param_string_with_comment)
+  param_string_with_comment <- gsub("\\]", '"]', param_string_with_comment)
+  param_string_with_comment <- gsub("'", "", param_string_with_comment)
+  param_string_with_comment <- fromJSON(param_string_with_comment)
+})
+
 
 
 conf_string = 'param_string value'
