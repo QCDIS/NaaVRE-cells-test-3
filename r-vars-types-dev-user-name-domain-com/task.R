@@ -21,8 +21,6 @@ id <- gsub('"', '', opt$id)
 
 
 
-
-
 var_string <- 'var_string value'
 var_string_with_comment <- 'var_string value'  # comment
 var_int <- 1
