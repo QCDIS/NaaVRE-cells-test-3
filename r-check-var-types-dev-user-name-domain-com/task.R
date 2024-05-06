@@ -28,40 +28,86 @@ make_option(c("--var_string_with_comment"), action="store", default=NA, type="ch
 opt = parse_args(OptionParser(option_list=option_list))
 
 id <- gsub('"', '', opt$id)
-var_float = opt$var_float
-var_int = opt$var_int
-var_list_int = fromJSON(opt$var_list_int)
-var_list_str = fromJSON(opt$var_list_str)
-var_string <- gsub('"', '', opt$var_string)
-var_string_with_comment <- gsub('"', '', opt$var_string_with_comment)
+param_float = opt$param_float
+param_int = opt$param_int
 
-param_list_int = opt$param_list_int
 tryCatch({
-  print('-------------------------param_list_int-------------------')
   param_list_int <- fromJSON(opt$param_list_int)
 }, error = function(e) {
   print(class(e))
-  param_list_int <- gsub("\\[", '["', opt$param_list_int)
-  param_list_int <- gsub(",", '","', param_list_int)
-  param_list_int <- gsub("\" ", "\"", param_list_int)
-  param_list_int <- gsub("\\]", '"]', param_list_int)
-  param_list_int <- gsub("'", "", param_list_int)
-  param_list_int <- fromJSON(param_list_int)
+
+  if ('jsonlite_error' %in% class(e)) {
+    param_list_int <- gsub("\\[", '["', opt$param_list_int)
+    param_list_int <- gsub(",", '","', param_list_int)
+    param_list_int <- gsub("\" ", "\"", param_list_int)
+    param_list_int <- gsub("\\]", '"]', param_list_int)
+    param_list_int <- gsub("'", "", param_list_int)
+    param_list_int <- fromJSON({ in_var }})
+  } else {
+    stop(e)
+  }
 })
-param_list_str = opt$param_list_str
+
+
 tryCatch({
-  print('-------------------------param_list_str-------------------')
   param_list_str <- fromJSON(opt$param_list_str)
 }, error = function(e) {
   print(class(e))
-  param_list_str <- gsub("\\[", '["', opt$param_list_str)
-  param_list_str <- gsub(",", '","', param_list_str)
-  param_list_str <- gsub("\" ", "\"", param_list_str)
-  param_list_str <- gsub("\\]", '"]', param_list_str)
-  param_list_str <- gsub("'", "", param_list_str)
-  param_list_str <- fromJSON(param_list_str)
+
+  if ('jsonlite_error' %in% class(e)) {
+    param_list_str <- gsub("\\[", '["', opt$param_list_str)
+    param_list_str <- gsub(",", '","', param_list_str)
+    param_list_str <- gsub("\" ", "\"", param_list_str)
+    param_list_str <- gsub("\\]", '"]', param_list_str)
+    param_list_str <- gsub("'", "", param_list_str)
+    param_list_str <- fromJSON({ in_var }})
+  } else {
+    stop(e)
+  }
 })
 
+param_string <- gsub('"', '', opt$param_string)
+param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
+var_float = opt$var_float
+var_int = opt$var_int
+
+tryCatch({
+  var_list_int <- fromJSON(opt$var_list_int)
+}, error = function(e) {
+  print(class(e))
+
+  if ('jsonlite_error' %in% class(e)) {
+    var_list_int <- gsub("\\[", '["', opt$var_list_int)
+    var_list_int <- gsub(",", '","', var_list_int)
+    var_list_int <- gsub("\" ", "\"", var_list_int)
+    var_list_int <- gsub("\\]", '"]', var_list_int)
+    var_list_int <- gsub("'", "", var_list_int)
+    var_list_int <- fromJSON({ in_var }})
+  } else {
+    stop(e)
+  }
+})
+
+
+tryCatch({
+  var_list_str <- fromJSON(opt$var_list_str)
+}, error = function(e) {
+  print(class(e))
+
+  if ('jsonlite_error' %in% class(e)) {
+    var_list_str <- gsub("\\[", '["', opt$var_list_str)
+    var_list_str <- gsub(",", '","', var_list_str)
+    var_list_str <- gsub("\" ", "\"", var_list_str)
+    var_list_str <- gsub("\\]", '"]', var_list_str)
+    var_list_str <- gsub("'", "", var_list_str)
+    var_list_str <- fromJSON({ in_var }})
+  } else {
+    stop(e)
+  }
+})
+
+var_string <- gsub('"', '', opt$var_string)
+var_string_with_comment <- gsub('"', '', opt$var_string_with_comment)
 
 conf_string = 'param_string value'
 conf_string_with_comment = 'param_string value'
