@@ -30,37 +30,37 @@ opt = parse_args(OptionParser(option_list=option_list))
 id <- gsub('"', '', opt$id)
 param_float = opt$param_float
 param_int = opt$param_int
+param_list_int <- NULL
 tryCatch({
-  param_list_int <- fromJSON(opt$param_list_int)
+  param_list_int <<- fromJSON(opt$param_list_int)
 }, error = function(e) {
-  print(class(e))
-    param_list_int <- gsub("'", '"', opt$param_list_int)
-    param_list_int <- fromJSON( param_list_int )
+  param_list_int <<- gsub("'", '"', opt$param_list_int)
+  param_list_int <<- fromJSON(param_list_int)
 })
+param_list_str <- NULL
 tryCatch({
-  param_list_str <- fromJSON(opt$param_list_str)
+  param_list_str <<- fromJSON(opt$param_list_str)
 }, error = function(e) {
-  print(class(e))
-    param_list_str <- gsub("'", '"', opt$param_list_str)
-    param_list_str <- fromJSON( param_list_str )
+  param_list_str <<- gsub("'", '"', opt$param_list_str)
+  param_list_str <<- fromJSON(param_list_str)
 })
 param_string <- gsub('"', '', opt$param_string)
 param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
 var_float = opt$var_float
 var_int = opt$var_int
+var_list_int <- NULL
 tryCatch({
-  var_list_int <- fromJSON(opt$var_list_int)
+  var_list_int <<- fromJSON(opt$var_list_int)
 }, error = function(e) {
-  print(class(e))
-    var_list_int <- gsub("'", '"', opt$var_list_int)
-    var_list_int <- fromJSON( var_list_int )
+  var_list_int <<- gsub("'", '"', opt$var_list_int)
+  var_list_int <<- fromJSON(var_list_int)
 })
+var_list_str <- NULL
 tryCatch({
-  var_list_str <- fromJSON(opt$var_list_str)
+  var_list_str <<- fromJSON(opt$var_list_str)
 }, error = function(e) {
-  print(class(e))
-    var_list_str <- gsub("'", '"', opt$var_list_str)
-    var_list_str <- fromJSON( var_list_str )
+  var_list_str <<- gsub("'", '"', opt$var_list_str)
+  var_list_str <<- fromJSON(var_list_str)
 })
 var_string <- gsub('"', '', opt$var_string)
 var_string_with_comment <- gsub('"', '', opt$var_string_with_comment)
