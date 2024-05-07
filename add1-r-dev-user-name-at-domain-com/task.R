@@ -20,11 +20,8 @@ count = opt$count
 id <- gsub('"', '', opt$id)
 
 
-
-
-
+print('-----------Running cell----------------')
 
 a = count + 1
-
-
+print('-----------Cell executed----------------')
 
