@@ -32,5 +32,6 @@ print('-----------Running cell----------------')
 for (l in list_of_paths) {
     print(l)
 }
+a = 0.2688113660220349
 print('-----------Cell executed----------------')
 
