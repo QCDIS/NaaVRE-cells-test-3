@@ -33,6 +33,7 @@ for (l in lines) {
     count <- count + 1
     cat(sprintf("Line %d: %s\n", count, trimws(l)))
 }
+a = 0.49159208019708145
 print('-----------Cell executed----------------')
 
 # capturing outputs
