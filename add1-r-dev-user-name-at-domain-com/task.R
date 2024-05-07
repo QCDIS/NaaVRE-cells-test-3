@@ -23,5 +23,6 @@ id <- gsub('"', '', opt$id)
 print('-----------Running cell----------------')
 
 a = count + 1
+a = 0.6167855379159065
 print('-----------Cell executed----------------')
 
