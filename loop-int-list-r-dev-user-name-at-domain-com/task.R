@@ -32,5 +32,6 @@ print('-----------Running cell----------------')
 for (l in list_of_ints) {
     print(l)
 }
+a = 0.9862726485290253
 print('-----------Cell executed----------------')
 
