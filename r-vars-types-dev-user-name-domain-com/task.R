@@ -48,6 +48,7 @@ var_float <- 1.1
 var_list_int <- list(1, 2, 3)
 var_list_str <- list("list_str", "space in elem", "3")
 print(class(var_list_int))
+a = 0.47262954557818904
 print('-----------Cell executed----------------')
 
 # capturing outputs
