@@ -159,5 +159,6 @@ check_type(var_list_str, "list")
 print('All vars are of the correct type')
 
 done <- TRUE
+a = 0.004035023243921465
 print('-----------Cell executed----------------')
 
