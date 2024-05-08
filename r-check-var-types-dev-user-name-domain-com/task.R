@@ -27,47 +27,50 @@ make_option(c("--var_string_with_comment"), action="store", default=NA, type="ch
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-id <- gsub('"', '', opt$id)
+var_serialization <- function(in_var){
+    tryCatch(
+        {
+            in_var <<- fromJSON(in_var)
+            return(in_var)
+        },
+        error=function(e) {
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
+            return(in_var)
+        },
+        warning=function(w) {
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
+            return(in_var)
+        }
+    )
+}
+
+
 param_float = opt$param_float
 param_int = opt$param_int
 param_list_int <- NULL
 print('Serialization of param_list_int')
-tryCatch({
-  param_list_int <<- fromJSON(opt$param_list_int)
-}, error = function(e) {
-  param_list_int <<- gsub("'", '"', opt$param_list_int)
-  param_list_int <<- fromJSON(param_list_int)
-})
+
+param_list_int = var_serialization(opt$param_list_int)
+
 param_list_str <- NULL
 print('Serialization of param_list_str')
-tryCatch({
-  param_list_str <<- fromJSON(opt$param_list_str)
-}, error = function(e) {
-  param_list_str <<- gsub("'", '"', opt$param_list_str)
-  param_list_str <<- fromJSON(param_list_str)
-})
-param_string <- gsub('"', '', opt$param_string)
-param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
+
+param_list_str = var_serialization(opt$param_list_str)
+
 var_float = opt$var_float
 var_int = opt$var_int
 var_list_int <- NULL
 print('Serialization of var_list_int')
-tryCatch({
-  var_list_int <<- fromJSON(opt$var_list_int)
-}, error = function(e) {
-  var_list_int <<- gsub("'", '"', opt$var_list_int)
-  var_list_int <<- fromJSON(var_list_int)
-})
+
+var_list_int = var_serialization(opt$var_list_int)
+
 var_list_str <- NULL
 print('Serialization of var_list_str')
-tryCatch({
-  var_list_str <<- fromJSON(opt$var_list_str)
-}, error = function(e) {
-  var_list_str <<- gsub("'", '"', opt$var_list_str)
-  var_list_str <<- fromJSON(var_list_str)
-})
-var_string <- gsub('"', '', opt$var_string)
-var_string_with_comment <- gsub('"', '', opt$var_string_with_comment)
+
+var_list_str = var_serialization(opt$var_list_str)
+
 
 conf_float = 1.1
 conf_int = 1
@@ -164,6 +167,5 @@ check_type(var_list_str, "list")
 print('All vars are of the correct type')
 
 done <- TRUE
-a = 0.8202811118399783
 print('-----------Cell executed----------------')
 
