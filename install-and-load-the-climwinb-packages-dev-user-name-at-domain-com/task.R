@@ -23,12 +23,29 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-id <- gsub('"', '', opt$id)
+var_serialization <- function(in_var){
+    tryCatch(
+        {
+            in_var <<- fromJSON(in_var)
+            return(in_var)
+        },
+        error=function(e) {
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
+            return(in_var)
+        },
+        warning=function(w) {
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
+            return(in_var)
+        }
+    )
+}
 
 
 
 
-
+print('-----------Running cell----------------')
 if (!requireNamespace("climwin", quietly = TRUE)) {
   install.packages("climwin",repos = "http://cran.us.r-project.org")
 }
@@ -53,15 +70,14 @@ rolling_mean_temp <- rollmean(temperature_zoo, k = window_size, fill = 0.0)
 temperature_zoo_str <- toString(temperature_zoo)
 rolling_mean_temp_str <- toString(rolling_mean_temp)
 temperature_data_str <- toString(temperature_data)
-
-a = 0.42911673005840456
-
-
+print('-----------Cell executed----------------')
 
 # capturing outputs
+print('Serialization of rolling_mean_temp_str')
 file <- file(paste0('/tmp/rolling_mean_temp_str_', id, '.json'))
 writeLines(toJSON(rolling_mean_temp_str, auto_unbox=TRUE), file)
 close(file)
+print('Serialization of temperature_data_str')
 file <- file(paste0('/tmp/temperature_data_str_', id, '.json'))
 writeLines(toJSON(temperature_data_str, auto_unbox=TRUE), file)
 close(file)
