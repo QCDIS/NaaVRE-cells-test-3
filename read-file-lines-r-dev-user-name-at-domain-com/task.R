@@ -19,23 +19,25 @@ opt = parse_args(OptionParser(option_list=option_list))
 var_serialization <- function(in_var){
     tryCatch(
         {
-            in_var <<- fromJSON(in_var)
+            in_var <- fromJSON(in_var)
             return(in_var)
         },
         error=function(e) {
-             <<- gsub("'", '"', in_var)
-             <<- fromJSON(in_var)
+            in_var  <- gsub("'", '"', in_var)
+            in_var  <- fromJSON(in_var)
             return(in_var)
         },
         warning=function(w) {
-             <<- gsub("'", '"', in_var)
-             <<- fromJSON(in_var)
+            in_var  <- gsub("'", '"', in_var)
+            in_var  <- fromJSON(in_var)
             return(in_var)
         }
     )
 }
 
 
+file_path <- gsub('"', '', opt$file_path)
+id <- gsub('"', '', opt$id)
 
 conf_data_folder <- file.path('/tmp', 'data')
 
