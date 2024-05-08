@@ -50,6 +50,7 @@ list_of_ints <- c(1, 2, 35, 6, 65)
 
 print(list_of_paths)
 print(list_of_ints)
+a = 0.9262997339227048
 print('-----------Cell executed----------------')
 
 # capturing outputs
