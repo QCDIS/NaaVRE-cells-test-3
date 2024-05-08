@@ -36,9 +36,7 @@ var_serialization <- function(in_var){
 }
 
 
-lines <- NULL
 print('Serialization of lines')
-
 lines = var_serialization(opt$lines)
 
 
@@ -49,7 +47,6 @@ for (l in lines) {
     count <- count + 1
     cat(sprintf("Line %d: %s\n", count, trimws(l)))
 }
-a = 0.6320713905468963
 print('-----------Cell executed----------------')
 
 # capturing outputs
