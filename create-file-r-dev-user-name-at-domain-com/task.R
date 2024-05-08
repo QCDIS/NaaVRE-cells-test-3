@@ -18,23 +18,24 @@ opt = parse_args(OptionParser(option_list=option_list))
 var_serialization <- function(in_var){
     tryCatch(
         {
-            in_var <<- fromJSON(in_var)
+            in_var <- fromJSON(in_var)
             return(in_var)
         },
         error=function(e) {
-             <<- gsub("'", '"', in_var)
-             <<- fromJSON(in_var)
+            in_var  <- gsub("'", '"', in_var)
+            in_var  <- fromJSON(in_var)
             return(in_var)
         },
         warning=function(w) {
-             <<- gsub("'", '"', in_var)
-             <<- fromJSON(in_var)
+            in_var  <- gsub("'", '"', in_var)
+            in_var  <- fromJSON(in_var)
             return(in_var)
         }
     )
 }
 
 
+id <- gsub('"', '', opt$id)
 
 
 print('-----------Running cell----------------')
