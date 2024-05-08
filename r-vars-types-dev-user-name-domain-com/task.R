@@ -4,10 +4,6 @@ setwd('/app')
 
 library(optparse)
 library(jsonlite)
-if (!requireNamespace("jsonlite", quietly = TRUE)) {
-	install.packages("jsonlite", repos="http://cran.us.r-project.org")
-}
-library(jsonlite)
 
 
 option_list = list(
