@@ -36,9 +36,7 @@ var_serialization <- function(in_var){
 }
 
 
-list_of_ints <- NULL
 print('Serialization of list_of_ints')
-
 list_of_ints = var_serialization(opt$list_of_ints)
 
 
@@ -48,6 +46,5 @@ print('-----------Running cell----------------')
 for (l in list_of_ints) {
     print(l)
 }
-a = 0.2861212678333538
 print('-----------Cell executed----------------')
 
