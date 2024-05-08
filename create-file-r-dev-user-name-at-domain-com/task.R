@@ -49,7 +49,6 @@ writeLines(L, file_path)
 onlyfiles <- list.files(conf_data_folder, full.names = TRUE)
 
 print(onlyfiles)
-a = 0.5244940894212629
 print('-----------Cell executed----------------')
 
 # capturing outputs
