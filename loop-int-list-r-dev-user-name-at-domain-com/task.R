@@ -16,18 +16,37 @@ make_option(c("--list_of_ints"), action="store", default=NA, type="character", h
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-id <- gsub('"', '', opt$id)
-list_of_ints = fromJSON(opt$list_of_ints)
+var_serialization <- function(in_var){
+    tryCatch(
+        {
+            in_var <<- fromJSON(in_var)
+            return(in_var)
+        },
+        error=function(e) {
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
+            return(in_var)
+        },
+        warning=function(w) {
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
+            return(in_var)
+        }
+    )
+}
+
+
+list_of_ints <- NULL
+print('Serialization of list_of_ints')
+
+list_of_ints = var_serialization(opt$list_of_ints)
 
 
 
-
-
+print('-----------Running cell----------------')
 
 for (l in list_of_ints) {
     print(l)
 }
-a = 0.8923385280335527
-
-
+print('-----------Cell executed----------------')
 
