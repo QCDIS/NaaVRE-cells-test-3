@@ -36,9 +36,7 @@ var_serialization <- function(in_var){
 }
 
 
-list_of_paths <- NULL
 print('Serialization of list_of_paths')
-
 list_of_paths = var_serialization(opt$list_of_paths)
 
 
@@ -48,6 +46,5 @@ print('-----------Running cell----------------')
 for (l in list_of_paths) {
     print(l)
 }
-a = 0.6628277606203914
 print('-----------Cell executed----------------')
 
