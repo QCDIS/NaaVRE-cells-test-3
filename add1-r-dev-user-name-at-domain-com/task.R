@@ -42,6 +42,5 @@ count = opt$count
 print('-----------Running cell----------------')
 
 a = count + 1
-a = 0.4023136135880825
 print('-----------Cell executed----------------')
 
