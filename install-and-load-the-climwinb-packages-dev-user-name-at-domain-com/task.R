@@ -70,8 +70,6 @@ rolling_mean_temp <- rollmean(temperature_zoo, k = window_size, fill = 0.0)
 temperature_zoo_str <- toString(temperature_zoo)
 rolling_mean_temp_str <- toString(rolling_mean_temp)
 temperature_data_str <- toString(temperature_data)
-
-a = 0.2894426574554132
 print('-----------Cell executed----------------')
 
 # capturing outputs
