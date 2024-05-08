@@ -38,35 +38,36 @@ var_serialization <- function(in_var){
             return(in_var)
         },
         error=function(e) {
-             <<- gsub("'", '"', in_var)
-             <<- fromJSON(in_var)
+            in_var  <- gsub("'", '"', in_var)
+            in_var  <- fromJSON(in_var)
             return(in_var)
         },
         warning=function(w) {
-             <<- gsub("'", '"', in_var)
-             <<- fromJSON(in_var)
+            in_var  <- gsub("'", '"', in_var)
+            in_var  <- fromJSON(in_var)
             return(in_var)
         }
     )
 }
 
 
+id <- gsub('"', '', opt$id)
 param_float = opt$param_float
 param_int = opt$param_int
 print('Serialization of param_list_int')
 param_list_int = var_serialization(opt$param_list_int)
-
 print('Serialization of param_list_str')
 param_list_str = var_serialization(opt$param_list_str)
-
+param_string <- gsub('"', '', opt$param_string)
+param_string_with_comment <- gsub('"', '', opt$param_string_with_comment)
 var_float = opt$var_float
 var_int = opt$var_int
 print('Serialization of var_list_int')
 var_list_int = var_serialization(opt$var_list_int)
-
 print('Serialization of var_list_str')
 var_list_str = var_serialization(opt$var_list_str)
-
+var_string <- gsub('"', '', opt$var_string)
+var_string_with_comment <- gsub('"', '', opt$var_string_with_comment)
 
 conf_string = 'param_string value'
 conf_string_with_comment = 'param_string value'
