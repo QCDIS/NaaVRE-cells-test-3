@@ -15,7 +15,26 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-id <- gsub('"', '', opt$id)
+var_serialization <- function(in_var){
+    tryCatch(
+        {
+            in_var <<- fromJSON(in_var)
+            return(in_var)
+        },
+        error=function(e) {
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
+            return(in_var)
+        },
+        warning=function(w) {
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
+            return(in_var)
+        }
+    )
+}
+
+
 
 
 print('-----------Running cell----------------')
@@ -28,7 +47,6 @@ var_float <- 1.1
 var_list_int <- list(1, 2, 3)
 var_list_str <- list("list_str", "space in elem", "3")
 print(class(var_list_int))
-a = 0.3092834122512771
 print('-----------Cell executed----------------')
 
 # capturing outputs
