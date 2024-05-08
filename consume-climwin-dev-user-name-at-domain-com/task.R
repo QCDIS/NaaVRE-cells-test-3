@@ -54,5 +54,6 @@ print('-----------Running cell----------------')
 
 cat("Original Temperature Data:\n", head(temperature_data_str), "\n\n")
 cat("Rolling Mean Temperature in Moving Windows:\n", head(coredata(rolling_mean_temp_str)), "\n")
+a = 0.23492819207025006
 print('-----------Cell executed----------------')
 
