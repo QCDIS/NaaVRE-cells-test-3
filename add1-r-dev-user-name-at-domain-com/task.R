@@ -16,33 +16,13 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-var_serialization <- function(in_var){
-    tryCatch(
-        {
-            in_var <- fromJSON(in_var)
-            return(in_var)
-        },
-        error=function(e) {
-            in_var  <- gsub("'", '"', in_var)
-            in_var  <- fromJSON(in_var)
-            return(in_var)
-        },
-        warning=function(w) {
-            in_var  <- gsub("'", '"', in_var)
-            in_var  <- fromJSON(in_var)
-            return(in_var)
-        }
-    )
-}
-
-
 count = opt$count
 id <- gsub('"', '', opt$id)
 
 
-print('-----------Running cell----------------')
+
+
+
 
 a = count + 1
-a = 0.903110536769077
-print('-----------Cell executed----------------')
 
