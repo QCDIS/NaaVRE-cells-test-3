@@ -74,12 +74,12 @@ print("Input parameters deserialized")
 
 
 
-conf_string = 'param_string value'
-conf_string_with_comment = 'param_string value'
-conf_int = 1
 conf_float = 1.1
+conf_int = 1
 conf_list_int = list(1, 2, 3)
 conf_list_str = list('list_str', 'space in elem', '3')
+conf_string = 'param_string value'
+conf_string_with_comment = 'param_string value'
 
 print("Running the cell")
 conf_string = 'param_string value'
