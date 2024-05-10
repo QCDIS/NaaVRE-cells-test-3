@@ -5,6 +5,7 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
+print("Retrieving input parameters")
 
 option_list = list(
 
@@ -12,18 +13,4 @@ make_option(c("--count"), action="store", default=NA, type="integer", help="my d
 make_option(c("--id"), action="store", default=NA, type="character", help="my description")
 
 )
-
-# set input parameters accordingly
-opt = parse_args(OptionParser(option_list=option_list))
-
-count = opt$count
-id <- gsub('"', '', opt$id)
-
-
-
-
-
-
-a = count + 1
-a = 0.24400557063363126
-
+print(option_list)
