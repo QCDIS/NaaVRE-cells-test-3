@@ -22,26 +22,23 @@ opt = parse_args(OptionParser(option_list=option_list))
 var_serialization <- function(in_var){
     tryCatch(
         {
-            in_var <<- fromJSON(in_var)
+            in_var <- fromJSON(in_var)
             return(in_var)
         },
         error=function(e) {
-             <<- gsub("'", '"', in_var)
-             <<- fromJSON(in_var)
+             <- gsub("'", '"', in_var)
+             <- fromJSON(in_var)
             return(in_var)
         },
         warning=function(w) {
-             <<- gsub("'", '"', in_var)
-             <<- fromJSON(in_var)
+             <- gsub("'", '"', in_var)
+             <- fromJSON(in_var)
             return(in_var)
         }
     )
 }
 
 
-
-
-print('-----------Running cell----------------')
 
 
 var_string <- 'var_string value'
@@ -51,8 +48,6 @@ var_float <- 1.1
 var_list_int <- list(1, 2, 3)
 var_list_str <- list("list_str", "space in elem", "3")
 print(class(var_list_int))
-print('-----------Cell executed----------------')
-
 # capturing outputs
 print('Serialization of var_string')
 file <- file(paste0('/tmp/var_string_', id, '.json'))
