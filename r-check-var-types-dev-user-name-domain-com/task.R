@@ -31,21 +31,21 @@ make_option(c("--var_string_with_comment"), action="store", default=NA, type="ch
 # set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-var_serialization <- function(in_var){
+var_serialization <- function(var){
     tryCatch(
         {
-            in_var <- fromJSON(in_var)
-            return(in_var)
+            var <- fromJSON(var)
+            return(var)
         },
         error=function(e) {
-             <- gsub("'", '"', in_var)
-             <- fromJSON(in_var)
-            return(in_var)
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            return(var)
         },
         warning=function(w) {
-             <- gsub("'", '"', in_var)
-             <- fromJSON(in_var)
-            return(in_var)
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            return(var)
         }
     )
 }
