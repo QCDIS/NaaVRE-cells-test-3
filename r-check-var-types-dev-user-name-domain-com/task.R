@@ -46,6 +46,7 @@ var_serialization <- function(var){
         },
         error=function(e) {
             print("Error while deserializing the variable")
+            print(var)
             var <- gsub("'", '"', var)
             var <- fromJSON(var)
             print("Variable deserialized")
