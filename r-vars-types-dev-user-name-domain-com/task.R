@@ -4,6 +4,10 @@ setwd('/app')
 
 library(optparse)
 library(jsonlite)
+if (!requireNamespace("jsonlite", quietly = TRUE)) {
+	install.packages("jsonlite", repos="http://cran.us.r-project.org")
+}
+library(jsonlite)
 
 
 option_list = list(
@@ -18,24 +22,23 @@ opt = parse_args(OptionParser(option_list=option_list))
 var_serialization <- function(in_var){
     tryCatch(
         {
-            in_var <- fromJSON(in_var)
+            in_var <<- fromJSON(in_var)
             return(in_var)
         },
         error=function(e) {
-            in_var  <- gsub("'", '"', in_var)
-            in_var  <- fromJSON(in_var)
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
             return(in_var)
         },
         warning=function(w) {
-            in_var  <- gsub("'", '"', in_var)
-            in_var  <- fromJSON(in_var)
+             <<- gsub("'", '"', in_var)
+             <<- fromJSON(in_var)
             return(in_var)
         }
     )
 }
 
 
-id <- gsub('"', '', opt$id)
 
 
 print('-----------Running cell----------------')
@@ -48,7 +51,6 @@ var_float <- 1.1
 var_list_int <- list(1, 2, 3)
 var_list_str <- list("list_str", "space in elem", "3")
 print(class(var_list_int))
-a = 0.47262954557818904
 print('-----------Cell executed----------------')
 
 # capturing outputs
