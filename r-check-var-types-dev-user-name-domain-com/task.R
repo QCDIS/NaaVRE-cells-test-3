@@ -50,14 +50,19 @@ var_serialization <- function(var){
     )
 }
 
+id <- gsub("\"", "", opt$id)
 param_float = opt$param_float
 param_int = opt$param_int
 param_list_int = var_serialization(opt$param_list_int)
 param_list_str = var_serialization(opt$param_list_str)
+param_string <- gsub("\"", "", opt$param_string)
+param_string_with_comment <- gsub("\"", "", opt$param_string_with_comment)
 var_float = opt$var_float
 var_int = opt$var_int
 var_list_int = var_serialization(opt$var_list_int)
 var_list_str = var_serialization(opt$var_list_str)
+var_string <- gsub("\"", "", opt$var_string)
+var_string_with_comment <- gsub("\"", "", opt$var_string_with_comment)
 
 conf_string = 'param_string value'
 conf_string_with_comment = 'param_string value'
