@@ -5,6 +5,7 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
+
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description")
@@ -49,10 +50,8 @@ var_serialization <- function(var){
 }
 
 var = opt$id
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$id is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
 
@@ -69,7 +68,6 @@ writeLines(L, file_path)
 onlyfiles <- list.files(conf_data_folder, full.names = TRUE)
 
 print(onlyfiles)
-a = 0.9257111800360215
 # capturing outputs
 print('Serialization of file_path')
 file <- file(paste0('/tmp/file_path_', id, '.json'))
