@@ -37,9 +37,12 @@ opt = parse_args(OptionParser(option_list=option_list))
 print("Input parameters retrieved")
 
 var_serialization <- function(var){
+    if (is.null(var)){
+        print("Variable is null")
+        exit(1)
+    }
     tryCatch(
         {
-            print("Trying to deserialize the variable")
             var <- fromJSON(var)
             print("Variable deserialized")
             return(var)
