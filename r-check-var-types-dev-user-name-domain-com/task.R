@@ -4,8 +4,7 @@ setwd('/app')
 
 library(optparse)
 library(jsonlite)
-install.packages ("purrr")
-library(purrr)
+
 if (!requireNamespace("jsonlite", quietly = TRUE)) {
 	install.packages("jsonlite", repos="http://cran.us.r-project.org")
 }
@@ -67,34 +66,26 @@ var_serialization <- function(var){
 }
 
 var = opt$id
-if (is_empty(var)){
-    print("Variable id is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
 
 var = opt$param_float
-if (is_empty(var)){
-    print("Variable param_float is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable param_float has length", var_len))
 
 param_float = opt$param_float
 
 var = opt$param_int
-if (is_empty(var)){
-    print("Variable param_int is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable param_int has length", var_len))
 
 param_int = opt$param_int
 
 var = opt$param_list_int
-if (is_empty(var)){
-    print("Variable param_list_int is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable param_list_int has length", var_len))
 
 print("------------------------Running var_serialization for param_list_int-----------------------")
 print(opt$param_list_int)
@@ -103,10 +94,8 @@ print("-------------------------------------------------------------------------
 
 
 var = opt$param_list_str
-if (is_empty(var)){
-    print("Variable param_list_str is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable param_list_str has length", var_len))
 
 print("------------------------Running var_serialization for param_list_str-----------------------")
 print(opt$param_list_str)
@@ -115,42 +104,32 @@ print("-------------------------------------------------------------------------
 
 
 var = opt$param_string
-if (is_empty(var)){
-    print("Variable param_string is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable param_string has length", var_len))
 
 param_string <- gsub("\"", "", opt$param_string)
 
 var = opt$param_string_with_comment
-if (is_empty(var)){
-    print("Variable param_string_with_comment is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable param_string_with_comment has length", var_len))
 
 param_string_with_comment <- gsub("\"", "", opt$param_string_with_comment)
 
 var = opt$var_float
-if (is_empty(var)){
-    print("Variable var_float is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable var_float has length", var_len))
 
 var_float = opt$var_float
 
 var = opt$var_int
-if (is_empty(var)){
-    print("Variable var_int is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable var_int has length", var_len))
 
 var_int = opt$var_int
 
 var = opt$var_list_int
-if (is_empty(var)){
-    print("Variable var_list_int is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable var_list_int has length", var_len))
 
 print("------------------------Running var_serialization for var_list_int-----------------------")
 print(opt$var_list_int)
@@ -159,10 +138,8 @@ print("-------------------------------------------------------------------------
 
 
 var = opt$var_list_str
-if (is_empty(var)){
-    print("Variable var_list_str is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable var_list_str has length", var_len))
 
 print("------------------------Running var_serialization for var_list_str-----------------------")
 print(opt$var_list_str)
@@ -171,18 +148,14 @@ print("-------------------------------------------------------------------------
 
 
 var = opt$var_string
-if (is_empty(var)){
-    print("Variable var_string is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable var_string has length", var_len))
 
 var_string <- gsub("\"", "", opt$var_string)
 
 var = opt$var_string_with_comment
-if (is_empty(var)){
-    print("Variable var_string_with_comment is empty")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable var_string_with_comment has length", var_len))
 
 var_string_with_comment <- gsub("\"", "", opt$var_string_with_comment)
 
