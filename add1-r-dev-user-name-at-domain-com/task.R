@@ -5,6 +5,7 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
+
 option_list = list(
 
 make_option(c("--count"), action="store", default=NA, type="integer", help="my description"), 
@@ -50,18 +51,14 @@ var_serialization <- function(var){
 }
 
 var = opt$count
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$count is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable count has length", var_len))
 
 count = opt$count
 
 var = opt$id
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$id is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
 
@@ -69,4 +66,3 @@ id <- gsub("\"", "", opt$id)
 print("Running the cell")
 
 a = count + 1
-a = 0.4494329508658961
