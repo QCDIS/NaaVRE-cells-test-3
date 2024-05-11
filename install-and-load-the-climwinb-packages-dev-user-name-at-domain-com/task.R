@@ -4,6 +4,7 @@ setwd('/app')
 
 library(optparse)
 library(jsonlite)
+
 if (!requireNamespace("climwin", quietly = TRUE)) {
 	install.packages("climwin", repos="http://cran.us.r-project.org")
 }
@@ -57,10 +58,8 @@ var_serialization <- function(var){
 }
 
 var = opt$id
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$id is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
 
@@ -90,8 +89,6 @@ rolling_mean_temp <- rollmean(temperature_zoo, k = window_size, fill = 0.0)
 temperature_zoo_str <- toString(temperature_zoo)
 rolling_mean_temp_str <- toString(rolling_mean_temp)
 temperature_data_str <- toString(temperature_data)
-
-a = 0.22809761742830192
 # capturing outputs
 print('Serialization of rolling_mean_temp_str')
 file <- file(paste0('/tmp/rolling_mean_temp_str_', id, '.json'))
