@@ -37,29 +37,19 @@ opt = parse_args(OptionParser(option_list=option_list))
 print("Input parameters retrieved")
 
 var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
     tryCatch(
         {
             var <- fromJSON(var)
-            print("Variable deserialized")
             return(var)
         },
         error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
             var <- gsub("'", '"', var)
             var <- fromJSON(var)
-            print("Variable deserialized")
             return(var)
         },
         warning=function(w) {
-            print("Warning while deserializing the variable")
             var <- gsub("'", '"', var)
             var <- fromJSON(var)
-            print("Variable deserialized")
             return(var)
         }
     )
@@ -69,17 +59,13 @@ print("Deserializing input parameters")
 id <- gsub("\"", "", opt$id)
 param_float = opt$param_float
 param_int = opt$param_int
-print("Running var_serialization for param_list_int")
 param_list_int = var_serialization(opt$param_list_int)
-print("Running var_serialization for param_list_str")
 param_list_str = var_serialization(opt$param_list_str)
 param_string <- gsub("\"", "", opt$param_string)
 param_string_with_comment <- gsub("\"", "", opt$param_string_with_comment)
 var_float = opt$var_float
 var_int = opt$var_int
-print("Running var_serialization for var_list_int")
 var_list_int = var_serialization(opt$var_list_int)
-print("Running var_serialization for var_list_str")
 var_list_str = var_serialization(opt$var_list_str)
 var_string <- gsub("\"", "", opt$var_string)
 var_string_with_comment <- gsub("\"", "", opt$var_string_with_comment)
@@ -88,12 +74,12 @@ print("Input parameters deserialized")
 
 
 
-conf_float = 1.1
-conf_int = 1
-conf_list_int = list(1, 2, 3)
-conf_list_str = list('list_str', 'space in elem', '3')
 conf_string = 'param_string value'
 conf_string_with_comment = 'param_string value'
+conf_int = 1
+conf_float = 1.1
+conf_list_int = list(1, 2, 3)
+conf_list_str = list('list_str', 'space in elem', '3')
 
 print("Running the cell")
 conf_string = 'param_string value'
