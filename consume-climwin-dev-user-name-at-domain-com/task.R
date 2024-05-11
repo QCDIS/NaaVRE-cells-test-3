@@ -4,6 +4,7 @@ setwd('/app')
 
 library(optparse)
 library(jsonlite)
+
 if (!requireNamespace("climwin", quietly = TRUE)) {
 	install.packages("climwin", repos="http://cran.us.r-project.org")
 }
@@ -59,26 +60,20 @@ var_serialization <- function(var){
 }
 
 var = opt$id
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$id is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
 
 var = opt$rolling_mean_temp_str
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$rolling_mean_temp_str is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable rolling_mean_temp_str has length", var_len))
 
 rolling_mean_temp_str <- gsub("\"", "", opt$rolling_mean_temp_str)
 
 var = opt$temperature_data_str
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$temperature_data_str is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable temperature_data_str has length", var_len))
 
 temperature_data_str <- gsub("\"", "", opt$temperature_data_str)
 
@@ -87,4 +82,3 @@ print("Running the cell")
 
 cat("Original Temperature Data:\n", head(temperature_data_str), "\n\n")
 cat("Rolling Mean Temperature in Moving Windows:\n", head(coredata(rolling_mean_temp_str)), "\n")
-a = 0.8005833940324197
