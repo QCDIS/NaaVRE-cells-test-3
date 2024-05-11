@@ -9,35 +9,20 @@ if (!requireNamespace("jsonlite", quietly = TRUE)) {
 }
 library(jsonlite)
 
-print("Retrieving input parameters")
-
 option_list = list(
 
-print(id)
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
-print(param_float)
 make_option(c("--param_float"), action="store", default=NA, type="numeric", help="my description"), 
-print(param_int)
 make_option(c("--param_int"), action="store", default=NA, type="integer", help="my description"), 
-print(param_list_int)
 make_option(c("--param_list_int"), action="store", default=NA, type="character", help="my description"), 
-print(param_list_str)
 make_option(c("--param_list_str"), action="store", default=NA, type="character", help="my description"), 
-print(param_string)
 make_option(c("--param_string"), action="store", default=NA, type="character", help="my description"), 
-print(param_string_with_comment)
 make_option(c("--param_string_with_comment"), action="store", default=NA, type="character", help="my description"), 
-print(var_float)
 make_option(c("--var_float"), action="store", default=NA, type="numeric", help="my description"), 
-print(var_int)
 make_option(c("--var_int"), action="store", default=NA, type="integer", help="my description"), 
-print(var_list_int)
 make_option(c("--var_list_int"), action="store", default=NA, type="character", help="my description"), 
-print(var_list_str)
 make_option(c("--var_list_str"), action="store", default=NA, type="character", help="my description"), 
-print(var_string)
 make_option(c("--var_string"), action="store", default=NA, type="character", help="my description"), 
-print(var_string_with_comment)
 make_option(c("--var_string_with_comment"), action="store", default=NA, type="character", help="my description")
 
 )
@@ -50,6 +35,7 @@ opt = parse_args(OptionParser(option_list=option_list))
 print("Input parameters retrieved")
 
 var_serialization <- function(var){
+    print(var)
     if (is.null(var)){
         print("Variable is null")
         exit(1)
