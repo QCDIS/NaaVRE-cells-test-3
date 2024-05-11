@@ -5,6 +5,7 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
+
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
@@ -50,18 +51,14 @@ var_serialization <- function(var){
 }
 
 var = opt$id
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$id is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
 
 var = opt$lines
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$lines is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable lines has length", var_len))
 
 print("------------------------Running var_serialization for lines-----------------------")
 print(opt$lines)
@@ -76,7 +73,6 @@ for (l in lines) {
     count <- count + 1
     cat(sprintf("Line %d: %s\n", count, trimws(l)))
 }
-a = 0.35732257627944886
 # capturing outputs
 print('Serialization of count')
 file <- file(paste0('/tmp/count_', id, '.json'))
