@@ -64,28 +64,32 @@ var_serialization <- function(var){
     )
 }
 
-if (is.null(opt$id) || opt$id == NA || opt$id == ""){
+var = opt$id
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$id is null")
     exit(1)
 }
 
 id <- gsub("\"", "", opt$id)
 
-if (is.null(opt$param_float) || opt$param_float == NA || opt$param_float == ""){
+var = opt$param_float
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$param_float is null")
     exit(1)
 }
 
 param_float = opt$param_float
 
-if (is.null(opt$param_int) || opt$param_int == NA || opt$param_int == ""){
+var = opt$param_int
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$param_int is null")
     exit(1)
 }
 
 param_int = opt$param_int
 
-if (is.null(opt$param_list_int) || opt$param_list_int == NA || opt$param_list_int == ""){
+var = opt$param_list_int
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$param_list_int is null")
     exit(1)
 }
@@ -96,7 +100,8 @@ param_list_int = var_serialization(opt$param_list_int)
 print("---------------------------------------------------------------------------------")
 
 
-if (is.null(opt$param_list_str) || opt$param_list_str == NA || opt$param_list_str == ""){
+var = opt$param_list_str
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$param_list_str is null")
     exit(1)
 }
@@ -107,35 +112,40 @@ param_list_str = var_serialization(opt$param_list_str)
 print("---------------------------------------------------------------------------------")
 
 
-if (is.null(opt$param_string) || opt$param_string == NA || opt$param_string == ""){
+var = opt$param_string
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$param_string is null")
     exit(1)
 }
 
 param_string <- gsub("\"", "", opt$param_string)
 
-if (is.null(opt$param_string_with_comment) || opt$param_string_with_comment == NA || opt$param_string_with_comment == ""){
+var = opt$param_string_with_comment
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$param_string_with_comment is null")
     exit(1)
 }
 
 param_string_with_comment <- gsub("\"", "", opt$param_string_with_comment)
 
-if (is.null(opt$var_float) || opt$var_float == NA || opt$var_float == ""){
+var = opt$var_float
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$var_float is null")
     exit(1)
 }
 
 var_float = opt$var_float
 
-if (is.null(opt$var_int) || opt$var_int == NA || opt$var_int == ""){
+var = opt$var_int
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$var_int is null")
     exit(1)
 }
 
 var_int = opt$var_int
 
-if (is.null(opt$var_list_int) || opt$var_list_int == NA || opt$var_list_int == ""){
+var = opt$var_list_int
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$var_list_int is null")
     exit(1)
 }
@@ -146,7 +156,8 @@ var_list_int = var_serialization(opt$var_list_int)
 print("---------------------------------------------------------------------------------")
 
 
-if (is.null(opt$var_list_str) || opt$var_list_str == NA || opt$var_list_str == ""){
+var = opt$var_list_str
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$var_list_str is null")
     exit(1)
 }
@@ -157,14 +168,16 @@ var_list_str = var_serialization(opt$var_list_str)
 print("---------------------------------------------------------------------------------")
 
 
-if (is.null(opt$var_string) || opt$var_string == NA || opt$var_string == ""){
+var = opt$var_string
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$var_string is null")
     exit(1)
 }
 
 var_string <- gsub("\"", "", opt$var_string)
 
-if (is.null(opt$var_string_with_comment) || opt$var_string_with_comment == NA || opt$var_string_with_comment == ""){
+var = opt$var_string_with_comment
+if (is.null(var) || var == NA || var == ""){
     print("Variable opt$var_string_with_comment is null")
     exit(1)
 }
