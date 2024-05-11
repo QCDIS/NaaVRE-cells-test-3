@@ -4,6 +4,8 @@ setwd('/app')
 
 library(optparse)
 library(jsonlite)
+install.packages ("purrr")
+library(purrr)
 if (!requireNamespace("jsonlite", quietly = TRUE)) {
 	install.packages("jsonlite", repos="http://cran.us.r-project.org")
 }
@@ -65,32 +67,32 @@ var_serialization <- function(var){
 }
 
 var = opt$id
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$id is null")
+if (is_empty(var)){
+    print("Variable id is empty")
     exit(1)
 }
 
 id <- gsub("\"", "", opt$id)
 
 var = opt$param_float
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$param_float is null")
+if (is_empty(var)){
+    print("Variable param_float is empty")
     exit(1)
 }
 
 param_float = opt$param_float
 
 var = opt$param_int
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$param_int is null")
+if (is_empty(var)){
+    print("Variable param_int is empty")
     exit(1)
 }
 
 param_int = opt$param_int
 
 var = opt$param_list_int
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$param_list_int is null")
+if (is_empty(var)){
+    print("Variable param_list_int is empty")
     exit(1)
 }
 
@@ -101,8 +103,8 @@ print("-------------------------------------------------------------------------
 
 
 var = opt$param_list_str
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$param_list_str is null")
+if (is_empty(var)){
+    print("Variable param_list_str is empty")
     exit(1)
 }
 
@@ -113,40 +115,40 @@ print("-------------------------------------------------------------------------
 
 
 var = opt$param_string
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$param_string is null")
+if (is_empty(var)){
+    print("Variable param_string is empty")
     exit(1)
 }
 
 param_string <- gsub("\"", "", opt$param_string)
 
 var = opt$param_string_with_comment
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$param_string_with_comment is null")
+if (is_empty(var)){
+    print("Variable param_string_with_comment is empty")
     exit(1)
 }
 
 param_string_with_comment <- gsub("\"", "", opt$param_string_with_comment)
 
 var = opt$var_float
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$var_float is null")
+if (is_empty(var)){
+    print("Variable var_float is empty")
     exit(1)
 }
 
 var_float = opt$var_float
 
 var = opt$var_int
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$var_int is null")
+if (is_empty(var)){
+    print("Variable var_int is empty")
     exit(1)
 }
 
 var_int = opt$var_int
 
 var = opt$var_list_int
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$var_list_int is null")
+if (is_empty(var)){
+    print("Variable var_list_int is empty")
     exit(1)
 }
 
@@ -157,8 +159,8 @@ print("-------------------------------------------------------------------------
 
 
 var = opt$var_list_str
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$var_list_str is null")
+if (is_empty(var)){
+    print("Variable var_list_str is empty")
     exit(1)
 }
 
@@ -169,16 +171,16 @@ print("-------------------------------------------------------------------------
 
 
 var = opt$var_string
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$var_string is null")
+if (is_empty(var)){
+    print("Variable var_string is empty")
     exit(1)
 }
 
 var_string <- gsub("\"", "", opt$var_string)
 
 var = opt$var_string_with_comment
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$var_string_with_comment is null")
+if (is_empty(var)){
+    print("Variable var_string_with_comment is empty")
     exit(1)
 }
 
@@ -280,4 +282,3 @@ check_type(var_list_str, c("list"))
 print('All vars are of the correct type')
 
 done <- TRUE
-a = 0.4109025902876565
