@@ -13,8 +13,6 @@ if (!requireNamespace("zoo", quietly = TRUE)) {
 }
 library(zoo)
 
-print("Retrieving input parameters")
-
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
@@ -22,4 +20,70 @@ make_option(c("--rolling_mean_temp_str"), action="store", default=NA, type="char
 make_option(c("--temperature_data_str"), action="store", default=NA, type="character", help="my description")
 
 )
+print("------------------Option list------------------")
 print(option_list)
+
+
+# set input parameters accordingly
+opt = parse_args(OptionParser(option_list=option_list))
+
+
+
+var_serialization <- function(var){
+    if (is.null(var)){
+        print("Variable is null")
+        exit(1)
+    }
+    tryCatch(
+        {
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        },
+        error=function(e) {
+            print("Error while deserializing the variable")
+            print(var)
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        },
+        warning=function(w) {
+            print("Warning while deserializing the variable")
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        }
+    )
+}
+
+var = opt$id
+if (is.null(var) || var == NA || var == ""){
+    print("Variable opt$id is null")
+    exit(1)
+}
+
+id <- gsub("\"", "", opt$id)
+
+var = opt$rolling_mean_temp_str
+if (is.null(var) || var == NA || var == ""){
+    print("Variable opt$rolling_mean_temp_str is null")
+    exit(1)
+}
+
+rolling_mean_temp_str <- gsub("\"", "", opt$rolling_mean_temp_str)
+
+var = opt$temperature_data_str
+if (is.null(var) || var == NA || var == ""){
+    print("Variable opt$temperature_data_str is null")
+    exit(1)
+}
+
+temperature_data_str <- gsub("\"", "", opt$temperature_data_str)
+
+
+print("Running the cell")
+
+cat("Original Temperature Data:\n", head(temperature_data_str), "\n\n")
+cat("Rolling Mean Temperature in Moving Windows:\n", head(coredata(rolling_mean_temp_str)), "\n")
