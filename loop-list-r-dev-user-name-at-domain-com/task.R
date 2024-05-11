@@ -5,6 +5,7 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
+
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
@@ -50,18 +51,14 @@ var_serialization <- function(var){
 }
 
 var = opt$id
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$id is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
 
 var = opt$list_of_paths
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$list_of_paths is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable list_of_paths has length", var_len))
 
 print("------------------------Running var_serialization for list_of_paths-----------------------")
 print(opt$list_of_paths)
@@ -75,4 +72,3 @@ print("Running the cell")
 for (l in list_of_paths) {
     print(l)
 }
-a = 0.6473770876219085
