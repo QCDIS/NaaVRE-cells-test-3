@@ -4,6 +4,7 @@ setwd('/app')
 
 library(optparse)
 library(jsonlite)
+
 if (!requireNamespace("jsonlite", quietly = TRUE)) {
 	install.packages("jsonlite", repos="http://cran.us.r-project.org")
 }
@@ -53,10 +54,8 @@ var_serialization <- function(var){
 }
 
 var = opt$id
-if (is.null(var) || var == NA || var == ""){
-    print("Variable opt$id is null")
-    exit(1)
-}
+var_len = length(var)
+print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
 
@@ -71,7 +70,6 @@ var_float <- 1.1
 var_list_int <- list(1, 2, 3)
 var_list_str <- list("list_str", "space in elem", "3")
 print(class(var_list_int))
-a = 0.2587014682004696
 # capturing outputs
 print('Serialization of var_string')
 file <- file(paste0('/tmp/var_string_', id, '.json'))
