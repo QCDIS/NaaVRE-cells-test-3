@@ -67,10 +67,12 @@ id <- gsub("\"", "", opt$id)
 param_float = opt$param_float
 param_int = opt$param_int
 print("------------------------Running var_serialization for param_list_int-----------------------")
+print(opt$param_list_int)
 param_list_int = var_serialization(opt$param_list_int)
 print("---------------------------------------------------------------------------------")
 
 print("------------------------Running var_serialization for param_list_str-----------------------")
+print(opt$param_list_str)
 param_list_str = var_serialization(opt$param_list_str)
 print("---------------------------------------------------------------------------------")
 
@@ -79,10 +81,12 @@ param_string_with_comment <- gsub("\"", "", opt$param_string_with_comment)
 var_float = opt$var_float
 var_int = opt$var_int
 print("------------------------Running var_serialization for var_list_int-----------------------")
+print(opt$var_list_int)
 var_list_int = var_serialization(opt$var_list_int)
 print("---------------------------------------------------------------------------------")
 
 print("------------------------Running var_serialization for var_list_str-----------------------")
+print(opt$var_list_str)
 var_list_str = var_serialization(opt$var_list_str)
 print("---------------------------------------------------------------------------------")
 
