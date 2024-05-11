@@ -13,31 +13,31 @@ print("Retrieving input parameters")
 
 option_list = list(
 
-print("Adding option for id")
+print(id)
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for param_float")
+print(param_float)
 make_option(c("--param_float"), action="store", default=NA, type="numeric", help="my description"), 
-print("Adding option for param_int")
+print(param_int)
 make_option(c("--param_int"), action="store", default=NA, type="integer", help="my description"), 
-print("Adding option for param_list_int")
+print(param_list_int)
 make_option(c("--param_list_int"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for param_list_str")
+print(param_list_str)
 make_option(c("--param_list_str"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for param_string")
+print(param_string)
 make_option(c("--param_string"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for param_string_with_comment")
+print(param_string_with_comment)
 make_option(c("--param_string_with_comment"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for var_float")
+print(var_float)
 make_option(c("--var_float"), action="store", default=NA, type="numeric", help="my description"), 
-print("Adding option for var_int")
+print(var_int)
 make_option(c("--var_int"), action="store", default=NA, type="integer", help="my description"), 
-print("Adding option for var_list_int")
+print(var_list_int)
 make_option(c("--var_list_int"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for var_list_str")
+print(var_list_str)
 make_option(c("--var_list_str"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for var_string")
+print(var_string)
 make_option(c("--var_string"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for var_string_with_comment")
+print(var_string_with_comment)
 make_option(c("--var_string_with_comment"), action="store", default=NA, type="character", help="my description")
 
 )
