@@ -13,6 +13,7 @@ if (!requireNamespace("zoo", quietly = TRUE)) {
 }
 library(zoo)
 
+
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description")
@@ -52,8 +53,6 @@ rolling_mean_temp <- rollmean(temperature_zoo, k = window_size, fill = 0.0)
 temperature_zoo_str <- toString(temperature_zoo)
 rolling_mean_temp_str <- toString(rolling_mean_temp)
 temperature_data_str <- toString(temperature_data)
-
-a = 0.2535232142915368
 
 # capturing outputs
 file <- file(paste0('/tmp/rolling_mean_temp_str_', id, '.json'))
