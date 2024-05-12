@@ -5,6 +5,7 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
+
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
@@ -26,5 +27,4 @@ list_of_paths = fromJSON(opt$list_of_paths)
 for (l in list_of_paths) {
     print(l)
 }
-a = 0.8142310319037735
 
