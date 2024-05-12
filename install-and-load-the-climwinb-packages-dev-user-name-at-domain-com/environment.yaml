@@ -4,6 +4,7 @@ channels:
 dependencies:
   - pip
   - python>=3.8
+  - r-climwin
   - r-zoo
   - papermill
   - ipykernel
