@@ -5,6 +5,7 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
+
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
@@ -27,7 +28,6 @@ for (l in lines) {
     count <- count + 1
     cat(sprintf("Line %d: %s\n", count, trimws(l)))
 }
-a = 0.7383550946875186
 
 # capturing outputs
 file <- file(paste0('/tmp/count_', id, '.json'))
