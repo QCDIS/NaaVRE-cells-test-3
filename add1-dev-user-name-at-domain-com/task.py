@@ -19,7 +19,6 @@ count = args.count
 
 
 a = count + 1
-a = 0.23456582731813058
 
 import json
 filename = "/tmp/a_" + id + ".json"
