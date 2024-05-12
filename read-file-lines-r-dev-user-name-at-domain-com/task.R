@@ -33,6 +33,7 @@ print(onlyfiles)
 f <- file(file_path, "r")
 lines <- readLines(f)
 close(f)
+a = 0.198625460749409
 
 # capturing outputs
 file <- file(paste0('/tmp/lines_', id, '.json'))
