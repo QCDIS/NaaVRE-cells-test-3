@@ -5,7 +5,6 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
-
 option_list = list(
 
 make_option(c("--count"), action="store", default=NA, type="integer", help="my description"), 
@@ -25,7 +24,4 @@ id <- gsub('"', '', opt$id)
 
 
 a = count + 1
-a = 0.47919826112945163
-
-
 
