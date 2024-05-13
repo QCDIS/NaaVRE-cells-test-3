@@ -31,6 +31,7 @@ writeLines(L, file_path)
 onlyfiles <- list.files(conf_data_folder, full.names = TRUE)
 
 print(onlyfiles)
+a = 0.3103614880164447
 
 # capturing outputs
 file <- file(paste0('/tmp/file_path_', id, '.json'))
