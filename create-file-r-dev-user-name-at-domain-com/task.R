@@ -5,7 +5,6 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
-
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description")
@@ -32,9 +31,6 @@ writeLines(L, file_path)
 onlyfiles <- list.files(conf_data_folder, full.names = TRUE)
 
 print(onlyfiles)
-a = 0.8741908548510308
-
-
 
 # capturing outputs
 file <- file(paste0('/tmp/file_path_', id, '.json'))
