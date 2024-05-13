@@ -13,7 +13,6 @@ if (!requireNamespace("zoo", quietly = TRUE)) {
 }
 library(zoo)
 
-
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
@@ -36,7 +35,4 @@ temperature_data_str <- gsub('"', '', opt$temperature_data_str)
 
 cat("Original Temperature Data:\n", head(temperature_data_str), "\n\n")
 cat("Rolling Mean Temperature in Moving Windows:\n", head(coredata(rolling_mean_temp_str)), "\n")
-a = 0.18241745520552766
-
-
 
