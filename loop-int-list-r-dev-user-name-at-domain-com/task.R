@@ -72,4 +72,3 @@ print("Running the cell")
 for (l in list_of_ints) {
     print(l)
 }
-a = 0.22829453766737018
