@@ -32,6 +32,7 @@ list_of_ints <- c(1, 2, 35, 6, 65)
 
 print(list_of_paths)
 print(list_of_ints)
+a = 0.758263940028012
 
 # capturing outputs
 file <- file(paste0('/tmp/list_of_paths_', id, '.json'))
