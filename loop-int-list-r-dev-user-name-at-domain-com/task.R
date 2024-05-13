@@ -5,7 +5,6 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
-
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
@@ -27,7 +26,4 @@ list_of_ints = fromJSON(opt$list_of_ints)
 for (l in list_of_ints) {
     print(l)
 }
-a = 0.8022556392030519
-
-
 
