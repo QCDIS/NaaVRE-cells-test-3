@@ -31,8 +31,6 @@ else:
     print("Failed to download the file. Status code:", response.status_code)
 
 
-
-
 download_done = 'True'
 
 import json
