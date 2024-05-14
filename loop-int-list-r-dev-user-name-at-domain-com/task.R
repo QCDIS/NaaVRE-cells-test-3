@@ -26,4 +26,5 @@ list_of_ints = fromJSON(opt$list_of_ints)
 for (l in list_of_ints) {
     print(l)
 }
+a = 0.5133643757138993
 
