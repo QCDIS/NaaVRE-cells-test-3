@@ -66,3 +66,4 @@ id <- gsub("\"", "", opt$id)
 print("Running the cell")
 
 a = count + 1
+a = 0.42503075208124996
