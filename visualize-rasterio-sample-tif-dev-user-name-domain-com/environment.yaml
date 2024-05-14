@@ -4,7 +4,7 @@ channels:
 dependencies:
   - pip
   - python>=3.8
-  - rasterio
   - matplotlib
+  - rasterio
   - papermill
   - ipykernel
