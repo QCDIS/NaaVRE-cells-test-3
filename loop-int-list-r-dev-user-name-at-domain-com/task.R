@@ -12,9 +12,6 @@ make_option(c("--id"), action="store", default=NA, type="character", help="my de
 make_option(c("--list_of_ints"), action="store", default=NA, type="character", help="my description")
 
 )
-print("------------------Option list------------------")
-print(option_list)
-
 
 opt = parse_args(OptionParser(option_list=option_list))
 
@@ -46,14 +43,16 @@ var_serialization <- function(var){
         }
     )
 }
-
+print("Retrieving id")
 var = opt$id
+print(var)
 var_len = length(var)
 print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
-
+print("Retrieving list_of_ints")
 var = opt$list_of_ints
+print(var)
 var_len = length(var)
 print(paste("Variable list_of_ints has length", var_len))
 
