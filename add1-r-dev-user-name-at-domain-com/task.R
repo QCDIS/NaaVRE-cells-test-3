@@ -1,17 +1,16 @@
 setwd('/app')
-
-# retrieve input parameters
-
 library(optparse)
 library(jsonlite)
 
 
+
+print('option_list')
 option_list = list(
 
 make_option(c("--count"), action="store", default=NA, type="integer", help="my description"), 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description")
-
 )
+
 
 opt = parse_args(OptionParser(option_list=option_list))
 
@@ -43,6 +42,7 @@ var_serialization <- function(var){
         }
     )
 }
+
 print("Retrieving count")
 var = opt$count
 print(var)
