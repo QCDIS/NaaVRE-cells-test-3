@@ -1,7 +1,4 @@
 setwd('/app')
-
-# retrieve input parameters
-
 library(optparse)
 library(jsonlite)
 
@@ -14,11 +11,13 @@ if (!requireNamespace("zoo", quietly = TRUE)) {
 }
 library(zoo)
 
+
+print('option_list')
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description")
-
 )
+
 
 opt = parse_args(OptionParser(option_list=option_list))
 
@@ -50,6 +49,7 @@ var_serialization <- function(var){
         }
     )
 }
+
 print("Retrieving id")
 var = opt$id
 print(var)
