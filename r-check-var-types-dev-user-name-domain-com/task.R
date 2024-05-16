@@ -1,15 +1,20 @@
 setwd('/app')
 
-# retrieve input parameters
-
+print('Loading libraries')
 library(optparse)
 library(jsonlite)
 
+print('Loading if (!requireNamespace("jsonlite", quietly = TRUE)) {
+	install.packages("jsonlite", repos="http://cran.us.r-project.org")
+}')
 if (!requireNamespace("jsonlite", quietly = TRUE)) {
 	install.packages("jsonlite", repos="http://cran.us.r-project.org")
 }
+print('Loading library(jsonlite)')
 library(jsonlite)
 
+
+print('option_list')
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
@@ -28,8 +33,9 @@ make_option(c("--var_string_with_comment"), action="store", default=NA, type="ch
 
 )
 
+print('parse_args')
 opt = parse_args(OptionParser(option_list=option_list))
-print('-------------opt-------------')
+
 var_serialization <- function(var){
     if (is.null(var)){
         print("Variable is null")
