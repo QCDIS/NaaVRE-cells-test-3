@@ -27,7 +27,7 @@ make_option(c("--var_string_with_comment"), action="store", default=NA, type="ch
 )
 
 
-#opt = parse_args(OptionParser(option_list=option_list))
+opt = parse_args(OptionParser(option_list=option_list))
 
 var_serialization <- function(var){
     if (is.null(var)){
