@@ -29,7 +29,7 @@ make_option(c("--var_string_with_comment"), action="store", default=NA, type="ch
 )
 
 opt = parse_args(OptionParser(option_list=option_list))
-
+print('-------------opt-------------')
 var_serialization <- function(var){
     if (is.null(var)){
         print("Variable is null")
@@ -58,6 +58,7 @@ var_serialization <- function(var){
         }
     )
 }
+
 print("Retrieving id")
 var = opt$id
 print(var)
