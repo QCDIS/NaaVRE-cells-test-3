@@ -74,6 +74,7 @@ print(onlyfiles)
 f <- file(file_path, "r")
 lines <- readLines(f)
 close(f)
+a = 0.5798055372842975
 # capturing outputs
 print('Serialization of lines')
 file <- file(paste0('/tmp/lines_', id, '.json'))
