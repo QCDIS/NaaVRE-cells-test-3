@@ -1,6 +1,4 @@
 setwd('/app')
-
-print('Loading libraries')
 library(optparse)
 library(jsonlite)
 
@@ -33,7 +31,10 @@ make_option(c("--var_string_with_comment"), action="store", default=NA, type="ch
 
 )
 
-print('parse_args')
+for (i in 1:length(option_list)){
+    print(option_list[[i]])
+}
+
 opt = parse_args(OptionParser(option_list=option_list))
 
 var_serialization <- function(var){
