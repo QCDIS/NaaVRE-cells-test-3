@@ -25,10 +25,7 @@ print("------------------Option list------------------")
 print(option_list)
 
 
-# set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
-
-
 
 var_serialization <- function(var){
     if (is.null(var)){
