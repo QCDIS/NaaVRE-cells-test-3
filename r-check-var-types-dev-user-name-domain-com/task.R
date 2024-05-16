@@ -11,37 +11,23 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
-print("Adding option for id")
 make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for param_float")
 make_option(c("--param_float"), action="store", default=NA, type="numeric", help="my description"), 
-print("Adding option for param_int")
 make_option(c("--param_int"), action="store", default=NA, type="integer", help="my description"), 
-print("Adding option for param_list_int")
 make_option(c("--param_list_int"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for param_list_str")
 make_option(c("--param_list_str"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for param_string")
 make_option(c("--param_string"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for param_string_with_comment")
 make_option(c("--param_string_with_comment"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for var_float")
 make_option(c("--var_float"), action="store", default=NA, type="numeric", help="my description"), 
-print("Adding option for var_int")
 make_option(c("--var_int"), action="store", default=NA, type="integer", help="my description"), 
-print("Adding option for var_list_int")
 make_option(c("--var_list_int"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for var_list_str")
 make_option(c("--var_list_str"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for var_string")
 make_option(c("--var_string"), action="store", default=NA, type="character", help="my description"), 
-print("Adding option for var_string_with_comment")
 make_option(c("--var_string_with_comment"), action="store", default=NA, type="character", help="my description")
-
 )
 
 
-opt = parse_args(OptionParser(option_list=option_list))
+#opt = parse_args(OptionParser(option_list=option_list))
 
 var_serialization <- function(var){
     if (is.null(var)){
