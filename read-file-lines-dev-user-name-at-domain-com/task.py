@@ -4,7 +4,6 @@ from os import listdir
 import os
 
 import argparse
-import json
 arg_parser = argparse.ArgumentParser()
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
@@ -33,8 +32,8 @@ print(onlyfiles)
 f = open(file_path, 'r')
 lines = f.readlines()
 f.close()
-a = 0.0024663668717082032
 
+import json
 filename = "/tmp/lines_" + id + ".json"
 file_lines = open(filename, "w")
 file_lines.write(json.dumps(lines))
