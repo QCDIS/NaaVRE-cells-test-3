@@ -34,11 +34,6 @@ else:
 
 download_done = 'True'
 
-filename = "/tmp/filename_" + id + ".json"
-file_filename = open(filename, "w")
+file_filename = open("/tmp/filename_" + id + ".json", "w")
 file_filename.write(json.dumps(filename))
 file_filename.close()
-filename = "/tmp/download_done_" + id + ".json"
-file_download_done = open(filename, "w")
-file_download_done.write(json.dumps(download_done))
-file_download_done.close()
