@@ -23,8 +23,8 @@ parameters = {}
 
 
 pm.execute_notebook(
-    'visualize-rasterio-sample-tif-dev-user-name-domain-com.ipynb',
-    'visualize-rasterio-sample-tif-dev-user-name-domain-com-output.ipynb',
+    'task.ipynb',
+    'task-output.ipynb',
     prepare_only=True,
     parameters=dict(parameters)
 )
