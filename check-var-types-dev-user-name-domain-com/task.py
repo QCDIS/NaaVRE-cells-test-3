@@ -205,6 +205,7 @@ for i in var_list_str:
 print('All vars are of the correct type')
 
 done = 'True'
+a = 0.3157653232525044
 
 filename = "/tmp/done_" + id + ".json"
 file_done = open(filename, "w")
