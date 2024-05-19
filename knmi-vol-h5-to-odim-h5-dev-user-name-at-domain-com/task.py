@@ -23,7 +23,6 @@ print(a)
 cmd = "KNMI_vol_h5_to_ODIM_h5 "
 
 msg = os.system(cmd)  # returns the exit code in unix
-a = 0.8521452760981275
 
 filename = "/tmp/msg_" + id + ".json"
 file_msg = open(filename, "w")
