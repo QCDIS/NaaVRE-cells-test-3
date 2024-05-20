@@ -21,7 +21,6 @@ count = args.count
 
 a = count + 1
 
-filename = "/tmp/a_" + id + ".json"
-file_a = open(filename, "w")
+file_a = open("/tmp/a_" + id + ".json", "w")
 file_a.write(json.dumps(a))
 file_a.close()
