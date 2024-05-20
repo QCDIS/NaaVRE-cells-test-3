@@ -33,7 +33,6 @@ onlyfiles = [f for f in listdir(conf_data_folder) if isfile(join(conf_data_folde
 
 print(onlyfiles)
 
-filename = "/tmp/file_path_" + id + ".json"
-file_file_path = open(filename, "w")
+file_file_path = open("/tmp/file_path_" + id + ".json", "w")
 file_file_path.write(json.dumps(file_path))
 file_file_path.close()
