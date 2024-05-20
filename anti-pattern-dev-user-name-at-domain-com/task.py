@@ -25,7 +25,6 @@ some_list = range(count, a+1)
 
 msg = '1'
 
-filename = "/tmp/msg_" + id + ".json"
-file_msg = open(filename, "w")
+file_msg = open("/tmp/msg_" + id + ".json", "w")
 file_msg.write(json.dumps(msg))
 file_msg.close()
