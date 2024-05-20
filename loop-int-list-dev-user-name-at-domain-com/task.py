@@ -22,8 +22,8 @@ list_of_ints = json.loads(args.list_of_ints)
 for i in list_of_ints:
     a = i -1
     print(a)
-a = 0.7322056198669981
 
-file_a = open("/tmp/a_" + id + ".json", "w")
+filename = "/tmp/a_" + id + ".json"
+file_a = open(filename, "w")
 file_a.write(json.dumps(a))
 file_a.close()
