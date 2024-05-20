@@ -24,8 +24,8 @@ count = args.count
 some_list = range(count, a+1)
 
 msg = '1'
-a = 0.5770947808874974
 
-file_msg = open("/tmp/msg_" + id + ".json", "w")
+filename = "/tmp/msg_" + id + ".json"
+file_msg = open(filename, "w")
 file_msg.write(json.dumps(msg))
 file_msg.close()
