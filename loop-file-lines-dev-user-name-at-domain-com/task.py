@@ -23,9 +23,7 @@ count = 0
 for l in lines:
     count += 1
     print("Line{}: {}".format(count, l.strip()))
-a = 0.8385793557981478
 
-filename = "/tmp/count_" + id + ".json"
-file_count = open(filename, "w")
+file_count = open("/tmp/count_" + id + ".json", "w")
 file_count.write(json.dumps(count))
 file_count.close()
