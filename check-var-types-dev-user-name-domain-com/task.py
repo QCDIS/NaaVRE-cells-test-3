@@ -206,7 +206,6 @@ print('All vars are of the correct type')
 
 done = 'True'
 
-filename = "/tmp/done_" + id + ".json"
-file_done = open(filename, "w")
+file_done = open("/tmp/done_" + id + ".json", "w")
 file_done.write(json.dumps(done))
 file_done.close()
