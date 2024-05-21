@@ -65,7 +65,6 @@ var_float <- 1.1
 var_list_int <- list(1, 2, 3)
 var_list_str <- list("list_str", "space in elem", "3")
 print(class(var_list_int))
-a = 0.7212189623074582
 # capturing outputs
 print('Serialization of var_string')
 file <- file(paste0('/tmp/var_string_', id, '.json'))
