@@ -31,6 +31,7 @@ if response.status_code == 200:
 else:
     print("Failed to download the file. Status code:", response.status_code)
 
-file_filename = open("/tmp/filename_" + id + ".json", "w")
+filename = "/tmp/filename_" + id + ".json"
+file_filename = open(filename, "w")
 file_filename.write(json.dumps(filename))
 file_filename.close()
