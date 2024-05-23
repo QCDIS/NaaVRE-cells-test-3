@@ -19,5 +19,4 @@ msg = args.msg
 
 
 print('msg:', str(msg))
-a = 0.19695445490068286
 
