@@ -262,4 +262,3 @@ check_type(var_list_str, c("list"))
 print('All vars are of the correct type')
 
 done <- TRUE
-a = 0.45745489326666255
