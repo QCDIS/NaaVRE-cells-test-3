@@ -205,7 +205,6 @@ for i in var_list_str:
 print('All vars are of the correct type')
 
 done = 'True'
-a = 0.3266204928785319
 
 file_done = open("/tmp/done_" + id + ".json", "w")
 file_done.write(json.dumps(done))
