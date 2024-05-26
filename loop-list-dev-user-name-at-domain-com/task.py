@@ -1,6 +1,5 @@
 
 import argparse
-import json
 arg_parser = argparse.ArgumentParser()
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
@@ -14,6 +13,7 @@ print(args)
 
 id = args.id
 
+import json
 list_of_paths = json.loads(args.list_of_paths)
 
 
