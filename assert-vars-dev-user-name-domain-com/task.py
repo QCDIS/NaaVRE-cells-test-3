@@ -91,5 +91,4 @@ assert param_list_int == check_list_int
 assert param_list_str == check_list_str
 
 print("All variables are the same.")
-a = 0.35398215933470945
 
