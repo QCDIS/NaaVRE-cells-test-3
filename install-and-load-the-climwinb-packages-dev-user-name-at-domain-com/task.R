@@ -1,7 +1,9 @@
 setwd('/app')
+
+# retrieve input parameters
+
 library(optparse)
 library(jsonlite)
-
 if (!requireNamespace("climwin", quietly = TRUE)) {
 	install.packages("climwin", repos="http://cran.us.r-project.org")
 }
@@ -12,54 +14,21 @@ if (!requireNamespace("zoo", quietly = TRUE)) {
 library(zoo)
 
 
-print('option_list')
 option_list = list(
 
 make_option(c("--id"), action="store", default=NA, type="character", help="my description")
+
 )
 
-
+# set input parameters accordingly
 opt = parse_args(OptionParser(option_list=option_list))
 
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
-
-print("Retrieving id")
-var = opt$id
-print(var)
-var_len = length(var)
-print(paste("Variable id has length", var_len))
-
-id <- gsub("\"", "", opt$id)
+id <- gsub('"', '', opt$id)
 
 
-print("Running the cell")
+
+
+
 if (!requireNamespace("climwin", quietly = TRUE)) {
   install.packages("climwin",repos = "http://cran.us.r-project.org")
 }
@@ -85,13 +54,12 @@ temperature_zoo_str <- toString(temperature_zoo)
 rolling_mean_temp_str <- toString(rolling_mean_temp)
 temperature_data_str <- toString(temperature_data)
 
-a = 0.619141478683675
+
+
 # capturing outputs
-print('Serialization of rolling_mean_temp_str')
 file <- file(paste0('/tmp/rolling_mean_temp_str_', id, '.json'))
 writeLines(toJSON(rolling_mean_temp_str, auto_unbox=TRUE), file)
 close(file)
-print('Serialization of temperature_data_str')
 file <- file(paste0('/tmp/temperature_data_str_', id, '.json'))
 writeLines(toJSON(temperature_data_str, auto_unbox=TRUE), file)
 close(file)
