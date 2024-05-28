@@ -2,7 +2,9 @@ import os
 
 import argparse
 import json
+import os
 arg_parser = argparse.ArgumentParser()
+
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -23,8 +25,6 @@ print(a)
 cmd = "vol2bird --version"
 
 msg = os.system(cmd)  # returns the exit code in unix
-
-a = 0.12712693713547574
 
 file_msg = open("/tmp/msg_" + id + ".json", "w")
 file_msg.write(json.dumps(msg))
