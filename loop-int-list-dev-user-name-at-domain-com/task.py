@@ -1,9 +1,7 @@
 
 import argparse
 import json
-import os
 arg_parser = argparse.ArgumentParser()
-
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -24,7 +22,6 @@ list_of_ints = json.loads(args.list_of_ints)
 for i in list_of_ints:
     a = i -1
     print(a)
-a = 0.8472975791042889
 
 file_a = open("/tmp/a_" + id + ".json", "w")
 file_a.write(json.dumps(a))
