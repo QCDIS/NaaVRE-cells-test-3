@@ -1,7 +1,9 @@
 
 import argparse
 import json
+import os
 arg_parser = argparse.ArgumentParser()
+
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -205,7 +207,6 @@ for i in var_list_str:
 print('All vars are of the correct type')
 
 done = 'True'
-a = 0.07011749297356762
 
 file_done = open("/tmp/done_" + id + ".json", "w")
 file_done.write(json.dumps(done))
