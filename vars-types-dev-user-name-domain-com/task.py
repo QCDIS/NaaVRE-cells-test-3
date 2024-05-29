@@ -1,7 +1,9 @@
 
 import argparse
 import json
+import os
 arg_parser = argparse.ArgumentParser()
+
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -35,7 +37,6 @@ var_int = 1
 var_float = 1.1
 var_list_int = [1, 2, 3]
 var_list_str = ["list_str", "space in elem", "3"]
-a = 0.4788227097598896
 
 file_var_string = open("/tmp/var_string_" + id + ".json", "w")
 file_var_string.write(json.dumps(var_string))
