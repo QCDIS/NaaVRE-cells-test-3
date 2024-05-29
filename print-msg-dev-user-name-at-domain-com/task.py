@@ -1,9 +1,7 @@
 
 import argparse
 import json
-import os
 arg_parser = argparse.ArgumentParser()
-
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -21,5 +19,4 @@ msg = args.msg
 
 
 print('msg:', str(msg))
-a = 0.8714827260761143
 
