@@ -1,9 +1,7 @@
 
 import argparse
 import json
-import os
 arg_parser = argparse.ArgumentParser()
-
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -24,7 +22,6 @@ msg = args.msg.replace('"','')
 list_of_paths = ["/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname"]
 list_of_ints = [1,2,35,6,65]
 print(msg)
-a = 0.1365338566435692
 
 file_list_of_paths = open("/tmp/list_of_paths_" + id + ".json", "w")
 file_list_of_paths.write(json.dumps(list_of_paths))
