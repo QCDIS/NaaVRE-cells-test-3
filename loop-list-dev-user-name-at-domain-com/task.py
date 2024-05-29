@@ -1,6 +1,9 @@
 
 import argparse
+import json
+import os
 arg_parser = argparse.ArgumentParser()
+
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -13,7 +16,6 @@ print(args)
 
 id = args.id
 
-import json
 list_of_paths = json.loads(args.list_of_paths)
 
 
@@ -21,5 +23,4 @@ list_of_paths = json.loads(args.list_of_paths)
 
 for l in list_of_paths:
     print(l)
-a = 0.33587420285295433
 
