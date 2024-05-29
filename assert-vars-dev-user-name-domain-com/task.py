@@ -1,9 +1,7 @@
 
 import argparse
 import json
-import os
 arg_parser = argparse.ArgumentParser()
-
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -93,5 +91,4 @@ assert param_list_int == check_list_int
 assert param_list_str == check_list_str
 
 print("All variables are the same.")
-a = 0.6358033065578326
 
