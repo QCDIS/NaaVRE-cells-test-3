@@ -23,5 +23,4 @@ list_of_paths = json.loads(args.list_of_paths)
 
 for l in list_of_paths:
     print(l)
-a = 0.903738922556705
 
