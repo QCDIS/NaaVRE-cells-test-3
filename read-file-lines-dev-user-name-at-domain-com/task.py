@@ -35,7 +35,6 @@ print(onlyfiles)
 f = open(file_path, 'r')
 lines = f.readlines()
 f.close()
-a = 0.6733975903966717
 
 file_lines = open("/tmp/lines_" + id + ".json", "w")
 file_lines.write(json.dumps(lines))
