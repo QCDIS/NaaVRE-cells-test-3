@@ -28,6 +28,7 @@ for (l in lines) {
     count <- count + 1
     cat(sprintf("Line %d: %s\n", count, trimws(l)))
 }
+a = 0.439617464545083
 
 
 
