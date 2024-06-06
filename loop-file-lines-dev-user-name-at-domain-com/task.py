@@ -1,9 +1,6 @@
 
 import argparse
-import json
-import os
 arg_parser = argparse.ArgumentParser()
-
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -16,6 +13,7 @@ print(args)
 
 id = args.id
 
+import json
 lines = json.loads(args.lines)
 
 
@@ -26,6 +24,8 @@ for l in lines:
     count += 1
     print("Line{}: {}".format(count, l.strip()))
 
-file_count = open("/tmp/count_" + id + ".json", "w")
+import json
+filename = "/tmp/count_" + id + ".json"
+file_count = open(filename, "w")
 file_count.write(json.dumps(count))
 file_count.close()
