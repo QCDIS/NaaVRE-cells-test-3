@@ -1,3 +1,4 @@
+import math
 import requests
 
 import argparse
@@ -24,6 +25,10 @@ filename = "/tmp/data/sample.tif"
 
 response = requests.get(url)
 
+y = math.sqrt(1)
+t_y = type(y)
+
+
 if response.status_code == 200:
     with open(filename, 'wb') as f:
         f.write(response.content)
@@ -35,3 +40,7 @@ filename = "/tmp/filename_" + id + ".json"
 file_filename = open(filename, "w")
 file_filename.write(json.dumps(filename))
 file_filename.close()
+filename = "/tmp/y_" + id + ".json"
+file_y = open(filename, "w")
+file_y.write(json.dumps(y))
+file_y.close()
