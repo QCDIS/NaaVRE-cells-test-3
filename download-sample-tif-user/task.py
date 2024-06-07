@@ -1,7 +1,10 @@
 import requests
 
 import argparse
+import json
+import os
 arg_parser = argparse.ArgumentParser()
+
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -32,8 +35,6 @@ if response.status_code == 200:
 else:
     print("Failed to download the file. Status code:", response.status_code)
 
-import json
-filename = "/tmp/filename_" + id + ".json"
-file_filename = open(filename, "w")
+file_filename = open("/tmp/filename_" + id + ".json", "w")
 file_filename.write(json.dumps(filename))
 file_filename.close()
