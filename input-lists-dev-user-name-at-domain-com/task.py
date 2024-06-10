@@ -24,7 +24,6 @@ msg = args.msg.replace('"','')
 list_of_paths = ["/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname"]
 list_of_ints = [1,2,35,6,65]
 print(msg)
-a = 0.46339536290019134
 
 file_list_of_paths = open("/tmp/list_of_paths_" + id + ".json", "w")
 file_list_of_paths.write(json.dumps(list_of_paths))
