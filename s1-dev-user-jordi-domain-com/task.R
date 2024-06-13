@@ -22,10 +22,19 @@ id <- gsub('"', '', opt$id)
 
 
 a = 10
+param_x <- 5
+x = list(1,2,3)
+c = round(5)
 
 
 
 # capturing outputs
 file <- file(paste0('/tmp/a_', id, '.json'))
 writeLines(toJSON(a, auto_unbox=TRUE), file)
+close(file)
+file <- file(paste0('/tmp/x_', id, '.json'))
+writeLines(toJSON(x, auto_unbox=TRUE), file)
+close(file)
+file <- file(paste0('/tmp/c_', id, '.json'))
+writeLines(toJSON(c, auto_unbox=TRUE), file)
 close(file)
