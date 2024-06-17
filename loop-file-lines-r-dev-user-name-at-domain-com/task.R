@@ -69,7 +69,6 @@ for (l in lines) {
     count <- count + 1
     cat(sprintf("Line %d: %s\n", count, trimws(l)))
 }
-a = 0.1377682989669734
 # capturing outputs
 print('Serialization of count')
 file <- file(paste0('/tmp/count_', id, '.json'))
