@@ -37,6 +37,7 @@ var_int = 1
 var_float = 1.1
 var_list_int = [1, 2, 3]
 var_list_str = ["list_str", "space in elem", "3"]
+a = 0.9974394226997124
 
 file_var_string = open("/tmp/var_string_" + id + ".json", "w")
 file_var_string.write(json.dumps(var_string))
