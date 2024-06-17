@@ -1,6 +1,9 @@
 
 import argparse
+import json
+import os
 arg_parser = argparse.ArgumentParser()
+
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -23,10 +26,7 @@ count = args.count
 some_list = range(count, a+1)
 
 msg = '1'
-a = 0.10398428255964098
 
-import json
-filename = "/tmp/msg_" + id + ".json"
-file_msg = open(filename, "w")
+file_msg = open("/tmp/msg_" + id + ".json", "w")
 file_msg.write(json.dumps(msg))
 file_msg.close()
