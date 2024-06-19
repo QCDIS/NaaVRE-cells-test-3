@@ -36,7 +36,6 @@ temperature_data_str <- gsub('"', '', opt$temperature_data_str)
 
 cat("Original Temperature Data:\n", head(temperature_data_str), "\n\n")
 cat("Rolling Mean Temperature in Moving Windows:\n", head(coredata(rolling_mean_temp_str)), "\n")
-a = 0.4811704081801327
 
 
 
