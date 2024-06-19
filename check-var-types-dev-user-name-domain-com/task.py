@@ -208,7 +208,6 @@ print('All vars are of the correct type')
 
 done = 'True'
 a = 0.4328648310766624
-a = 0.5033326496190972
 
 file_done = open("/tmp/done_" + id + ".json", "w")
 file_done.write(json.dumps(done))
