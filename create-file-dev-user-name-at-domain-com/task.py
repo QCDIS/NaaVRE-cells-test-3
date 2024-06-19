@@ -4,7 +4,10 @@ from os import listdir
 import os
 
 import argparse
+import json
+import os
 arg_parser = argparse.ArgumentParser()
+
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -31,10 +34,7 @@ fp.close()
 onlyfiles = [f for f in listdir(conf_data_folder) if isfile(join(conf_data_folder, f))]
 
 print(onlyfiles)
-a = 0.2750661372789367
 
-import json
-filename = "/tmp/file_path_" + id + ".json"
-file_file_path = open(filename, "w")
+file_file_path = open("/tmp/file_path_" + id + ".json", "w")
 file_file_path.write(json.dumps(file_path))
 file_file_path.close()
