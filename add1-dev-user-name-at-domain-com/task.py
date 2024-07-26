@@ -22,7 +22,6 @@ count = args.count
 
 
 a = count + 1
-a = 0.43769916431235745
 
 file_a = open("/tmp/a_" + id + ".json", "w")
 file_a.write(json.dumps(a))
