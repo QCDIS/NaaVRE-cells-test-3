@@ -68,4 +68,3 @@ print("Running the cell")
 for (l in list_of_paths) {
     print(l)
 }
-a = 0.09251804812594344
