@@ -1,9 +1,10 @@
-import math
 import requests
 
 import argparse
 import json
+import os
 arg_parser = argparse.ArgumentParser()
+
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
@@ -25,10 +26,6 @@ filename = "/tmp/data/sample.tif"
 
 response = requests.get(url)
 
-y = math.sqrt(1)
-t_y = type(y)
-
-
 if response.status_code == 200:
     with open(filename, 'wb') as f:
         f.write(response.content)
@@ -36,11 +33,6 @@ if response.status_code == 200:
 else:
     print("Failed to download the file. Status code:", response.status_code)
 
-filename = "/tmp/filename_" + id + ".json"
-file_filename = open(filename, "w")
+file_filename = open("/tmp/filename_" + id + ".json", "w")
 file_filename.write(json.dumps(filename))
 file_filename.close()
-filename = "/tmp/y_" + id + ".json"
-file_y = open(filename, "w")
-file_y.write(json.dumps(y))
-file_y.close()
