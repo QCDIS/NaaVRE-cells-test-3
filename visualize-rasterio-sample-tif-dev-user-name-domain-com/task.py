@@ -1,6 +1,5 @@
 from matplotlib import pyplot
 import rasterio
-import requests
 from rasterio.plot import show
 from rasterio.plot import show_hist
 
@@ -12,6 +11,8 @@ arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
 
+arg_parser.add_argument('--filename', action='store', type=str, required=True, dest='filename')
+
 
 args = arg_parser.parse_args()
 print(args)
@@ -19,6 +20,8 @@ print(args)
 id = args.id
 parameters = {}
 
+filename = args.filename.replace('"','')
+parameters['filename'] = filename
 
 
 
@@ -29,8 +32,3 @@ pm.execute_notebook(
     parameters=dict(parameters)
 )
 
-import json
-filename = "/tmp/filename_" + id + ".json"
-file_filename = open(filename, "w")
-file_filename.write(json.dumps(filename))
-file_filename.close()
