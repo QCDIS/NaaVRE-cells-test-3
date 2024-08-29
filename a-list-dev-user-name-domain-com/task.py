@@ -17,8 +17,8 @@ id = args.id
 
 
 
-
-my_list = [1,2,3]
+my_list = [1, 2, 3]
+print(my_list)
 
 file_my_list = open("/tmp/my_list_" + id + ".json", "w")
 file_my_list.write(json.dumps(my_list))
