@@ -63,6 +63,7 @@ writeLines(L, file_path)
 onlyfiles <- list.files(conf_data_folder, full.names = TRUE)
 
 print(onlyfiles)
+a = 0.06764270493087232
 # capturing outputs
 print('Serialization of file_path')
 file <- file(paste0('/tmp/file_path_', id, '.json'))
