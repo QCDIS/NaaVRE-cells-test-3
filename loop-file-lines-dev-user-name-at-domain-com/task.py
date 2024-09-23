@@ -25,6 +25,7 @@ count = 0
 for l in lines:
     count += 1
     print("Line{}: {}".format(count, l.strip()))
+a = 0.5420065771105557
 
 file_count = open("/tmp/count_" + id + ".json", "w")
 file_count.write(json.dumps(count))
