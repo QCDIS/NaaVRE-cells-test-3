@@ -37,8 +37,6 @@ e = args.e
 param_test = args.param_test.replace('"','')
 
 
-import math as m
-from math import nan
 print(param_test, secret_test, a, b, c, d, e)
 f = [m.pi, nan]
 
