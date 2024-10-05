@@ -2,13 +2,28 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
-import jsonlite
-
+if (!requireNamespace("jsonlite", quietly = TRUE)) {
+	install.packages("jsonlite", repos="http://cran.us.r-project.org")
+}
+library(jsonlite)
 
 
 print('option_list')
 option_list = list(
 
+make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--param_float"), action="store", default=NA, type="numeric", help="my description"), 
+make_option(c("--param_int"), action="store", default=NA, type="integer", help="my description"), 
+make_option(c("--param_list_int"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--param_list_str"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--param_string"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--param_string_with_comment"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--var_float"), action="store", default=NA, type="numeric", help="my description"), 
+make_option(c("--var_int"), action="store", default=NA, type="integer", help="my description"), 
+make_option(c("--var_list_int"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--var_list_str"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--var_string"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--var_string_with_comment"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -43,13 +58,120 @@ var_serialization <- function(var){
     )
 }
 
+print("Retrieving id")
+var = opt$id
+print(var)
+var_len = length(var)
+print(paste("Variable id has length", var_len))
 
-{'conf_float': '1.1'}
-{'conf_int': '1'}
-{'conf_list_int': 'list(1, 2, 3)'}
-{'conf_list_str': "list('list_str', 'space in elem', '3')"}
-{'conf_string': "'param_string value'"}
-{'conf_string_with_comment': "'param_string value'"}
+id <- gsub("\"", "", opt$id)
+print("Retrieving param_float")
+var = opt$param_float
+print(var)
+var_len = length(var)
+print(paste("Variable param_float has length", var_len))
+
+param_float = opt$param_float
+print("Retrieving param_int")
+var = opt$param_int
+print(var)
+var_len = length(var)
+print(paste("Variable param_int has length", var_len))
+
+param_int = opt$param_int
+print("Retrieving param_list_int")
+var = opt$param_list_int
+print(var)
+var_len = length(var)
+print(paste("Variable param_list_int has length", var_len))
+
+print("------------------------Running var_serialization for param_list_int-----------------------")
+print(opt$param_list_int)
+param_list_int = var_serialization(opt$param_list_int)
+print("---------------------------------------------------------------------------------")
+
+print("Retrieving param_list_str")
+var = opt$param_list_str
+print(var)
+var_len = length(var)
+print(paste("Variable param_list_str has length", var_len))
+
+print("------------------------Running var_serialization for param_list_str-----------------------")
+print(opt$param_list_str)
+param_list_str = var_serialization(opt$param_list_str)
+print("---------------------------------------------------------------------------------")
+
+print("Retrieving param_string")
+var = opt$param_string
+print(var)
+var_len = length(var)
+print(paste("Variable param_string has length", var_len))
+
+param_string <- gsub("\"", "", opt$param_string)
+print("Retrieving param_string_with_comment")
+var = opt$param_string_with_comment
+print(var)
+var_len = length(var)
+print(paste("Variable param_string_with_comment has length", var_len))
+
+param_string_with_comment <- gsub("\"", "", opt$param_string_with_comment)
+print("Retrieving var_float")
+var = opt$var_float
+print(var)
+var_len = length(var)
+print(paste("Variable var_float has length", var_len))
+
+var_float = opt$var_float
+print("Retrieving var_int")
+var = opt$var_int
+print(var)
+var_len = length(var)
+print(paste("Variable var_int has length", var_len))
+
+var_int = opt$var_int
+print("Retrieving var_list_int")
+var = opt$var_list_int
+print(var)
+var_len = length(var)
+print(paste("Variable var_list_int has length", var_len))
+
+print("------------------------Running var_serialization for var_list_int-----------------------")
+print(opt$var_list_int)
+var_list_int = var_serialization(opt$var_list_int)
+print("---------------------------------------------------------------------------------")
+
+print("Retrieving var_list_str")
+var = opt$var_list_str
+print(var)
+var_len = length(var)
+print(paste("Variable var_list_str has length", var_len))
+
+print("------------------------Running var_serialization for var_list_str-----------------------")
+print(opt$var_list_str)
+var_list_str = var_serialization(opt$var_list_str)
+print("---------------------------------------------------------------------------------")
+
+print("Retrieving var_string")
+var = opt$var_string
+print(var)
+var_len = length(var)
+print(paste("Variable var_string has length", var_len))
+
+var_string <- gsub("\"", "", opt$var_string)
+print("Retrieving var_string_with_comment")
+var = opt$var_string_with_comment
+print(var)
+var_len = length(var)
+print(paste("Variable var_string_with_comment has length", var_len))
+
+var_string_with_comment <- gsub("\"", "", opt$var_string_with_comment)
+
+conf_float = 1.1
+conf_int = 1
+conf_list_int = list(1, 2, 3)
+conf_list_str = list('list_str', 'space in elem', '3')
+conf_string = 'param_string value'
+conf_string_with_comment = 'param_string value'
 
 print("Running the cell")
 conf_string = 'param_string value'
