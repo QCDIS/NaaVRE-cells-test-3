@@ -4,7 +4,6 @@ import json
 import os
 arg_parser = argparse.ArgumentParser()
 
-secret_test = os.getenv('secret_test')
 
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
