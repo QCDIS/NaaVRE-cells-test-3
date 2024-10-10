@@ -1,82 +1,56 @@
-
-import argparse
-import json
-import os
-arg_parser = argparse.ArgumentParser()
+setwd('/app')
+library(optparse)
+library(jsonlite)
 
 
-arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
 
-arg_parser.add_argument('--var_float', action='store', type=float, required=True, dest='var_float')
+print('option_list')
+option_list = list(
 
-arg_parser.add_argument('--var_int', action='store', type=int, required=True, dest='var_int')
-
-arg_parser.add_argument('--var_list_int', action='store', type=str, required=True, dest='var_list_int')
-
-arg_parser.add_argument('--var_list_str', action='store', type=str, required=True, dest='var_list_str')
-
-arg_parser.add_argument('--var_string', action='store', type=str, required=True, dest='var_string')
-
-arg_parser.add_argument('--var_string_with_comment', action='store', type=str, required=True, dest='var_string_with_comment')
-
-arg_parser.add_argument('--param_float', action='store', type=float, required=True, dest='param_float')
-arg_parser.add_argument('--param_int', action='store', type=int, required=True, dest='param_int')
-arg_parser.add_argument('--param_list_int', action='store', type=str, required=True, dest='param_list_int')
-arg_parser.add_argument('--param_list_str', action='store', type=str, required=True, dest='param_list_str')
-arg_parser.add_argument('--param_string', action='store', type=str, required=True, dest='param_string')
-arg_parser.add_argument('--param_string_with_comment', action='store', type=str, required=True, dest='param_string_with_comment')
-
-args = arg_parser.parse_args()
-print(args)
-
-id = args.id
-
-var_float = args.var_float
-var_int = args.var_int
-var_list_int = json.loads(args.var_list_int)
-var_list_str = json.loads(args.var_list_str)
-var_string = args.var_string.replace('"','')
-var_string_with_comment = args.var_string_with_comment.replace('"','')
-
-param_float = args.param_float
-param_int = args.param_int
-print(args.param_list_int)
-print(type(args.param_list_int))
-try:
-    param_list_int = json.loads(args.param_list_int)
-except Exception as e:
-    if e.__class__.__name__ == 'JSONDecodeError':
-        import ast
-        param_list_int = ast.literal_eval(args.param_list_int.replace('[','["').replace(',','","').replace('" ','"').replace(']','"]').replace("'",""))
-    else:
-        raise e
-print(args.param_list_str)
-print(type(args.param_list_str))
-try:
-    param_list_str = json.loads(args.param_list_str)
-except Exception as e:
-    if e.__class__.__name__ == 'JSONDecodeError':
-        import ast
-        param_list_str = ast.literal_eval(args.param_list_str.replace('[','["').replace(',','","').replace('" ','"').replace(']','"]').replace("'",""))
-    else:
-        raise e
-param_string = args.param_string.replace('"','')
-param_string_with_comment = args.param_string_with_comment.replace('"','')
-
-conf_float = 1.1
-
-conf_int = 1
-
-conf_list_int = [1, 2, 3]
-
-conf_list_str = ["list_str", "space in elem", "3"]
-
-conf_string = 'param_string value'
-
-conf_string_with_comment = 'param_string value'  # comment
+)
 
 
+opt = parse_args(OptionParser(option_list=option_list))
+
+var_serialization <- function(var){
+    if (is.null(var)){
+        print("Variable is null")
+        exit(1)
+    }
+    tryCatch(
+        {
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        },
+        error=function(e) {
+            print("Error while deserializing the variable")
+            print(var)
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        },
+        warning=function(w) {
+            print("Warning while deserializing the variable")
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        }
+    )
+}
+
+
+{'conf_float': '1.1'}
+{'conf_int': '1'}
+{'conf_list_int': '[1, 2, 3]'}
+{'conf_list_str': '["list_str", "space in elem", "3"]'}
+{'conf_string': "'param_string value'"}
+{'conf_string_with_comment': "'param_string value'  # comment"}
+
+print("Running the cell")
 conf_string = 'param_string value'
 conf_string_with_comment = 'param_string value'  # comment
 conf_int = 1
@@ -207,7 +181,8 @@ for i in var_list_str:
 print('All vars are of the correct type')
 
 done = 'True'
-
-file_done = open("/tmp/done_" + id + ".json", "w")
-file_done.write(json.dumps(done))
-file_done.close()
+# capturing outputs
+print('Serialization of done')
+file <- file(paste0('/tmp/done_', id, '.json'))
+writeLines(toJSON(done, auto_unbox=TRUE), file)
+close(file)
