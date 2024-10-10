@@ -4,10 +4,10 @@ library(jsonlite)
 
 
 
+
 print('option_list')
 option_list = list(
 
-make_option(c("--id"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -42,13 +42,6 @@ var_serialization <- function(var){
     )
 }
 
-print("Retrieving id")
-var = opt$id
-print(var)
-var_len = length(var)
-print(paste("Variable id has length", var_len))
-
-id <- gsub("\"", "", opt$id)
 
 
 print("Running the cell")
