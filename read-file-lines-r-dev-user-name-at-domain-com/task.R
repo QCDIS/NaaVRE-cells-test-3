@@ -4,11 +4,10 @@ library(jsonlite)
 
 
 
+
 print('option_list')
 option_list = list(
 
-make_option(c("--file_path"), action="store", default=NA, type="character", help="my description"), 
-make_option(c("--id"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -43,22 +42,8 @@ var_serialization <- function(var){
     )
 }
 
-print("Retrieving file_path")
-var = opt$file_path
-print(var)
-var_len = length(var)
-print(paste("Variable file_path has length", var_len))
 
-file_path <- gsub("\"", "", opt$file_path)
-print("Retrieving id")
-var = opt$id
-print(var)
-var_len = length(var)
-print(paste("Variable id has length", var_len))
-
-id <- gsub("\"", "", opt$id)
-
-conf_data_folder <- file.path('/tmp', 'data')
+{'conf_data_folder': "file.path('/tmp', 'data')"}
 
 print("Running the cell")
 conf_data_folder <- file.path('/tmp', 'data')
