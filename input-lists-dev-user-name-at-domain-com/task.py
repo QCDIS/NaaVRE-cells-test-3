@@ -1,33 +1,60 @@
-
-import argparse
-import json
-import os
-arg_parser = argparse.ArgumentParser()
-
-
-arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
-
-
-arg_parser.add_argument('--msg', action='store', type=str, required=True, dest='msg')
-
-
-args = arg_parser.parse_args()
-print(args)
-
-id = args.id
-
-msg = args.msg.replace('"','')
+setwd('/app')
+library(optparse)
+library(jsonlite)
 
 
 
+
+print('option_list')
+option_list = list(
+
+)
+
+
+opt = parse_args(OptionParser(option_list=option_list))
+
+var_serialization <- function(var){
+    if (is.null(var)){
+        print("Variable is null")
+        exit(1)
+    }
+    tryCatch(
+        {
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        },
+        error=function(e) {
+            print("Error while deserializing the variable")
+            print(var)
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        },
+        warning=function(w) {
+            print("Warning while deserializing the variable")
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        }
+    )
+}
+
+
+
+print("Running the cell")
 
 list_of_paths = ["/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname","/webdav/LAZ/targets_myname"]
 list_of_ints = [1,2,35,6,65]
 print(msg)
-
-file_list_of_paths = open("/tmp/list_of_paths_" + id + ".json", "w")
-file_list_of_paths.write(json.dumps(list_of_paths))
-file_list_of_paths.close()
-file_list_of_ints = open("/tmp/list_of_ints_" + id + ".json", "w")
-file_list_of_ints.write(json.dumps(list_of_ints))
-file_list_of_ints.close()
+# capturing outputs
+print('Serialization of list_of_paths')
+file <- file(paste0('/tmp/list_of_paths_', id, '.json'))
+writeLines(toJSON(list_of_paths, auto_unbox=TRUE), file)
+close(file)
+print('Serialization of list_of_ints')
+file <- file(paste0('/tmp/list_of_ints_', id, '.json'))
+writeLines(toJSON(list_of_ints, auto_unbox=TRUE), file)
+close(file)
