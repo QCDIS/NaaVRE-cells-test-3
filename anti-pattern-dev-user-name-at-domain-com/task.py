@@ -1,32 +1,55 @@
-
-import argparse
-import json
-import os
-arg_parser = argparse.ArgumentParser()
-
-
-arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
-
-
-arg_parser.add_argument('--a', action='store', type=int, required=True, dest='a')
-
-arg_parser.add_argument('--count', action='store', type=int, required=True, dest='count')
-
-
-args = arg_parser.parse_args()
-print(args)
-
-id = args.id
-
-a = args.a
-count = args.count
+setwd('/app')
+library(optparse)
+library(jsonlite)
 
 
 
+
+print('option_list')
+option_list = list(
+
+)
+
+
+opt = parse_args(OptionParser(option_list=option_list))
+
+var_serialization <- function(var){
+    if (is.null(var)){
+        print("Variable is null")
+        exit(1)
+    }
+    tryCatch(
+        {
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        },
+        error=function(e) {
+            print("Error while deserializing the variable")
+            print(var)
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        },
+        warning=function(w) {
+            print("Warning while deserializing the variable")
+            var <- gsub("'", '"', var)
+            var <- fromJSON(var)
+            print("Variable deserialized")
+            return(var)
+        }
+    )
+}
+
+
+
+print("Running the cell")
 some_list = range(count, a+1)
 
 msg = '1'
-
-file_msg = open("/tmp/msg_" + id + ".json", "w")
-file_msg.write(json.dumps(msg))
-file_msg.close()
+# capturing outputs
+print('Serialization of msg')
+file <- file(paste0('/tmp/msg_', id, '.json'))
+writeLines(toJSON(msg, auto_unbox=TRUE), file)
+close(file)
