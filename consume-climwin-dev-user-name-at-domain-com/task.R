@@ -2,14 +2,22 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
-import climwin
-import zoo
-
+if (!requireNamespace("climwin", quietly = TRUE)) {
+	install.packages("climwin", repos="http://cran.us.r-project.org")
+}
+library(climwin)
+if (!requireNamespace("zoo", quietly = TRUE)) {
+	install.packages("zoo", repos="http://cran.us.r-project.org")
+}
+library(zoo)
 
 
 print('option_list')
 option_list = list(
 
+make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--rolling_mean_temp_str"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--temperature_data_str"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -44,6 +52,27 @@ var_serialization <- function(var){
     )
 }
 
+print("Retrieving id")
+var = opt$id
+print(var)
+var_len = length(var)
+print(paste("Variable id has length", var_len))
+
+id <- gsub("\"", "", opt$id)
+print("Retrieving rolling_mean_temp_str")
+var = opt$rolling_mean_temp_str
+print(var)
+var_len = length(var)
+print(paste("Variable rolling_mean_temp_str has length", var_len))
+
+rolling_mean_temp_str <- gsub("\"", "", opt$rolling_mean_temp_str)
+print("Retrieving temperature_data_str")
+var = opt$temperature_data_str
+print(var)
+var_len = length(var)
+print(paste("Variable temperature_data_str has length", var_len))
+
+temperature_data_str <- gsub("\"", "", opt$temperature_data_str)
 
 
 print("Running the cell")
