@@ -48,8 +48,7 @@ var_serialization <- function(var){
 
 
 print("Running the cell")
-print(param_test, secret_test, a, b, c, d, e, 'hello!')
-f = [m.pi, nan]
+
 # capturing outputs
 print('Serialization of f')
 file <- file(paste0('/tmp/f_', id, '.json'))
