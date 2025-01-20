@@ -45,4 +45,9 @@ var_serialization <- function(var){
 
 
 print("Running the cell")
-print(a)
+a = 1
+# capturing outputs
+print('Serialization of {'name': 'a', 'type': 'int'}')
+file <- file(paste0('/tmp/{'name': 'a', 'type': 'int'}_', id, '.json'))
+writeLines(toJSON({'name': 'a', 'type': 'int'}, auto_unbox=TRUE), file)
+close(file)
