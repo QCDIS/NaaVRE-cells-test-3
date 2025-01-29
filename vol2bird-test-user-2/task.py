@@ -1,57 +1,31 @@
-setwd('/app')
-library(optparse)
-library(jsonlite)
+import os
 
-{'asname': None, 'module': '', 'name': 'os'}
-
-
-
-print('option_list')
-option_list = list(
-
-)
+import argparse
+import json
+import os
+arg_parser = argparse.ArgumentParser()
 
 
-opt = parse_args(OptionParser(option_list=option_list))
+arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
+
+arg_parser.add_argument('--{'name': 'a', 'type': 'int'}', action='store', type=int, required=True, dest='{'name': 'a', 'type': 'int'}')
+
+
+args = arg_parser.parse_args()
+print(args)
+
+id = args.id
+
+{'name': 'a', 'type': 'int'} = args.{'name': 'a', 'type': 'int'}
 
 
 
-print("Running the cell")
 print(a)
 cmd = "vol2bird --version"
 
 msg = os.system(cmd)  # returns the exit code in unix
-# capturing outputs
-print('Serialization of {'name': 'msg', 'type': 'str'}')
-file <- file(paste0('/tmp/{'name': 'msg', 'type': 'str'}_', id, '.json'))
-writeLines(toJSON({'name': 'msg', 'type': 'str'}, auto_unbox=TRUE), file)
-close(file)
+
+file_{'name': 'msg', 'type': 'str'} = open("/tmp/{'name': 'msg', 'type': 'str'}_" + id + ".json", "w")
+file_{'name': 'msg', 'type': 'str'}.write(json.dumps({'name': 'msg', 'type': 'str'}))
+file_{'name': 'msg', 'type': 'str'}.close()
