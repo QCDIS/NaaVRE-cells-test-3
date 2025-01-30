@@ -8,6 +8,7 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
+make_option(c("--file_path"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -42,6 +43,13 @@ var_serialization <- function(var){
     )
 }
 
+print("Retrieving file_path")
+var = opt$file_path
+print(var)
+var_len = length(var)
+print(paste("Variable file_path has length", var_len))
+
+file_path = opt$file_path
 
 {'name': 'conf_data_folder', 'assignation': 'conf_data_folder<-"/tmp/data"'}
 
@@ -54,7 +62,7 @@ f <- file(file_path, "r")
 lines <- readLines(f)
 close(f)
 # capturing outputs
-print('Serialization of {'name': 'lines', 'type': None}')
-file <- file(paste0('/tmp/{'name': 'lines', 'type': None}_', id, '.json'))
-writeLines(toJSON({'name': 'lines', 'type': None}, auto_unbox=TRUE), file)
+print('Serialization of lines')
+file <- file(paste0('/tmp/lines_', id, '.json'))
+writeLines(toJSON(lines, auto_unbox=TRUE), file)
 close(file)
