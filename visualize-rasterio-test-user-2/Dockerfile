@@ -1,4 +1,4 @@
-FROM ghcr.io/qcdis/naavre/naavre-cell-build-python:v0.20.2 AS build
+FROM ghcr.io/qcdis/naavre/naavre-cell-build-python:v0.21.1 AS build
 COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yaml .
 RUN micromamba install -y -n venv -f environment.yaml
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
