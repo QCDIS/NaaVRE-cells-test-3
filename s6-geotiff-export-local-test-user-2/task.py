@@ -1,58 +1,33 @@
-setwd('/app')
-library(optparse)
-library(jsonlite)
-
 {'asname': None, 'module': 'laserfarm', 'name': 'GeotiffWriter'}
 {'asname': None, 'module': '', 'name': 'os'}
 {'asname': None, 'module': '', 'name': 'pathlib'}
 
+import argparse
+import json
+import os
+arg_parser = argparse.ArgumentParser()
 
 
-print('option_list')
-option_list = list(
-
-)
+arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
 
-opt = parse_args(OptionParser(option_list=option_list))
-
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
+arg_parser.add_argument('--S5_done', action='store', type=str, required=True, dest='S5_done')
 
 
-{'name': 'conf_local_path_geotiff', 'assignation': "conf_local_path_geotiff = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'geotiff')"}
-{'name': 'conf_local_path_targets', 'assignation': "conf_local_path_targets = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'targets')"}
-{'name': 'conf_feature_name', 'assignation': "conf_feature_name = 'perc_95_normalized_height'"}
-{'name': 'conf_remote_path_geotiffs', 'assignation': "conf_remote_path_geotiffs = pathlib.Path('/webdav/vl-laserfarm/' + '' + '/geotiffs')"}
-{'name': 'conf_wd_opts', 'assignation': "conf_wd_opts = {'webdav_hostname': param_hostname, 'webdav_login': param_username, 'webdav_password': param_password}"}
+args = arg_parser.parse_args()
+print(args)
 
-print("Running the cell")
+id = args.id
+
+S5_done = args.S5_done.replace('"','')
+
+
+conf_local_path_geotiff = conf_local_path_geotiff = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'geotiff')
+conf_local_path_targets = conf_local_path_targets = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'targets')
+conf_feature_name = conf_feature_name = 'perc_95_normalized_height'
+conf_remote_path_geotiffs = conf_remote_path_geotiffs = pathlib.Path('/webdav/vl-laserfarm/' + '' + '/geotiffs')
+conf_wd_opts = conf_wd_opts = {'webdav_hostname': param_hostname, 'webdav_login': param_username, 'webdav_password': param_password}
+
 S5_done
 
 geotiff_export_input = {
@@ -71,8 +46,7 @@ writer.run()
 
 remote_path_geotiffs = str(conf_remote_path_geotiffs)
 S6_done = 'True'
-# capturing outputs
-print('Serialization of {'name': 'S6_done', 'type': 'str'}')
-file <- file(paste0('/tmp/{'name': 'S6_done', 'type': 'str'}_', id, '.json'))
-writeLines(toJSON({'name': 'S6_done', 'type': 'str'}, auto_unbox=TRUE), file)
-close(file)
+
+file_S6_done = open("/tmp/S6_done_" + id + ".json", "w")
+file_S6_done.write(json.dumps(S6_done))
+file_S6_done.close()
