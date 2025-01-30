@@ -2,10 +2,22 @@ setwd('/app')
 library(optparse)
 library(jsonlite)
 
-{'asname': '', 'module': '', 'name': 'Rcpp'}
-{'asname': '', 'module': '', 'name': 'httr'}
-{'asname': '', 'module': '', 'name': 'jsonlite'}
-{'asname': '', 'module': '', 'name': 'readr'}
+if (!requireNamespace("Rcpp", quietly = TRUE)) {
+	install.packages("Rcpp", repos="http://cran.us.r-project.org")
+}
+library(Rcpp)
+if (!requireNamespace("httr", quietly = TRUE)) {
+	install.packages("httr", repos="http://cran.us.r-project.org")
+}
+library(httr)
+if (!requireNamespace("jsonlite", quietly = TRUE)) {
+	install.packages("jsonlite", repos="http://cran.us.r-project.org")
+}
+library(jsonlite)
+if (!requireNamespace("readr", quietly = TRUE)) {
+	install.packages("readr", repos="http://cran.us.r-project.org")
+}
+library(readr)
 
 
 
@@ -107,7 +119,7 @@ func_time <- as.numeric(end_func_time - start_func_time, units = "secs")
 print(paste("Run time: ", run_time))
 print(paste("Func time: ", func_time))
 # capturing outputs
-print('Serialization of {'name': 'run_time', 'type': None}')
-file <- file(paste0('/tmp/{'name': 'run_time', 'type': None}_', id, '.json'))
-writeLines(toJSON({'name': 'run_time', 'type': None}, auto_unbox=TRUE), file)
+print('Serialization of run_time')
+file <- file(paste0('/tmp/run_time_', id, '.json'))
+writeLines(toJSON(run_time, auto_unbox=TRUE), file)
 close(file)
