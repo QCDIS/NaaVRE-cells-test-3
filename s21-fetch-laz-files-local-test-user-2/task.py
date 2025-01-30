@@ -1,6 +1,6 @@
-{'asname': None, 'module': '', 'name': 'glob'}
-{'asname': None, 'module': '', 'name': 'os'}
-{'asname': None, 'module': '', 'name': 'pathlib'}
+import glob
+import os
+import pathlib
 
 import argparse
 import json
