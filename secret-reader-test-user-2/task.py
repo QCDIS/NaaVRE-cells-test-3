@@ -1,49 +1,27 @@
-setwd('/app')
-library(optparse)
-library(jsonlite)
+
+import argparse
+import json
+import os
+arg_parser = argparse.ArgumentParser()
+
+secret_xyz = os.getenv('secret_xyz')
+
+arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
 
+arg_parser.add_argument('--foo', action='store', type=str, required=True, dest='foo')
 
-{'name': 'secret_xyz', 'type': 'str'} = Sys.getenv('{'name': 'secret_xyz', 'type': 'str'}')
+arg_parser.add_argument('--param_abc', action='store', type=str, required=True, dest='param_abc')
 
-print('option_list')
-option_list = list(
+args = arg_parser.parse_args()
+print(args)
 
-)
+id = args.id
 
+foo = args.foo.replace('"','')
 
-opt = parse_args(OptionParser(option_list=option_list))
-
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
+param_abc = args.param_abc.replace('"','')
 
 
-
-print("Running the cell")
 print(param_abc, secret_xyz, foo)
+
