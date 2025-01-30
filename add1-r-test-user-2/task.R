@@ -8,6 +8,7 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
+make_option(c("--count"), action="store", default=NA, type="integer", help="my description")
 )
 
 
@@ -42,6 +43,13 @@ var_serialization <- function(var){
     )
 }
 
+print("Retrieving count")
+var = opt$count
+print(var)
+var_len = length(var)
+print(paste("Variable count has length", var_len))
+
+count = opt$count
 
 
 print("Running the cell")
