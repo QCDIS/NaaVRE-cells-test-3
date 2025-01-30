@@ -1,60 +1,35 @@
-setwd('/app')
-library(optparse)
-library(jsonlite)
+from laserfarm import Retiler
+import os
+import pathlib
 
-{'asname': None, 'module': 'laserfarm', 'name': 'Retiler'}
-{'asname': None, 'module': '', 'name': 'os'}
-{'asname': None, 'module': '', 'name': 'pathlib'}
-
-
-
-print('option_list')
-option_list = list(
-
-)
+import argparse
+import json
+import os
+arg_parser = argparse.ArgumentParser()
 
 
-opt = parse_args(OptionParser(option_list=option_list))
-
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
+arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
 
-{'name': 'conf_local_path_retiled', 'assignation': "conf_local_path_retiled = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'retiled')"}
-{'name': 'conf_local_path_split', 'assignation': "conf_local_path_split = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'split')"}
-{'name': 'conf_max_x', 'assignation': "conf_max_x = '398892.19'"}
-{'name': 'conf_max_y', 'assignation': "conf_max_y = '726783.87'"}
-{'name': 'conf_min_x', 'assignation': "conf_min_x = '-113107.81'"}
-{'name': 'conf_min_y', 'assignation': "conf_min_y = '214783.87'"}
-{'name': 'conf_n_tiles_side', 'assignation': "conf_n_tiles_side = '512'"}
+arg_parser.add_argument('--split_laz_files', action='store', type=str, required=True, dest='split_laz_files')
 
-print("Running the cell")
+
+args = arg_parser.parse_args()
+print(args)
+
+id = args.id
+
+split_laz_files = json.loads(args.split_laz_files)
+
+
+conf_local_path_retiled = conf_local_path_retiled = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'retiled')
+conf_local_path_split = conf_local_path_split = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'split')
+conf_max_x = conf_max_x = '398892.19'
+conf_max_y = conf_max_y = '726783.87'
+conf_min_x = conf_min_x = '-113107.81'
+conf_min_y = conf_min_y = '214783.87'
+conf_n_tiles_side = conf_n_tiles_side = '512'
+
 split_laz_files
 
 grid_retile = {
@@ -82,8 +57,7 @@ for file in split_laz_files:
     retiler_output = retiler.run()
 
 S3_done = 'True'
-# capturing outputs
-print('Serialization of {'name': 'S3_done', 'type': 'str'}')
-file <- file(paste0('/tmp/{'name': 'S3_done', 'type': 'str'}_', id, '.json'))
-writeLines(toJSON({'name': 'S3_done', 'type': 'str'}, auto_unbox=TRUE), file)
-close(file)
+
+file_S3_done = open("/tmp/S3_done_" + id + ".json", "w")
+file_S3_done.write(json.dumps(S3_done))
+file_S3_done.close()
