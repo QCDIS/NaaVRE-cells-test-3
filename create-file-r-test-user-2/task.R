@@ -56,7 +56,7 @@ onlyfiles <- list.files(conf_data_folder, full.names = TRUE)
 
 print(onlyfiles)
 # capturing outputs
-print('Serialization of {'name': 'file_path', 'type': None}')
-file <- file(paste0('/tmp/{'name': 'file_path', 'type': None}_', id, '.json'))
-writeLines(toJSON({'name': 'file_path', 'type': None}, auto_unbox=TRUE), file)
+print('Serialization of file_path')
+file <- file(paste0('/tmp/file_path_', id, '.json'))
+writeLines(toJSON(file_path, auto_unbox=TRUE), file)
 close(file)
