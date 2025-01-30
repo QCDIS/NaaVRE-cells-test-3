@@ -1,53 +1,27 @@
-setwd('/app')
-library(optparse)
-library(jsonlite)
+
+import argparse
+import json
+import os
+arg_parser = argparse.ArgumentParser()
+
+
+arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
+
+
+arg_parser.add_argument('--count', action='store', type=int, required=True, dest='count')
+
+
+args = arg_parser.parse_args()
+print(args)
+
+id = args.id
+
+count = args.count
 
 
 
-
-print('option_list')
-option_list = list(
-
-)
-
-
-opt = parse_args(OptionParser(option_list=option_list))
-
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
-
-
-
-print("Running the cell")
 a = count + 1
-# capturing outputs
-print('Serialization of {'name': 'a', 'type': 'int'}')
-file <- file(paste0('/tmp/{'name': 'a', 'type': 'int'}_', id, '.json'))
-writeLines(toJSON({'name': 'a', 'type': 'int'}, auto_unbox=TRUE), file)
-close(file)
+
+file_a = open("/tmp/a_" + id + ".json", "w")
+file_a.write(json.dumps(a))
+file_a.close()
