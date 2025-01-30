@@ -1,54 +1,29 @@
-setwd('/app')
-library(optparse)
-library(jsonlite)
-
 {'asname': None, 'module': '', 'name': 'glob'}
 {'asname': None, 'module': '', 'name': 'os'}
 {'asname': None, 'module': '', 'name': 'pathlib'}
 
+import argparse
+import json
+import os
+arg_parser = argparse.ArgumentParser()
 
 
-print('option_list')
-option_list = list(
-
-)
+arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
 
-opt = parse_args(OptionParser(option_list=option_list))
-
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
+arg_parser.add_argument('--S2_done', action='store', type=str, required=True, dest='S2_done')
 
 
-{'name': 'conf_local_path_split', 'assignation': "conf_local_path_split = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'split')"}
+args = arg_parser.parse_args()
+print(args)
 
-print("Running the cell")
+id = args.id
+
+S2_done = args.S2_done.replace('"','')
+
+
+conf_local_path_split = conf_local_path_split = os.path.join(pathlib.Path('/tmp/data').as_posix(), 'split')
+
 S2_done 
 
 split_laz_folder = glob.glob(os.path.join(conf_local_path_split, '*.LAZ'))
@@ -59,8 +34,7 @@ for file_path in split_laz_folder:
 
 print(split_laz_files)
 S21_done = 'True'
-# capturing outputs
-print('Serialization of {'name': 'split_laz_files', 'type': 'list'}')
-file <- file(paste0('/tmp/{'name': 'split_laz_files', 'type': 'list'}_', id, '.json'))
-writeLines(toJSON({'name': 'split_laz_files', 'type': 'list'}, auto_unbox=TRUE), file)
-close(file)
+
+file_split_laz_files = open("/tmp/split_laz_files_" + id + ".json", "w")
+file_split_laz_files.write(json.dumps(split_laz_files))
+file_split_laz_files.close()
