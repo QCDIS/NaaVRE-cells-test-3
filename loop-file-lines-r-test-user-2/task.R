@@ -8,6 +8,7 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
+make_option(c("--lines"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -42,6 +43,17 @@ var_serialization <- function(var){
     )
 }
 
+print("Retrieving lines")
+var = opt$lines
+print(var)
+var_len = length(var)
+print(paste("Variable lines has length", var_len))
+
+print("------------------------Running var_serialization for lines-----------------------")
+print(opt$lines)
+lines = var_serialization(opt$lines)
+print("---------------------------------------------------------------------------------")
+
 
 
 print("Running the cell")
@@ -51,7 +63,7 @@ for (l in lines) {
     cat(sprintf("Line %d: %s\n", count, trimws(l)))
 }
 # capturing outputs
-print('Serialization of {'name': 'count', 'type': 'int'}')
-file <- file(paste0('/tmp/{'name': 'count', 'type': 'int'}_', id, '.json'))
-writeLines(toJSON({'name': 'count', 'type': 'int'}, auto_unbox=TRUE), file)
+print('Serialization of count')
+file <- file(paste0('/tmp/count_', id, '.json'))
+writeLines(toJSON(count, auto_unbox=TRUE), file)
 close(file)
