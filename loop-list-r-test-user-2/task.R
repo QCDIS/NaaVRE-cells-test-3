@@ -8,6 +8,7 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
+make_option(c("--list_of_paths"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -41,6 +42,17 @@ var_serialization <- function(var){
         }
     )
 }
+
+print("Retrieving list_of_paths")
+var = opt$list_of_paths
+print(var)
+var_len = length(var)
+print(paste("Variable list_of_paths has length", var_len))
+
+print("------------------------Running var_serialization for list_of_paths-----------------------")
+print(opt$list_of_paths)
+list_of_paths = var_serialization(opt$list_of_paths)
+print("---------------------------------------------------------------------------------")
 
 
 
