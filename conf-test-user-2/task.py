@@ -1,51 +1,23 @@
-setwd('/app')
-library(optparse)
-library(jsonlite)
+import os
 
-{'asname': None, 'module': '', 'name': 'os'}
-
-
-
-print('option_list')
-option_list = list(
-
-)
+import argparse
+import json
+import os
+arg_parser = argparse.ArgumentParser()
 
 
-opt = parse_args(OptionParser(option_list=option_list))
-
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
+arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
 
 
-print("Running the cell")
+args = arg_parser.parse_args()
+print(args)
+
+id = args.id
+
+
+
+
 conf_data_folder = os.path.join('/tmp','data')
 
 conf_feature_name = 'perc_95_normalized_height'
@@ -61,3 +33,4 @@ conf_n_tiles_side = '512'
 conf_apply_filter_value = '1'
 conf_laz_compression_factor = '7'
 conf_max_filesize = '262144000'  # desired max file size (in bytes)
+
