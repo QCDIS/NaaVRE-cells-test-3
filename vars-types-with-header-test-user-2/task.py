@@ -1,50 +1,22 @@
-setwd('/app')
-library(optparse)
-library(jsonlite)
+
+import argparse
+import json
+import os
+arg_parser = argparse.ArgumentParser()
+
+
+arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
+
+
+
+args = arg_parser.parse_args()
+print(args)
+
+id = args.id
 
 
 
 
-print('option_list')
-option_list = list(
-
-)
-
-
-opt = parse_args(OptionParser(option_list=option_list))
-
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
-
-
-
-print("Running the cell")
 param_string = 'param_string value'
 param_string_with_comment = 'param_string value'  # comment
 param_int = 1
@@ -65,3 +37,4 @@ var_int = 1
 var_float = 1.1
 var_list_int = [1, 2, 3]
 var_list_str = ["list_str", "space in elem", "3"]
+
