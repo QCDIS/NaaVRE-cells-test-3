@@ -8,6 +8,12 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
+make_option(c("--var_float"), action="store", default=NA, type="numeric", help="my description"), 
+make_option(c("--var_int"), action="store", default=NA, type="integer", help="my description"), 
+make_option(c("--var_list_int"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--var_list_str"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--var_string"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--var_string_with_comment"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -42,6 +48,56 @@ var_serialization <- function(var){
     )
 }
 
+print("Retrieving var_float")
+var = opt$var_float
+print(var)
+var_len = length(var)
+print(paste("Variable var_float has length", var_len))
+
+var_float = opt$var_float
+print("Retrieving var_int")
+var = opt$var_int
+print(var)
+var_len = length(var)
+print(paste("Variable var_int has length", var_len))
+
+var_int = opt$var_int
+print("Retrieving var_list_int")
+var = opt$var_list_int
+print(var)
+var_len = length(var)
+print(paste("Variable var_list_int has length", var_len))
+
+print("------------------------Running var_serialization for var_list_int-----------------------")
+print(opt$var_list_int)
+var_list_int = var_serialization(opt$var_list_int)
+print("---------------------------------------------------------------------------------")
+
+print("Retrieving var_list_str")
+var = opt$var_list_str
+print(var)
+var_len = length(var)
+print(paste("Variable var_list_str has length", var_len))
+
+print("------------------------Running var_serialization for var_list_str-----------------------")
+print(opt$var_list_str)
+var_list_str = var_serialization(opt$var_list_str)
+print("---------------------------------------------------------------------------------")
+
+print("Retrieving var_string")
+var = opt$var_string
+print(var)
+var_len = length(var)
+print(paste("Variable var_string has length", var_len))
+
+var_string <- gsub("\"", "", opt$var_string)
+print("Retrieving var_string_with_comment")
+var = opt$var_string_with_comment
+print(var)
+var_len = length(var)
+print(paste("Variable var_string_with_comment has length", var_len))
+
+var_string_with_comment <- gsub("\"", "", opt$var_string_with_comment)
 
 {'name': 'conf_string', 'assignation': "conf_string = 'param_string value'"}
 {'name': 'conf_string_with_comment', 'assignation': "conf_string_with_comment = 'param_string value'"}
