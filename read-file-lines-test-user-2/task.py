@@ -1,55 +1,30 @@
-setwd('/app')
-library(optparse)
-library(jsonlite)
+from os.path import isfile
+from os.path import join
+from os import listdir
+import os
 
-{'asname': None, 'module': 'os.path', 'name': 'isfile'}
-{'asname': None, 'module': 'os.path', 'name': 'join'}
-{'asname': None, 'module': 'os', 'name': 'listdir'}
-{'asname': None, 'module': '', 'name': 'os'}
-
-
-
-print('option_list')
-option_list = list(
-
-)
+import argparse
+import json
+import os
+arg_parser = argparse.ArgumentParser()
 
 
-opt = parse_args(OptionParser(option_list=option_list))
-
-var_serialization <- function(var){
-    if (is.null(var)){
-        print("Variable is null")
-        exit(1)
-    }
-    tryCatch(
-        {
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        error=function(e) {
-            print("Error while deserializing the variable")
-            print(var)
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        },
-        warning=function(w) {
-            print("Warning while deserializing the variable")
-            var <- gsub("'", '"', var)
-            var <- fromJSON(var)
-            print("Variable deserialized")
-            return(var)
-        }
-    )
-}
+arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
 
-{'name': 'conf_data_folder', 'assignation': "conf_data_folder = os.path.join('/tmp', 'data')"}
+arg_parser.add_argument('--file_path', action='store', type=str, required=True, dest='file_path')
 
-print("Running the cell")
+
+args = arg_parser.parse_args()
+print(args)
+
+id = args.id
+
+file_path = args.file_path.replace('"','')
+
+
+conf_data_folder = conf_data_folder = os.path.join('/tmp', 'data')
+
 onlyfiles = [f for f in listdir(conf_data_folder) if isfile(join(conf_data_folder, f))]
 
 print(onlyfiles)
@@ -57,8 +32,7 @@ print(onlyfiles)
 f = open(file_path, 'r')
 lines = f.readlines()
 f.close()
-# capturing outputs
-print('Serialization of {'name': 'lines', 'type': 'list'}')
-file <- file(paste0('/tmp/{'name': 'lines', 'type': 'list'}_', id, '.json'))
-writeLines(toJSON({'name': 'lines', 'type': 'list'}, auto_unbox=TRUE), file)
-close(file)
+
+file_lines = open("/tmp/lines_" + id + ".json", "w")
+file_lines.write(json.dumps(lines))
+file_lines.close()
