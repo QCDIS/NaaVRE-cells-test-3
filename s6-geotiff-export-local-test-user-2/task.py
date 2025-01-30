@@ -1,6 +1,6 @@
-{'asname': None, 'module': 'laserfarm', 'name': 'GeotiffWriter'}
-{'asname': None, 'module': '', 'name': 'os'}
-{'asname': None, 'module': '', 'name': 'pathlib'}
+from laserfarm import GeotiffWriter
+import os
+import pathlib
 
 import argparse
 import json
