@@ -57,8 +57,7 @@ fig, ax = plt.subplots(figsize=(10, 8))
 img = frames[0].plot(ax=ax, cmap="Spectral", add_colorbar=True)
 ax.grid(True, linestyle="--", linewidth=0.5)
 
-ax.annotate(
-    "N",
+ax.annotate( "N",
     xy=(conf_x, conf_y),
     xytext=(conf_x, conf_y - conf_arrow_length),
     arrowprops=dict(facecolor="black", width=5, headwidth=15),
@@ -74,7 +73,7 @@ def update(frame_idx):
         f"Mean Species Distribution for {param_species_class} in {param_habitat_name} "
         f"for {param_climate_model}\nFrame {frame_idx + 1}"
     )
-    return img,
+    return img
 
 ani = animation.FuncAnimation(fig, update, frames=len(frames), interval=1000, blit=False)
 output_gif = conf_data_path + os.path.basename(tif_file)
