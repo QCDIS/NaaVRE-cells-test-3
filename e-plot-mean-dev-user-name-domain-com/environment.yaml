@@ -1,0 +1,12 @@
+name: venv
+channels:
+  - conda-forge
+dependencies:
+  - pip
+  - python>=3.8
+  - nbconvert
+  - matplotlib.animation
+  - matplotlib
+  - rioxarray
+  - papermill
+  - ipykernel
