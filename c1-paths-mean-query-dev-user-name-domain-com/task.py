@@ -29,7 +29,10 @@ url_txt = args.url_txt.replace('"','')
 param_climate_model = args.param_climate_model.replace('"','')
 param_species_class = args.param_species_class.replace('"','')
 
+conf_data_path = '/tmp/data/'
 
+
+conf_data_path = '/tmp/data/'
 
 
 df_mod = pd.read_csv(url_txt, sep="\t")
@@ -46,7 +49,7 @@ grouped_tif_paths = filtered_df.groupby("time_period")["tif_path_mean"].agg(list
 
 
 
-base_dir = "output_tif_groups"
+base_dir = conf_data_path+"output_tif_groups"
 shutil.rmtree(base_dir)
 os.makedirs(base_dir, exist_ok=True)
 
