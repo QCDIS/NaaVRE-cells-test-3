@@ -5,8 +5,7 @@ dependencies:
   - pip
   - python>=3.8
   - nbconvert
-  - matplotlib.animation
-  - rioxarray
   - matplotlib
+  - rioxarray
   - papermill
   - ipykernel
