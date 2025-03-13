@@ -24,8 +24,8 @@ a = args.a
 print(a)
 cmd = "KNMI_vol_h5_to_ODIM_h5 "
 
-out = os.system(cmd)  # returns the exit code in unix
+msg = os.system(cmd)  # returns the exit code in unix
 
-file_out = open("/tmp/out_" + id + ".json", "w")
-file_out.write(json.dumps(out))
-file_out.close()
+file_msg = open("/tmp/msg_" + id + ".json", "w")
+file_msg.write(json.dumps(msg))
+file_msg.close()
