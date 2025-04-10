@@ -8,7 +8,8 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
-make_option(c("--file_path"), action="store", default=NA, type="character", help="my description")
+make_option(c("--file_path"), action="store", default=NA, type="character", help="my description"),
+make_option(c("--id"), action="store", default=NA, type="character", help="task id")
 )
 
 
@@ -50,6 +51,7 @@ var_len = length(var)
 print(paste("Variable file_path has length", var_len))
 
 file_path = opt$file_path
+id <- gsub('"', '', opt$id)
 
 {'name': 'conf_data_folder', 'assignation': 'conf_data_folder<-"/tmp/data"'}
 
