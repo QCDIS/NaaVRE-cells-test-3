@@ -8,7 +8,8 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
-make_option(c("--count"), action="store", default=NA, type="integer", help="my description")
+make_option(c("--count"), action="store", default=NA, type="integer", help="my description"),
+make_option(c("--id"), action="store", default=NA, type="character", help="task id")
 )
 
 
@@ -50,6 +51,7 @@ var_len = length(var)
 print(paste("Variable count has length", var_len))
 
 count = opt$count
+id <- gsub('"', '', opt$id)
 
 
 print("Running the cell")
