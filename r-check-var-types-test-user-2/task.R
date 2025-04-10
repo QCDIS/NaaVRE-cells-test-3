@@ -8,12 +8,13 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
-make_option(c("--var_float"), action="store", default=NA, type="numeric", help="my description"), 
-make_option(c("--var_int"), action="store", default=NA, type="integer", help="my description"), 
-make_option(c("--var_list_int"), action="store", default=NA, type="character", help="my description"), 
-make_option(c("--var_list_str"), action="store", default=NA, type="character", help="my description"), 
-make_option(c("--var_string"), action="store", default=NA, type="character", help="my description"), 
-make_option(c("--var_string_with_comment"), action="store", default=NA, type="character", help="my description")
+make_option(c("--var_float"), action="store", default=NA, type="numeric", help="my description"),
+make_option(c("--var_int"), action="store", default=NA, type="integer", help="my description"),
+make_option(c("--var_list_int"), action="store", default=NA, type="character", help="my description"),
+make_option(c("--var_list_str"), action="store", default=NA, type="character", help="my description"),
+make_option(c("--var_string"), action="store", default=NA, type="character", help="my description"),
+make_option(c("--var_string_with_comment"), action="store", default=NA, type="character", help="my description"),
+make_option(c("--id"), action="store", default=NA, type="character", help="task id")
 )
 
 
@@ -98,6 +99,7 @@ var_len = length(var)
 print(paste("Variable var_string_with_comment has length", var_len))
 
 var_string_with_comment <- gsub("\"", "", opt$var_string_with_comment)
+id <- gsub('"', '', opt$id)
 
 {'name': 'conf_string', 'assignation': "conf_string = 'param_string value'"}
 {'name': 'conf_string_with_comment', 'assignation': "conf_string_with_comment = 'param_string value'"}
