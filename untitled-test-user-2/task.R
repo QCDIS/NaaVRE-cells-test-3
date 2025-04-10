@@ -8,6 +8,7 @@ library(jsonlite)
 print('option_list')
 option_list = list(
 
+make_option(c("--id"), action="store", default=NA, type="character", help="task id")
 )
 
 
@@ -42,6 +43,7 @@ var_serialization <- function(var){
     )
 }
 
+id <- gsub('"', '', opt$id)
 
 
 print("Running the cell")
