@@ -17,7 +17,7 @@ id = args.id
 
 
 
-v = "some value"
+v = "some other value"
 
 file_v = open("/tmp/v_" + id + ".json", "w")
 file_v.write(json.dumps(v))
