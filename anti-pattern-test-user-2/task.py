@@ -30,3 +30,5 @@ msg = '1'
 file_msg = open("/tmp/msg_" + id + ".json", "w")
 file_msg.write(json.dumps(msg))
 file_msg.close()
+
+print('Hi')
