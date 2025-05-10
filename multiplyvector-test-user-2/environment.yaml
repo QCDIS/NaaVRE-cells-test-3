@@ -6,8 +6,8 @@ dependencies:
   - python>=3.8
   - nbconvert
   - r-readr
-  - r-jsonlite
   - r-Rcpp
   - r-httr
+  - r-jsonlite
   - papermill
   - ipykernel
