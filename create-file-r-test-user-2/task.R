@@ -45,7 +45,6 @@ var_serialization <- function(var){
 
 id <- gsub('"', '', opt$id)
 
-{'assignation': "conf_data_folder<-'/tmp/data'", 'name': 'conf_data_folder'}
 
 print("Running the cell")
 L <- c("a", "b", "c")
