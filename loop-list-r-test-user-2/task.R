@@ -57,7 +57,6 @@ print("-------------------------------------------------------------------------
 
 id <- gsub('"', '', opt$id)
 
-{'assignation': "conf_data_folder<-'/tmp/data'", 'name': 'conf_data_folder'}
 
 print("Running the cell")
 for (l in list_of_paths) {
