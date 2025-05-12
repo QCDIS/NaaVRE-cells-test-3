@@ -57,7 +57,6 @@ print("-------------------------------------------------------------------------
 
 id <- gsub('"', '', opt$id)
 
-{'name': 'conf_data_folder', 'assignation': "conf_data_folder<-file.path('/tmp', 'data')"}
 
 print("Running the cell")
 count <- 0
