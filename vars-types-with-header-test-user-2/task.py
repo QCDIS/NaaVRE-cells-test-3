@@ -38,18 +38,3 @@ var_float = 1.1
 var_list_int = [1, 2, 3]
 var_list_str = ["list_str", "space in elem", "3"]
 
-file_var_float = open("/tmp/var_float_" + id + ".json", "w")
-file_var_float.write(json.dumps(var_float))
-file_var_float.close()
-file_var_list_int = open("/tmp/var_list_int_" + id + ".json", "w")
-file_var_list_int.write(json.dumps(var_list_int))
-file_var_list_int.close()
-file_var_list_str = open("/tmp/var_list_str_" + id + ".json", "w")
-file_var_list_str.write(json.dumps(var_list_str))
-file_var_list_str.close()
-file_var_string = open("/tmp/var_string_" + id + ".json", "w")
-file_var_string.write(json.dumps(var_string))
-file_var_string.close()
-file_var_string_with_comment = open("/tmp/var_string_with_comment_" + id + ".json", "w")
-file_var_string_with_comment.write(json.dumps(var_string_with_comment))
-file_var_string_with_comment.close()
