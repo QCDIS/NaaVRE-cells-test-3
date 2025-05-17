@@ -6,7 +6,7 @@ dependencies:
   - python>=3.8
   - nbconvert
   - rasterio
-  - requests
   - matplotlib
+  - requests
   - papermill
   - ipykernel
