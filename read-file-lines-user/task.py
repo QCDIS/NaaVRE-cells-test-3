@@ -30,9 +30,5 @@ onlyfiles = [f for f in listdir(conf_data_folder) if isfile(join(conf_data_folde
 print(onlyfiles)
 
 f = open(file_path, 'r')
-lines = f.readlines()
 f.close()
 
-file_lines = open("/tmp/lines_" + id + ".json", "w")
-file_lines.write(json.dumps(lines))
-file_lines.close()
