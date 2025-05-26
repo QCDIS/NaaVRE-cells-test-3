@@ -7,12 +7,12 @@ if (!requireNamespace("SecretsProvider", quietly = TRUE)) {
 }
 library(SecretsProvider)
 
+secret_data_source_example1_name_API_key = Sys.getenv('secret_data_source_example1_name_API_key')
 
 print('option_list')
 option_list = list(
 
-make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
-make_option(c("--secret_api_key"), action="store", default=NA, type="character", help="my description")
+make_option(c("--id"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -54,14 +54,7 @@ var_len = length(var)
 print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
-print("Retrieving secret_api_key")
-var = opt$secret_api_key
-print(var)
-var_len = length(var)
-print(paste("Variable secret_api_key has length", var_len))
-
-secret_api_key <- gsub("\"", "", opt$secret_api_key)
 
 
 print("Running the cell")
-print(secret_api_key)
+print(secret_data_source_example1_name_API_key)
