@@ -11,8 +11,8 @@ library(SecretsProvider)
 print('option_list')
 option_list = list(
 
-make_option(c("--api_key"), action="store", default=NA, type="character", help="my description"), 
-make_option(c("--id"), action="store", default=NA, type="character", help="my description")
+make_option(c("--id"), action="store", default=NA, type="character", help="my description"), 
+make_option(c("--secret_api_key"), action="store", default=NA, type="character", help="my description")
 )
 
 
@@ -47,13 +47,6 @@ var_serialization <- function(var){
     )
 }
 
-print("Retrieving api_key")
-var = opt$api_key
-print(var)
-var_len = length(var)
-print(paste("Variable api_key has length", var_len))
-
-api_key <- gsub("\"", "", opt$api_key)
 print("Retrieving id")
 var = opt$id
 print(var)
@@ -61,7 +54,14 @@ var_len = length(var)
 print(paste("Variable id has length", var_len))
 
 id <- gsub("\"", "", opt$id)
+print("Retrieving secret_api_key")
+var = opt$secret_api_key
+print(var)
+var_len = length(var)
+print(paste("Variable secret_api_key has length", var_len))
+
+secret_api_key <- gsub("\"", "", opt$secret_api_key)
 
 
 print("Running the cell")
-print(api_key)
+print(secret_api_key)
