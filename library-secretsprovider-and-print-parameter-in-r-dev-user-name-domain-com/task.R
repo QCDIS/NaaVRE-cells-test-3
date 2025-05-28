@@ -66,3 +66,4 @@ param_number = opt$param_number
 print("Running the cell")
 library(SecretsProvider)
 print(param_number)
+a = 0.5165634938771286
