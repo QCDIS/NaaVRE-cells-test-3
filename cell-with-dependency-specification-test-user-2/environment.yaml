@@ -5,6 +5,6 @@ dependencies:
   - pip
   - python>=3.8
   - nbconvert
-  - dplyr
+  - pandas
   - papermill
   - ipykernel
