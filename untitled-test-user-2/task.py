@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-import numpy as np
 
 import argparse
 import json
@@ -10,15 +8,17 @@ arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument('--id', action='store', type=str, required=True, dest='id')
 
 
+arg_parser.add_argument('--v', action='store', type=str, required=True, dest='v')
+
 
 args = arg_parser.parse_args()
 print(args)
 
 id = args.id
 
+v = args.v.replace('"','')
 
 
 
-np.random.random()
-fig, ax = plt.subplots(figsize=(10, 8))
+print(v)
 

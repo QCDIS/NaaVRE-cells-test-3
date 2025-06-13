@@ -5,7 +5,5 @@ dependencies:
   - pip
   - python>=3.8
   - nbconvert
-  - matplotlib
-  - numpy
   - papermill
   - ipykernel
