@@ -5,9 +5,7 @@ dependencies:
   - pip
   - python>=3.8
   - nbconvert
-  - r-httr
-  - r-Rcpp
-  - r-jsonlite
-  - r-readr
+  - pip:
+    - git+https://github.com/QCDIS/Laserfarm.git
   - papermill
   - ipykernel
