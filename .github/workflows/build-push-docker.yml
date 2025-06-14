@@ -56,17 +56,12 @@ jobs:
               
     - uses: actions/checkout@v4
 
-    # If build_dir is empty or build_dir doesnt not contain all files: Dockerfile, task.* environment  fail
+    # If build_dir is empty or build_dir
     - name: Check build directory
       run: |
-        if [ -z "${{ github.event.inputs.build_dir }}" ]; then
-          echo "Build directory is empty. Exiting."
-          exit 1
-        fi
-        if [ ! -f "${{ github.event.inputs.build_dir }}/${{ github.event.inputs.dockerfile }}" ]; then
-          echo "Dockerfile not found in the specified build directory. Exiting."
-          exit 1
-        fi
+        if [[ -z "${{ github.event.inputs.build_dir }}" ]]; do
+          git pull origin main
+        done
       shell: bash
 
     - name: Login to container registry
