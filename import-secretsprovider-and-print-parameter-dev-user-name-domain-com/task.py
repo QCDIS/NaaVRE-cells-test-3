@@ -20,5 +20,4 @@ param_number = args.param_number
 
 
 print(param_number)
-a = 0.04152609707021826
 
