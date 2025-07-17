@@ -57,6 +57,7 @@ print("-------------------------------------------------------------------------
 
 id <- gsub('"', '', opt$id)
 
+conf_data_folder<-'/tmp/data'
 
 print("Running the cell")
 for (l in list_of_paths) {
