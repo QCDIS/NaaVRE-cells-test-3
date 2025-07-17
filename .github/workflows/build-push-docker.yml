@@ -59,9 +59,9 @@ jobs:
     # If build_dir is empty or build_dir
     - name: Check build directory
       run: |
-        if [[ -z "${{ github.event.inputs.build_dir }}" ]]; do
+        if [[ -z "${{ github.event.inputs.build_dir }}" ]]; then
           git pull origin main
-        done
+        fi
       shell: bash
 
     - name: Login to container registry
