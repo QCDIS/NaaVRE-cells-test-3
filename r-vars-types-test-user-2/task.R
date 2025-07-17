@@ -45,12 +45,12 @@ var_serialization <- function(var){
 
 id <- gsub('"', '', opt$id)
 
-{'assignation': 'conf_float<-1.1', 'name': 'conf_float'}
-{'assignation': 'conf_int<-1', 'name': 'conf_int'}
-{'assignation': 'conf_list_int <- list(1, 2, 3)', 'name': 'conf_list_int'}
-{'assignation': 'conf_list_str <- list("list_str", "space in elem", "3")', 'name': 'conf_list_str'}
-{'assignation': "conf_string<-'param_string value'", 'name': 'conf_string'}
-{'assignation': "conf_string_with_comment<-'param_string value'", 'name': 'conf_string_with_comment'}
+conf_float<-1.1
+conf_int<-1
+conf_list_int <- list(1, 2, 3)
+conf_list_str <- list("list_str", "space in elem", "3")
+conf_string<-'param_string value'
+conf_string_with_comment<-'param_string value'
 
 print("Running the cell")
 var_string <- 'var_string value'
