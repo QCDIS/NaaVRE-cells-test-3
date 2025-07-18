@@ -5,9 +5,9 @@ dependencies:
   - pip
   - python>=3.8
   - nbconvert
-  - r-httr
   - r-readr
   - r-Rcpp
+  - r-httr
   - r-jsonlite
   - papermill
   - ipykernel
