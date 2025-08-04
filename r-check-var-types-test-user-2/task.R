@@ -101,12 +101,12 @@ print(paste("Variable var_string_with_comment has length", var_len))
 var_string_with_comment <- gsub("\"", "", opt$var_string_with_comment)
 id <- gsub('"', '', opt$id)
 
-{'name': 'conf_string', 'assignation': "conf_string = 'param_string value'"}
-{'name': 'conf_string_with_comment', 'assignation': "conf_string_with_comment = 'param_string value'"}
-{'name': 'conf_int', 'assignation': 'conf_int = 1'}
-{'name': 'conf_float', 'assignation': 'conf_float = 1.1'}
-{'name': 'conf_list_int', 'assignation': 'conf_list_int = list(1, 2, 3)'}
-{'name': 'conf_list_str', 'assignation': "conf_list_str = list('list_str', 'space in elem', '3')"}
+conf_string = 'param_string value'
+conf_string_with_comment = 'param_string value'
+conf_int = 1
+conf_float = 1.1
+conf_list_int = list(1, 2, 3)
+conf_list_str = list('list_str', 'space in elem', '3')
 
 print("Running the cell")
 print(paste('conf_string: ', conf_string, ' type: ', class(conf_string)))
