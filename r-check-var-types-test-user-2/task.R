@@ -55,6 +55,56 @@ var_serialization <- function(var){
     )
 }
 
+print("Retrieving param_float")
+var = opt$param_float
+print(var)
+var_len = length(var)
+print(paste("Variable param_float has length", var_len))
+
+param_float = opt$param_float
+print("Retrieving param_int")
+var = opt$param_int
+print(var)
+var_len = length(var)
+print(paste("Variable param_int has length", var_len))
+
+param_int = opt$param_int
+print("Retrieving param_list_int")
+var = opt$param_list_int
+print(var)
+var_len = length(var)
+print(paste("Variable param_list_int has length", var_len))
+
+print("------------------------Running var_serialization for param_list_int-----------------------")
+print(opt$param_list_int)
+param_list_int = var_serialization(opt$param_list_int)
+print("---------------------------------------------------------------------------------")
+
+print("Retrieving param_list_str")
+var = opt$param_list_str
+print(var)
+var_len = length(var)
+print(paste("Variable param_list_str has length", var_len))
+
+print("------------------------Running var_serialization for param_list_str-----------------------")
+print(opt$param_list_str)
+param_list_str = var_serialization(opt$param_list_str)
+print("---------------------------------------------------------------------------------")
+
+print("Retrieving param_string")
+var = opt$param_string
+print(var)
+var_len = length(var)
+print(paste("Variable param_string has length", var_len))
+
+param_string <- gsub("\"", "", opt$param_string)
+print("Retrieving param_string_with_comment")
+var = opt$param_string_with_comment
+print(var)
+var_len = length(var)
+print(paste("Variable param_string_with_comment has length", var_len))
+
+param_string_with_comment <- gsub("\"", "", opt$param_string_with_comment)
 print("Retrieving var_float")
 var = opt$var_float
 print(var)
