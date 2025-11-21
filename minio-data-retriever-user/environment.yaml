@@ -1,0 +1,12 @@
+name: venv
+channels:
+  - conda-forge
+dependencies:
+  - pip
+  - python>=3.8
+  - nbconvert
+  - r-aws.s3
+  - r-SecretsProvider
+  - r-readxl
+  - papermill
+  - ipykernel
